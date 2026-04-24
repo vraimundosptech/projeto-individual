@@ -210,7 +210,8 @@ a {
 
 .conteudo1 .image {
   width: 750px;
-  background-color: #00d4ff;
+  background: url(../assets/imgs/jogando_videogame.png) no-repeat center;
+  background-size: cover;
   height: 500px;
   margin: 100px 0 0 0;
   border-radius: 10px;
@@ -329,13 +330,13 @@ a {
 }
 
 .biblioteca .image {
-  background: url(../assets/imgs/banner-fundo.jpeg) no-repeat center;
+  background: url(../assets/imgs/capas_jogos.png) no-repeat center;
   background-size: cover;
   border-radius: 10px;
 }
 
 .quiz .image {
-  background: url(../assets/imgs/imagem-apoio.png) no-repeat center;
+  background: url(../assets/imgs/quiz.png) no-repeat center;
   background-size: cover;
   border-radius: 10px;
 }
@@ -404,7 +405,7 @@ a {
 }
 
 .ranking .image {
-  background: url(../assets/imgs/bg-jelly-fish-para-home.png) no-repeat center;
+  background: url(../assets/imgs/ranking.png) no-repeat center;
   background-size: cover;
   border-radius: 10px;
 }

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Titulo da página inicial -->
+    <title>GameScore | Cadastro</title>
+
+    <!-- Script de validacao de usuario da sessão -->
+    <script src="./js/sessao.js"></script>
+
+    <!-- Links de conexao com css -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <link rel="icon" href="./assets/icon/GameScore.ico" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="logo"></div>
+      <div class="links">
+        <ul class="navbar">
+          <li class="outros">
+            <a href="index2.html">Início</a>
+          </li>
+          <li class="outros">
+            <a href="login2.html">Login</a>
+          </li>
+          <li class="agora">
+            <a href="#">Cadastro</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main cadastro">
+      <div class="conteudo1">
+        <div class="cadastro-box">
+          <div class="esquerda">
+            <div class="image"></div>
+            <h1>Comece sua jornada gamer agora!</h1>
+            <p>
+              Junte-se a uma comunidade de gamers apaixonados. Crie sua conta
+              gratuitamente e acesse todos os recursos.
+            </p>
+          </div>
+
+          <div class="direita">
+            <h1>Criar conta</h1>
+            <p>Já tem uma conta? <a href="login2.html">Faça login aqui</a></p>
+
+            <div class="formulario">
+              <div class="nome-sobrenome">
+                <p>Nome</p>
+                <p>Sobrenome</p>
+
+                <input type="text" id="ipt_nome" placeholder="Seu nome" />
+                <input
+                  type="text"
+                  id="ipt_sobrenome"
+                  placeholder="Seu sobrenome"
+                />
+              </div>
+
+              <p>Nome de usuário</p>
+              <input type="text" id="ipt_usuario" placeholder="seu_username" />
+
+              <p>E-mail</p>
+              <input type="text" id="ipt_email" placeholder="seu@email.com" />
+
+              <div class="senha">
+                <p>Senha</p>
+                <p>Confirmar senha</p>
+
+                <input type="password" id="ipt_senha" placeholder="••••••••" />
+                <input
+                  type="password"
+                  id="ipt_confirmar_senha"
+                  placeholder="••••••••"
+                />
+
+                <div class="nivel-senha">
+                    <div class="muito-fraca" id="senha-muito-fraca"></div>
+                    <div class="fraca" id="senha-fraca"></div>
+                    <div class="media" id="senha-media"></div>
+                    <div class="forte" id="senha-forte"></div>
+                    <p id="nivel-texto"></p>
+                </div>
+              </div>
+
+              <button onclick="cadastrar()">Criar minha conta</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="content">
+        <div class="logo"></div>
+        <ul class="footer-bar">
+          <li>
+            <a href="index2.html">Inicial</a>
+          </li>
+          <li>
+            <a href="login2.html">Login</a>
+          </li>
+          <li>
+            <a href="cadastro2.html">Cadastro</a>
+          </li>
+        </ul>
+        <div class="site">
+          <a
+            href="https://github.com/vraimundosptech/projeto-individual"
+            target="_blank"
+          >
+            <div class="box">
+              <i class="bi bi-github"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="comments">
+        <p>&copy 2026 GameScore. Todos os direitos reservados.</p>
+        <p>Feito com ❤️ para a comunidade gamer</p>
+      </div>
+    </div>
+  </body>
+</html>

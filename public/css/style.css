@@ -784,6 +784,33 @@ a {
   cursor: pointer;
 }
 
+.senhaInput {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.senhaInput i {
+  position: absolute;
+  right: 13%;
+  font-size: 35px;
+  color: var(--text-muted);
+  transition: 0.5s;
+}
+
+.confirmarSenhaInput {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.confirmarSenhaInput i {
+  position: absolute;
+  right: 5%;
+  font-size: 35px;
+  color: var(--text-muted);
+}
+
 /* ========== LOGIN.HTML ========== */
 
 .login .conteudo1 {

@@ -57,22 +57,38 @@
               <p>Nome</p>
               <p>Sobrenome</p>
 
-              <input type="text" id="ipt_nome" placeholder="Seu nome" />
-              <input type="text" id="ipt_sobrenome" placeholder="Seu sobrenome" />
+              <div class="nomeInput">
+                <input type="text" id="ipt_nome" placeholder="Seu nome" />
+              </div>
+
+              <div class="sobrenomeInput">
+                <input type="text" id="ipt_sobrenome" placeholder="Seu sobrenome" />
+              </div>
             </div>
 
             <p>Nome de usuário</p>
-            <input type="text" id="ipt_usuario" placeholder="seu_username" />
+            <div class="usuarioInput">
+              <input type="text" id="ipt_usuario" placeholder="seu_username" />
+            </div>
 
             <p>E-mail</p>
-            <input type="email" id="ipt_email" placeholder="seu@email.com" />
+            <div class="emailInput">
+              <input type="email" id="ipt_email" placeholder="seu@email.com" />
+            </div>
 
             <div class="senha">
               <p>Senha</p>
               <p>Confirmar senha</p>
 
-              <input type="password" id="ipt_senha" placeholder="••••••••" oninput="validarSenha()" />
-              <input type="password" id="ipt_confirmar_senha" placeholder="••••••••" />
+              <div class="senhaInput">
+                <input type="password" id="ipt_senha" placeholder="••••••••" oninput="validarSenha();usarMascaraSenha()"/>
+                <i class="bi bi-eye-slash" id="olho_senha"></i>
+              </div>
+
+              <div class="confirmarSenhaInput">
+                <input type="password" id="ipt_confirmar_senha" placeholder="••••••••" oninput="usarMascaraConfirmarSenha()"/>
+                <i class="bi bi-eye-slash" id="olho_confirmar_senha"></i>
+              </div>
 
               <div class="nivel-senha">
                 <div class="insegura" id="senha_insegura"></div>
@@ -121,7 +137,7 @@
 
   <div class="back-alert" id="backAlert">
     <div class="card-alert" id="cardAlert">
-      <button class="btn-fechar" id="btnFechar" onclick="fecharAlert()"><!-- <i class="bi bi-x"></i> --></button>
+      <button class="btn-fechar" id="btnFechar" onclick="fecharAlert()"></button>
       <div class="conteudo-alert">
         <h1 class="title-alert" id="titleAlert"></h1>
         <div class="text-alert" id="textAlert"></div>
@@ -143,3 +159,5 @@
 </script>
 
 <script src="js/validacaoCadastro.js"></script>
+
+<script src="js/mascaraSenha.js"></script>

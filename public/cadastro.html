@@ -1,34 +1,32 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>AquaTech | Cadastro</title>
+  <!-- Titulo da página inicial -->
+  <title>GameScore | Cadastro</title>
 
+  <!-- Script de validacao de usuario da sessão -->
   <script src="./js/sessao.js"></script>
 
-  <link rel="stylesheet" href="./css/estilo.css" />
-  <link rel="icon" href="./assets/icon/favicon2.ico" />
+  <!-- Links de conexao com css -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/fonts.css" />
+  <link rel="icon" href="./assets/icon/GameScore.ico" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 
-<body onload="listar()">
-  <!--header inicio-->
+<body>
   <div class="header">
-    <div class="container">
-      <h1 class="titulo">AquaTech</h1>
+    <div class="logo"></div>
+    <div class="links">
       <ul class="navbar">
-        <li>
-          <a href="index.html">Inicial</a>
+        <li class="outros">
+          <a href="index.html">Início</a>
         </li>
-        <li>
-          <a href="simulador.html">Simulador</a>
-        </li>
-        <li>|</li>
-        <li>
+        <li class="outros">
           <a href="login.html">Login</a>
         </li>
         <li class="agora">
@@ -37,221 +35,287 @@
       </ul>
     </div>
   </div>
-  <!--header fim-->
 
-  <div class="login">
-    <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
-      </div>
-    </div>
-    <div class="container">
-      <div class="card card-cadastro">
-        <h2>Bem-vindo!</h2>
-        <div class="formulario">
-          <!--
-                         Para inserir mais um campo, copie uma das inputs abaixo.
-                         Assim que inserir vá para o script abaixo.
-                     -->
-          <div class="campo">
-            <span>Código de ativação:</span>
-            <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
-          </div>
-          <div class="campo">
-            <span>Nome:</span>
-            <input id="nome_input" type="text" placeholder="Seu nome" />
-          </div>
-          <div class="campo">
-            <span>CPF:</span>
-            <input id="cpf_input" type="text" placeholder="Seu CPF" />
-          </div>
-          <div class="campo">
-            <span>E-mail:</span>
-            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
-          </div>
-          <div class="campo">
-            <span>Senha:</span>
-            <input id="senha_input" type="password" placeholder="******" />
-          </div>
-          <div class="campo">
-            <span>Confirmação da Senha:</span>
-            <input id="confirmacao_senha_input" type="password" placeholder="******" />
-          </div>
-          <button class="botao" onclick="cadastrar()">Cadastrar</button>
-        </div>
-        <div id="div_aguardar" class="loading-div">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
+  <div class="main cadastro">
+    <div class="conteudo1">
+      <div class="cadastro-box">
+        <div class="esquerda">
+          <div class="image"></div>
+          <h1>Comece sua jornada gamer agora!</h1>
+          <p>
+            Junte-se a uma comunidade de gamers apaixonados. Crie sua conta
+            gratuitamente e acesse todos os recursos.
+          </p>
         </div>
 
-        <div id="div_erros_login"></div>
+        <div class="direita">
+          <h1>Criar conta</h1>
+          <p>Já tem uma conta? <a href="login.html">Faça login aqui</a></p>
+
+          <div class="formulario">
+            <div class="nome-sobrenome">
+              <p>Nome</p>
+              <p>Sobrenome</p>
+
+              <input type="text" id="ipt_nome" placeholder="Seu nome" />
+              <input type="text" id="ipt_sobrenome" placeholder="Seu sobrenome" />
+            </div>
+
+            <p>Nome de usuário</p>
+            <input type="text" id="ipt_usuario" placeholder="seu_username" />
+
+            <p>E-mail</p>
+            <input type="email" id="ipt_email" placeholder="seu@email.com" />
+
+            <div class="senha">
+              <p>Senha</p>
+              <p>Confirmar senha</p>
+
+              <input type="password" id="ipt_senha" placeholder="••••••••" oninput="validarSenha()" />
+              <input type="password" id="ipt_confirmar_senha" placeholder="••••••••" />
+
+              <div class="nivel-senha">
+                <div class="insegura" id="senha_insegura"></div>
+                <div class="fraca" id="senha_fraca"></div>
+                <div class="media" id="senha_media"></div>
+                <div class="forte" id="senha_forte"></div>
+                <p id="nivel_texto"></p>
+              </div>
+            </div>
+
+            <button onclick="cadastrar()">Criar minha conta</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!--footer inicio-->
   <div class="footer">
-    <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-      <span class="version">v1.0.0</span>
+    <div class="content">
+      <div class="logo"></div>
+      <ul class="footer-bar">
+        <li>
+          <a href="index.html">Inicial</a>
+        </li>
+        <li>
+          <a href="login.html">Login</a>
+        </li>
+        <li>
+          <a href="cadastro.html">Cadastro</a>
+        </li>
+      </ul>
+      <div class="site">
+        <a href="https://github.com/vraimundosptech/projeto-individual" target="_blank">
+          <div class="box">
+            <i class="bi bi-github"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="comments">
+      <p>&copy 2026 GameScore. Todos os direitos reservados.</p>
+      <p>Feito com ❤️ para a comunidade gamer</p>
     </div>
   </div>
-  <!--footer fim-->
+
+  <div class="back-alert" id="backAlert">
+    <div class="card-alert" id="cardAlert">
+      <button class="btn-fechar" id="btnFechar" onclick="fecharAlert()"><!-- <i class="bi bi-x"></i> --></button>
+      <div class="conteudo-alert">
+        <h1 class="title-alert" id="titleAlert"></h1>
+        <div class="text-alert" id="textAlert"></div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
 
 <script>
-
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [];
-
   function cadastrar() {
-    // aguardar();
+    let nomeCompleto = ipt_nome.value + " " + ipt_sobrenome.value
+    var nomeVar = nomeCompleto;
+    var sobrenomeVar = ipt_sobrenome.value;
+    var usuarioVar = ipt_usuario.value;
+    var emailVar = ipt_email.value;
+    var senhaVar = ipt_senha.value;
+    var confirmar_senhaVar = ipt_confirmar_senha.value;
 
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
-    var cpfVar = cpf_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
-    var idEmpresaVincular
+    let possuiNum = false 
+    let possuiEspecial = false 
 
-    // Verificando se há algum campo em branco
-    if (
-      nomeVar == "" ||
-      cpfVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      codigoVar == ""
-    ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
-      finalizarAguardar();
-      return false;
-    // Verificando se o campo nome está menor ou igual a 1
-    } else if (nomeVar.length <= 1) {
-      cardErro.style.display = 'block';
-      mensagem_erro.innerHTML = 'Nome muito curto!';
-
-      finalizarAguardar();
-      return false;
-    // Verificando se o campo email contêm @
-    } else if (!emailVar.includes('@') || !emailVar.includes('.')) {
-      cardErro.style.display = 'block';
-      mensagem_erro.innerHTML = 'Email não contêm "@" ou  "."!';
-
-      finalizarAguardar();
-      return false;
-    // Verificando se o campo senha está menor ou igual a 6
-    } else if (senhaVar.length <= 6) {
-      cardErro.style.display = 'block';
-      mensagem_erro.innerHTML = 'Senha muito curta!';
-
-      finalizarAguardar();
-      return false;
-    // Verificando se campo senha está diferente da confirmacao de senha
-    } else if (senhaVar != confirmacaoSenhaVar) {
-      cardErro.style.display = 'block';
-      mensagem_erro.innerHTML = 'Senhas incopatíveis';
-
-      finalizarAguardar();
-      return false;
-    // Verificando se o campo cpf é diferente de 11
-    } else if (cpfVar.length != 11) {
-      cardErro.style.display = 'block';
-      mensagem_erro.innerHTML = 'CPF deve ter 11 caracteres!';
-
-      finalizarAguardar();
-      return false;
-
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
-
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
-        console.log("Código de ativação válido.");
-        break;
-      } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-        finalizarAguardar();
+    for (let i = 0; i < senhaVar.length; i++) {
+      if (senhaVar[i] >= "0" && senhaVar[i] <= "9") {
+        possuiNum = true;
+      }
+      if (senhaVar[i] >= "!" && senhaVar[i] <= "/") {
+        possuiEspecial = true;
       }
     }
 
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
+    if (
+      nomeVar == `` ||
+      sobrenomeVar == `` ||
+      usuarioVar == `` ||
+      emailVar == `` ||
+      senhaVar == `` ||
+      confirmar_senhaVar == ``
+    ) {
+      backAlert.style.display = 'flex'
+      cardAlert.style.backgroundColor = 'var(--error)'
+      btnFechar.innerHTML = '<i class="bi bi-x"></i>'
+      titleAlert.innerHTML = 'Erro ao se cadastrar!'
+      textAlert.innerHTML = 'Ops! Parece que você esqueceu de preencher algum campo.'
+
+      return false;
+    } else if (!emailVar.includes('@') || !emailVar.includes('.')) {
+      backAlert.style.display = 'flex'
+      cardAlert.style.backgroundColor = 'var(--error)'
+      btnFechar.innerHTML = '<i class="bi bi-x"></i>'
+      titleAlert.innerHTML = 'Erro ao se cadastrar!'
+      textAlert.innerHTML = `Parece que falta algo nesse e-mail. Não esqueça do '@' e do ponto (ex: nome@email.com)`
+
+      return false;
+    } else if (senhaVar.length < 8) {
+      backAlert.style.display = 'flex'
+      cardAlert.style.backgroundColor = 'var(--error)'
+      btnFechar.innerHTML = '<i class="bi bi-x"></i>'
+      titleAlert.innerHTML = 'Erro ao se cadastrar!'
+      textAlert.innerHTML = `Sua senha está muito curta! Ela deve ter pelo menos 8 caracteres.`
+
+      return false;
+    } else if (!possuiNum) {
+      backAlert.style.display = 'flex'
+      cardAlert.style.backgroundColor = 'var(--error)'
+      btnFechar.innerHTML = '<i class="bi bi-x"></i>'
+      titleAlert.innerHTML = 'Erro ao se cadastrar!'
+      textAlert.innerHTML = `Sua senha deve ter pelo menos um número!`
+
+      return false
+    } else if (!possuiEspecial) {
+      backAlert.style.display = 'flex'
+      cardAlert.style.backgroundColor = 'var(--error)'
+      btnFechar.innerHTML = '<i class="bi bi-x"></i>'
+      titleAlert.innerHTML = 'Erro ao se cadastrar!'
+      textAlert.innerHTML = `Sua senha tem que ter pelo menos um caractere especial.`
+
+      return false
+    } else if (senhaVar != confirmar_senhaVar) {
+      backAlert.style.display = 'flex'
+      cardAlert.style.backgroundColor = 'var(--error)'
+      btnFechar.innerHTML = '<i class="bi bi-x"></i>'
+      titleAlert.innerHTML = 'Erro ao se cadastrar!'
+      textAlert.innerHTML = 'Quase lá! Certifique-se de que digitou a mesma senha nos dois campos.'
+
+      return false;
+    }
+
+    fetch("usuarios/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
-        cpfServer: cpfVar,
+        usuarioServer: usuarioVar,
         emailServer: emailVar,
-        senhaServer: senhaVar,
-        idEmpresaVincularServer: idEmpresaVincular
+        senhaServer: senhaVar
       }),
     })
       .then(function (resposta) {
-        console.log("resposta: ", resposta);
+        console.log("resposta: ", resposta)
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
+          backAlert.style.display = 'flex'
+          cardAlert.style.backgroundColor = 'var(--accent)'
+          titleAlert.innerHTML = 'Cadastro realizado com sucesso!'
+          titleAlert.style.margin = '50px 0 20px 0'
+          textAlert.innerHTML = '<button class="btn-continuar" id="btnContinuar" onclick="redirecionarLogin()">Continuar</button>'
+          btnFechar.style.display = 'none'
 
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
-
-          limparFormulario();
-          finalizarAguardar();
         } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+          throw "Houve um erro ao tentar realizar o cadastro!"
         }
       })
       .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
-      });
-
-    return false;
-  }
-
-  // Listando empresas cadastradas 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresasCadastradas.push(empresa);
-
-            console.log("listaEmpresasCadastradas")
-            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-          });
-        });
+        console.log(`#ERRO: ${resposta}`)
+        backAlert.style.display = 'flex'
+        cardAlert.style.backgroundColor = 'var(--error)'
+        btnFechar.style.display = 'block'
+        btnFechar.innerHTML = '<i class="bi bi-x"></i>'
+        titleAlert.innerHTML = 'Erro ao se cadastrar!'
+        textAlert.innerHTML = `${resposta}`
       })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
+
+    return false
   }
 
-  function sumirMensagem() {
-    cardErro.style.display = "none";
+  function validarSenha() {
+    let senha = ipt_senha.value;
+    let criterioSenha = 0;
+    let possuiNum = false;
+    let possuiEspecial = false;
+
+    for (let i = 0; i < senha.length; i++) {
+      if (senha[i] >= "0" && senha[i] <= "9") {
+        possuiNum = true;
+      }
+      if (senha[i] >= "!" && senha[i] <= "/") {
+        possuiEspecial = true;
+      }
+    }
+
+    if (possuiNum) {
+      criterioSenha++;
+    }
+    if (possuiEspecial) {
+      criterioSenha++;
+    }
+    if (senha.length >= 8) {
+      criterioSenha++;
+    }
+    if (senha != senha.toUpperCase() && senha.length > 0) {
+      criterioSenha++;
+    }
+
+    if (criterioSenha == 4) {
+      nivel_texto.innerHTML = `Forte`;
+      senha_forte.style.backgroundColor = `var(--success)`;
+      senha_media.style.backgroundColor = `var(--success)`;
+      senha_fraca.style.backgroundColor = `var(--success)`;
+      senha_insegura.style.backgroundColor = `var(--success)`;
+      nivel_texto.style.color = `var(--success)`;
+    } else if (criterioSenha == 3) {
+      nivel_texto.innerHTML = `Média`;
+      senha_forte.style.backgroundColor = `var(--bg-card)`;
+      senha_media.style.backgroundColor = `var(--warning)`;
+      senha_fraca.style.backgroundColor = `var(--warning)`;
+      senha_insegura.style.backgroundColor = `var(--warning)`;
+      nivel_texto.style.color = `var(--warning)`;
+    } else if (criterioSenha == 2) {
+      nivel_texto.innerHTML = `Fraca`;
+      senha_forte.style.backgroundColor = `var(--bg-card)`;
+      senha_media.style.backgroundColor = `var(--bg-card)`;
+      senha_fraca.style.backgroundColor = `var(--error)`;
+      senha_insegura.style.backgroundColor = `var(--error)`;
+      nivel_texto.style.color = `var(--error)`;
+    } else {
+      nivel_texto.innerHTML = `Insegura`;
+      senha_forte.style.backgroundColor = `var(--bg-card)`;
+      senha_media.style.backgroundColor = `var(--bg-card)`;
+      senha_fraca.style.backgroundColor = `var(--bg-card)`;
+      senha_insegura.style.backgroundColor = `var(--error)`;
+      nivel_texto.style.color = `var(--error)`;
+    }
+  }
+
+  function fecharAlert() {
+    backAlert.style.display = 'none'
+  }
+
+  function redirecionarLogin() {
+    window.location = "login.html"
   }
 </script>
-
-<script src="js/validacaoCadastro.js"></script>

@@ -64,6 +64,70 @@ a {
   background-size: cover;
 }
 
+.back-alert {
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card-alert {
+  display: flex;
+  background-color: var(--accent);
+  width: 500px;
+  height: 300px;
+  border-radius: 10px;
+  flex-direction: column;
+}
+
+.btn-fechar {
+  margin: 10px 20px 0 0;
+  cursor: pointer;
+  justify-self: flex-end;
+  background-color: transparent;
+  border: none;
+  align-self: flex-end;
+  font-size: 40px;
+}
+
+.conteudo-alert {
+  padding: 0 20px 0 20px;
+  text-align: justify;
+}
+
+.title-alert {
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+.text-alert {
+  margin: 30px 0 0 0;
+  text-align: center;
+  font-size: 24px;
+}
+
+.btn-continuar {
+  border: none;
+  border-radius: 10px;
+  width: 300px;
+  height: 50px;
+  font-size: 24px;
+  background-color: var(--primary);
+  margin: 25px 0 0 0;
+  transition: 0.5s;
+}
+
+.btn-continuar:hover {
+  cursor: pointer;
+  background-color: var(--primary-hover);
+}
+
 /* ========== HEADER ========== */
 
 .header {
@@ -581,7 +645,7 @@ a {
   border-radius: 15px;
 }
 
-.esquerda {
+.cadastro .esquerda {
   width: 40%;
   background-color: var(--primary-hover);
   border-radius: 15px 0 0 15px;
@@ -609,7 +673,7 @@ a {
   color: var(--text-secondary);
 }
 
-.direita {
+.cadastro .direita {
   width: 60%;
   border-radius: 0 15px 15px 0;
   padding: 75px 50px 0 50px;
@@ -712,9 +776,43 @@ a {
   font-size: 24px;
   font-weight: bold;
   transition: 0.5s;
+  border: none;
 }
 
 .formulario button:hover {
   background-color: var(--accent-hover);
   cursor: pointer;
+}
+
+/* ========== LOGIN.HTML ========== */
+
+.login .conteudo1 {
+  height: auto;
+  padding: 50px 0 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  display: flex;
+  width: 1200px;
+  height: 700px;
+  background-color: var(--bg-secondary);
+  flex-direction: row;
+  border-radius: 15px;
+}
+
+.login .esquerda {
+  width: 50%;
+  background-color: var(--primary-hover);
+  border-radius: 15px 0 0 15px;
+  justify-content: center;
+  justify-items: center;
+}
+
+.login .direita {
+  width: 50%;
+  border-radius: 0 15px 15px 0;
+  padding: 75px 50px 0 50px;
 }

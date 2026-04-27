@@ -1,82 +1,217 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titulo da página inicial -->
+    <title>GameScore | Página Inicial</title>
 
-  <title>AquaTech | Página Inicial</title>
+    <!-- Script de validacao de usuario da sessão -->
+    <script src="./js/sessao.js"></script>
 
-  <script src="./js/sessao.js"></script>
+    <!-- Links de conexao com css -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <link rel="icon" href="./assets/icon/GameScore.ico" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+  </head>
 
-  <link rel="stylesheet" href="./css/estilo.css">
-  <link rel="icon" href="./assets/icon/favicon2.ico">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-</head>
+  <body>
+    <div class="header">
+      <div class="logo"></div>
+      <div class="links">
+        <ul class="navbar">
+          <li class="agora">
+            <a href="#">Início</a>
+          </li>
+          <li class="outros">
+            <a href="biblioteca.html">Biblioteca</a>
+          </li>
+          <li class="outros">
+            <a href="ranking.html">Ranking</a>
+          </li>
+          <li class="outros">
+            <a href="quiz.html">Quiz</a>
+          </li>
+        </ul>
+      </div>
+      <div class="conta">
+        <a href="login.html" class="btn-login">
+          <p>Login</p>
+        </a>
+        <a href="cadastro.html" class="btn-cadastro">
+          <p>Cadastro</p>
+        </a>
+      </div>
+      <!-- <a href="Perfil.html">
+            <div class="avatar"></div>
 
-<body>
-  <div class="header">
-    <div class="container">
-      <h1 class="titulo">AquaTech</h1>
-      <ul class="navbar">
-        <li class="agora">
-          <a href="#">Inicial</a>
-        </li>
-        <li>
-          <a href="simulador.html">Simulador</a>
-        </li>
-        <li>|</li>
-        <li>
-          <a href="login.html">Login</a>
-        </li>
-        <li>
-          <a href="cadastro.html">Cadastro</a>
-        </li>
-      </ul>
+        </a> -->
     </div>
-  </div>
 
-  <div class="banner">
-    <div class="container">
-      <p>Preservando <span>hoje</span> para existirem <span>amanhã</span>.</p>
-    </div>
-  </div>
+    <div class="main">
+      <div class="conteudo1">
+        <div class="sobre">
+          <h1>Organize seus jogos e teste seu conhecimento gamer</h1>
+          <p>
+            Crie sua biblioteca de jogos, descubra os mais bem avaliados pela
+            comunidade, suba no ranking e prove que você é um verdadeiro gamer
+            com nossos quizzes temáticos.
+          </p>
 
-  <div class="social">
-    <div class="container">
-      <div class="boxes">
-        <div class="box">
-          <img src="assets/imgs/planet-earth_color.png">
-          <h4>Missão</h4>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-            vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-            minima.</p>
+          <div class="cards">
+            <div class="card-info">
+              <div class="icon-box">
+                <i class="bi bi-controller"></i>
+              </div>
+
+              <div class="text">
+                <h1>12K+</h1>
+                <p>Jogos</p>
+              </div>
+            </div>
+
+            <div class="card-info">
+              <div class="icon-box">
+                <i class="bi bi-people"></i>
+              </div>
+
+              <div class="text">
+                <h1>48K+</h1>
+                <p>Jogadores</p>
+              </div>
+            </div>
+
+            <div class="card-info">
+              <div class="icon-box">
+                <i class="bi bi-star"></i>
+              </div>
+
+              <div class="text">
+                <h1>320K+</h1>
+                <p>Avaliações</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="box">
-          <img src="assets/imgs/lightbulb_color.png">
-          <h4>Visão</h4>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-            vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-            minima.</p>
+
+        <div class="image"></div>
+      </div>
+
+      <div class="conteudo2">
+        <div class="titulo">
+          <h1>Tudo que você precisa para dominar o universo gamer</h1>
+          <p>
+            Uma plataforma completa com tudo que um gamer precisa:<br />
+            biblioteca, ranking e quiz em um só lugar.
+          </p>
         </div>
-        <div class="box">
-          <img src="assets/imgs/growth_color.png">
-          <h4>Valores</h4>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-            vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-            minima.</p>
+
+        <div class="biblioteca">
+          <div class="image"></div>
+          <div class="text">
+            <h1>Sua coleção gamer em um só lugar</h1>
+            <p>
+              Organize todos os seus jogos, marque os que você já zerou, está
+              jogando ou deseja jogar. Avalie cada título com sua nota pessoal e
+              escreva reviews para compartilhar com a comunidade. Descubra novos
+              jogos com base no seu histórico e preferências.
+            </p>
+            <ul class="topicos">
+              <li>Catalogar e organizar seus jogos com status personalizado</li>
+              <li>Avaliar títulos com notas e reviews detalhada</li>
+              <li>Descobrir jogos recomendados pela comunidade</li>
+            </ul>
+            <a href="biblioteca.html" class="link-button roxo">
+              <i class="bi bi-book"></i>
+              Explorar Biblioteca
+              <i class="bi bi-chevron-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="ranking">
+          <div class="text">
+            <h1>Veja os games mais amados pelos gamers</h1>
+            <p>
+              Explore o ranking global dos jogos mais bem avaliados pela
+              comunidade GameScore. Compare titulos de diferentes gëneros e
+              plataformas, filtre por categoria e descubra os verdadeiros
+              clãssicos que todo gamer precisa conhecer.
+            </p>
+            <ul class="topicos">
+              <li>Top 100 jogos mais bem avaliados pela comunidade</li>
+              <li>Filtros por gênero, plataforma e período de lançamento</li>
+              <li>Comparativo detalhado entre títulos e franquias</li>
+            </ul>
+            <a href="ranking.html" class="link-button azul">
+              <i class="bi bi-trophy"></i>
+              Ver Ranking
+              <i class="bi bi-chevron-right"></i>
+            </a>
+          </div>
+          <div class="image"></div>
+        </div>
+
+        <div class="quiz">
+          <div class="image"></div>
+          <div class="text">
+            <h1>Prove que você é um verdadeiro gamer</h1>
+            <p>
+              Responda perguntas desafiadoras sobre os mais variados universos
+              do mundo dos games. Teste seus conhecimentos em diferentes
+              categorias, ganhe pontos suba no leaderboard e desbloqueie
+              conquistas exclusivas para verdadeiros mestres do controle.
+            </p>
+            <ul class="topicos">
+              <li>Centenas de perguntas em diversas categorias temáticas</li>
+              <li>Sistema de pontuação e conquistas desbloqueáveis</li>
+              <li>Ranking global de jogadores mais conhecedores</li>
+            </ul>
+            <a href="quiz.html" class="link-button roxo">
+              <i class="bi bi-question-square"></i>
+              Fazer Quiz
+              <i class="bi bi-chevron-right"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="footer">
-    <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-      <span class="version">v1.0.0</span>
+    <div class="footer">
+      <div class="content">
+        <div class="logo"></div>
+        <ul class="footer-bar">
+          <li>
+            <a href="#">Inicial</a>
+          </li>
+          <li>
+            <a href="Biblioteca.html">Biblioteca</a>
+          </li>
+          <li>
+            <a href="Ranking.html">Ranking</a>
+          </li>
+          <li>
+            <a href="Quiz.html">Quiz</a>
+          </li>
+        </ul>
+        <div class="site">
+          <a
+            href="https://github.com/vraimundosptech/projeto-individual"
+            target="_blank"
+          >
+            <div class="box">
+              <i class="bi bi-github"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="comments">
+        <p>&copy 2026 GameScore. Todos os direitos reservados.</p>
+        <p>Feito com ❤️ para a comunidade gamer</p>
+      </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>

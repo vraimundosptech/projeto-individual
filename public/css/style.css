@@ -793,6 +793,7 @@ a {
 .senhaInput i {
   position: absolute;
   right: 13%;
+  top: 10%;
   font-size: 35px;
   color: var(--text-muted);
   transition: 0.5s;
@@ -807,6 +808,7 @@ a {
 .confirmarSenhaInput i {
   position: absolute;
   right: 5%;
+  top: 10%;
   font-size: 35px;
   color: var(--text-muted);
 }
@@ -842,4 +844,9 @@ a {
   width: 50%;
   border-radius: 0 15px 15px 0;
   padding: 75px 50px 0 50px;
+}
+
+.login .senhaInput i {
+  right: 5%;
+  top: 10%;
 }

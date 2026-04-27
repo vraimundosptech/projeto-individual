@@ -56,7 +56,10 @@
             <input type="text" id="ipt_email" placeholder="seu@email.com" />
 
             <p>Senha</p>
-            <input type="password" id="ipt_senha" placeholder="••••••••" />
+            <div class="login senhaInput">
+              <input type="password" id="ipt_senha" placeholder="••••••••" oninput="usarMascaraSenha()"/>
+              <i class="bi bi-eye-slash" id="olho_senha"></i>
+            </div>
 
             <button onclick="entrar()">Entrar</button>
           </div>
@@ -170,3 +173,5 @@
     backAlert.style.display = 'none'
   }
 </script>
+
+<script src="js/mascaraSenha.js"></script>

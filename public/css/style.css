@@ -726,6 +726,11 @@ a {
   background-color: color-mix(in srgb, var(--primary-hover), transparent 90%);
 }
 
+.formulario img {
+  width: 90px;
+  height: 60px;
+}
+
 .nome-sobrenome {
   display: grid;
   flex-direction: row;

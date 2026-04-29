@@ -27,53 +27,83 @@ function cadastrar() {
     senhaVar == `` ||
     confirmar_senhaVar == ``
   ) {
-    backAlert.style.display = "flex";
-    cardAlert.style.backgroundColor = "var(--error)";
-    btnFechar.innerHTML = '<i class="bi bi-x"></i>';
-    titleAlert.innerHTML = "Erro ao se cadastrar!";
-    textAlert.innerHTML =
-      "Ops! Parece que você esqueceu de preencher algum campo.";
+    btnCadastrar.innerHTML = `<img src="./assets/loading-gif.gif">`;
+
+    setTimeout(() => {
+      backAlert.style.display = "flex";
+      cardAlert.style.backgroundColor = "var(--error)";
+      btnFechar.innerHTML = '<i class="bi bi-x"></i>';
+      titleAlert.innerHTML = "Erro ao se cadastrar!";
+      textAlert.innerHTML =
+        "Ops! Parece que você esqueceu de preencher algum campo.";
+      btnCadastrar.innerHTML = `Criar minha conta`;
+    }, 1000);
 
     return false;
   } else if (!emailVar.includes("@") || !emailVar.includes(".")) {
-    backAlert.style.display = "flex";
-    cardAlert.style.backgroundColor = "var(--error)";
-    btnFechar.innerHTML = '<i class="bi bi-x"></i>';
-    titleAlert.innerHTML = "Erro ao se cadastrar!";
-    textAlert.innerHTML = `Parece que falta algo nesse e-mail. Não esqueça do '@' e do ponto (ex: nome@email.com)`;
+    btnCadastrar.innerHTML = `<img src="./assets/loading-gif.gif">`;
+
+    setTimeout(() => {
+      backAlert.style.display = "flex";
+      cardAlert.style.backgroundColor = "var(--error)";
+      btnFechar.innerHTML = '<i class="bi bi-x"></i>';
+      titleAlert.innerHTML = "Erro ao se cadastrar!";
+      textAlert.innerHTML = `Parece que falta algo nesse e-mail. Não esqueça do '@' e do ponto (ex: nome@email.com)`;
+      btnCadastrar.innerHTML = `Criar minha conta`;
+    }, 1000);
 
     return false;
   } else if (senhaVar.length < 8) {
-    backAlert.style.display = "flex";
-    cardAlert.style.backgroundColor = "var(--error)";
-    btnFechar.innerHTML = '<i class="bi bi-x"></i>';
-    titleAlert.innerHTML = "Erro ao se cadastrar!";
-    textAlert.innerHTML = `Sua senha está muito curta! Ela deve ter pelo menos 8 caracteres.`;
+    btnCadastrar.innerHTML = `<img src="./assets/loading-gif.gif">`;
+
+    setTimeout(() => {
+      backAlert.style.display = "flex";
+      cardAlert.style.backgroundColor = "var(--error)";
+      btnFechar.innerHTML = '<i class="bi bi-x"></i>';
+      titleAlert.innerHTML = "Erro ao se cadastrar!";
+      textAlert.innerHTML = `Sua senha está muito curta! Ela deve ter pelo menos 8 caracteres.`;
+      btnCadastrar.innerHTML = `Criar minha conta`;
+    }, 1000);
 
     return false;
   } else if (!possuiNum) {
-    backAlert.style.display = "flex";
-    cardAlert.style.backgroundColor = "var(--error)";
-    btnFechar.innerHTML = '<i class="bi bi-x"></i>';
-    titleAlert.innerHTML = "Erro ao se cadastrar!";
-    textAlert.innerHTML = `Sua senha deve ter pelo menos um número!`;
+    btnCadastrar.innerHTML = `<img src="./assets/loading-gif.gif">`;
+
+    setTimeout(() => {
+      backAlert.style.display = "flex";
+      cardAlert.style.backgroundColor = "var(--error)";
+      btnFechar.innerHTML = '<i class="bi bi-x"></i>';
+      titleAlert.innerHTML = "Erro ao se cadastrar!";
+      textAlert.innerHTML = `Sua senha deve ter pelo menos um número!`;
+      btnCadastrar.innerHTML = `Criar minha conta`;
+    }, 1000);
 
     return false;
   } else if (!possuiEspecial) {
-    backAlert.style.display = "flex";
-    cardAlert.style.backgroundColor = "var(--error)";
-    btnFechar.innerHTML = '<i class="bi bi-x"></i>';
-    titleAlert.innerHTML = "Erro ao se cadastrar!";
-    textAlert.innerHTML = `Sua senha tem que ter pelo menos um caractere especial.`;
+    btnCadastrar.innerHTML = `<img src="./assets/loading-gif.gif">`;
+
+    setTimeout(() => {
+      backAlert.style.display = "flex";
+      cardAlert.style.backgroundColor = "var(--error)";
+      btnFechar.innerHTML = '<i class="bi bi-x"></i>';
+      titleAlert.innerHTML = "Erro ao se cadastrar!";
+      textAlert.innerHTML = `Sua senha tem que ter pelo menos um caractere especial.`;
+      btnCadastrar.innerHTML = `Criar minha conta`;
+    }, 1000);
 
     return false;
   } else if (senhaVar != confirmar_senhaVar) {
-    backAlert.style.display = "flex";
-    cardAlert.style.backgroundColor = "var(--error)";
-    btnFechar.innerHTML = '<i class="bi bi-x"></i>';
-    titleAlert.innerHTML = "Erro ao se cadastrar!";
-    textAlert.innerHTML =
-      "Quase lá! Certifique-se de que digitou a mesma senha nos dois campos.";
+    btnCadastrar.innerHTML = `<img src="./assets/loading-gif.gif">`;
+
+    setTimeout(() => {
+      backAlert.style.display = "flex";
+      cardAlert.style.backgroundColor = "var(--error)";
+      btnFechar.innerHTML = '<i class="bi bi-x"></i>';
+      titleAlert.innerHTML = "Erro ao se cadastrar!";
+      textAlert.innerHTML =
+        "Quase lá! Certifique-se de que digitou a mesma senha nos dois campos.";
+      btnCadastrar.innerHTML = `Criar minha conta`;
+    }, 1000);
 
     return false;
   }
@@ -101,6 +131,7 @@ function cadastrar() {
         textAlert.innerHTML =
           '<button class="btn-continuar" id="btnContinuar" onclick="redirecionarLogin()">Continuar</button>';
         btnFechar.style.display = "none";
+        btnCadastrar.innerHTML = `Criar minha conta`;
       } else {
         throw "Houve um erro ao tentar realizar o cadastro!";
       }

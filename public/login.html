@@ -57,11 +57,11 @@
 
             <p>Senha</p>
             <div class="login senhaInput">
-              <input type="password" id="ipt_senha" placeholder="••••••••" oninput="usarMascaraSenha()"/>
+              <input type="password" id="ipt_senha" placeholder="••••••••" oninput="usarMascaraSenha()" />
               <i class="bi bi-eye-slash" id="olho_senha"></i>
             </div>
 
-            <button onclick="entrar()">Entrar</button>
+            <button onclick="entrar()" id="btnEntrar">Entrar</button>
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@
 
   <div class="back-alert" id="backAlert">
     <div class="card-alert" id="cardAlert">
-      <button class="btn-fechar" id="btnFechar" onclick="fecharAlert()"><!-- <i class="bi bi-x"></i> --></button>
+      <button class="btn-fechar" id="btnFechar" onclick="fecharAlert()"></button>
       <div class="conteudo-alert">
         <h1 class="title-alert" id="titleAlert"></h1>
         <div class="text-alert" id="textAlert"></div>
@@ -114,14 +114,17 @@
   function entrar() {
     var emailVar = ipt_email.value
     var senhaVar = ipt_senha.value
+    btnEntrar.innerHTML = `<img src="./assets/loading-gif.gif">`
 
     if (emailVar == "" || senhaVar == "") {
-      backAlert.style.display = 'flex'
-      cardAlert.style.backgroundColor = 'var(--error)'
-      btnFechar.innerHTML = '<i class="bi bi-x"></i>'
-      titleAlert.innerHTML = 'Erro ao logar!'
-      textAlert.innerHTML = 'Ops! Parece que você esqueceu de preencher algum campo.'
-
+      setTimeout(() => {
+        backAlert.style.display = 'flex'
+        cardAlert.style.backgroundColor = 'var(--error)'
+        btnFechar.innerHTML = '<i class="bi bi-x"></i>'
+        titleAlert.innerHTML = 'Erro ao logar!'
+        textAlert.innerHTML = 'Ops! Parece que você esqueceu de preencher algum campo.'
+        btnEntrar.innerHTML = `Entrar`
+      }, 1000)
       return false
     }
 
@@ -161,6 +164,16 @@
 
         resposta.text().then(texto => {
           console.error(texto)
+
+          setTimeout(() => {
+            backAlert.style.display = "flex";
+            cardAlert.style.backgroundColor = "var(--error)";
+            btnFechar.innerHTML = '<i class="bi bi-x"></i>';
+            titleAlert.innerHTML = "Erro ao se cadastrar!";
+            textAlert.innerHTML =
+              "Houve um probleminha. Não encontramos uma conta com esses dados.";
+            btnEntrar.innerHTML = `Entrar`
+          }, 1000)
         })
       }
     }).catch(function (erro) {

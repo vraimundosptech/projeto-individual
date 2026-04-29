@@ -99,7 +99,7 @@
               </div>
             </div>
 
-            <button onclick="cadastrar()">Criar minha conta</button>
+            <button onclick="cadastrar()" id="btnCadastrar">Criar minha conta</button>
           </div>
         </div>
       </div>
@@ -151,6 +151,7 @@
 <script>
   function fecharAlert() {
     backAlert.style.display = 'none'
+    btnCadastrar.innerHTML = `Criar minha conta`
   }
 
   function redirecionarLogin() {

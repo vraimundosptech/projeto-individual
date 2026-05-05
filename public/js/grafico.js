@@ -1,0 +1,256 @@
+const jogoMes = document.getElementById("jogosMes");
+const statusJogo = document.getElementById("statusJogo");
+const bibliotecaCategoria = document.getElementById("bibliotecaCategoria");
+const top5Jogos = document.getElementById("top5Jogos");
+
+new Chart(jogoMes, {
+  type: "line",
+  data: {
+    labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun"],
+    datasets: [
+      {
+        label: "Jogos adicionados",
+        data: [4, 7, 5, 9, 6, 8],
+        borderColor: "#7b2cbf",
+        backgroundColor: "#5925835b",
+        fill: true,
+        borderWidth: 3,
+        tension: 0.4,
+        pointRadius: 5,
+        pointBackgroundColor: "#7b2cbf",
+      },
+      {
+        label: "Jogos zerados",
+        data: [2, 3, 4, 5, 3, 6],
+        borderColor: "#189fb9",
+        backgroundColor: "#02899b75",
+        fill: true,
+        borderWidth: 3,
+        tension: 0.4,
+        pointRadius: 5,
+        pointBackgroundColor: "#189fb9",
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: {
+      padding: 20,
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: {
+          display: false,
+        },
+        ticks: {
+          stepSize: 2,
+          font: {
+            size: 22,
+          },
+        },
+      },
+      x: {
+        grid: {
+          display: false,
+        },
+        ticks: {
+          font: {
+            size: 22,
+          },
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        position: "top",
+        align: "end",
+        labels: {
+          color: "#555",
+          font: {
+            size: 20,
+          },
+          useBorderRadius: true,
+          borderRadius: 10,
+          boxWidth: 20,
+        },
+      },
+      tooltip: {
+        backgroundColor: `#222`,
+        titleColor: `#fff`,
+        borderColor: `#444`,
+        borderWidth: 1,
+
+        padding: 10,
+        cornerRadius: 8,
+
+        titleFont: {
+          size: 20,
+          weight: "bold",
+        },
+
+        bodyFont: {
+          size: 16,
+        },
+        callbacks: {
+          title: function (context) {
+            return `${context[0].label}`;
+          },
+        },
+        interaction: {
+          mode: "index",
+          intersect: false,
+        },
+      },
+    },
+  },
+});
+
+new Chart(statusJogo, {
+  type: "doughnut",
+  data: {
+    labels: ["Zerados", "Jogando", "Quero jogar", "Pausados"],
+    datasets: [
+      {
+        data: [4, 7, 5, 9],
+        backgroundColor: ["#7b2cbf", "#189fb9", "#ffc300", "#2e2e2e"],
+        borderColor: "#222222",
+        borderWidth: 5,
+        hoverBorderColor: "#222222",
+        hoverOffset: 20,
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: {
+      padding: 20,
+    },
+    plugins: {
+      legend: {
+        position: "bottom",
+        labels: {
+          color: "#555", // cor do texto da legenda
+          font: {
+            size: 20, // tamanho da fonte
+          },
+          usePointStyle: true,
+          pointStyle: "circle",
+        },
+      },
+      tooltip: {
+        backgroundColor: `#222`,
+        titleColor: `#fff`,
+        borderColor: `#444`,
+        borderWidth: 1,
+
+        padding: 10,
+        cornerRadius: 8,
+
+        titleFont: {
+          size: 20,
+          weight: "bold",
+        },
+
+        bodyFont: {
+          size: 16,
+        },
+        callbacks: {
+          title: function (context) {
+            return `${context[0].label}`;
+          },
+        },
+      },
+    },
+  },
+});
+
+new Chart(bibliotecaCategoria, {
+  type: "bar",
+  data: {
+    labels: [
+      "Ação",
+      "Aventura",
+      "RPG",
+      "Tiro",
+      "Estratégica",
+      "Simulação",
+      "Esporte",
+      "Corrida",
+      "Luta",
+      "Terror",
+      "Puzzle",
+      "Plataforma",
+      "Sandbox",
+      "Battle Royale",
+      "Survival",
+    ],
+    datasets: [
+      {
+        data: [1, 2, 3, 8, 1, 3, 7, 9, 4, 3, 4, 3, 6, 7, 8],
+        backgroundColor: ["#7b2cbf", "#189fb9", "#ffc300", "#2e2e2e"],
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: {
+      padding: 50,
+    },
+    scales: {
+      y: {
+        ticks: {
+          stepSize: 2,
+          font: {
+            size: 22,
+          },
+        },
+        grid: {
+          display: false,
+        },
+      },
+      x: {
+        grid: {
+          display: false,
+        },
+        ticks: {
+          font: {
+            size: 22,
+          },
+          minRotation: 90,
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        backgroundColor: `#222`,
+        titleColor: `#fff`,
+        borderColor: `#444`,
+        borderWidth: 1,
+
+        padding: 10,
+        cornerRadius: 8,
+
+        titleFont: {
+          size: 20,
+          weight: "bold",
+        },
+
+        bodyFont: {
+          size: 16,
+        },
+        callbacks: {
+          title: function (context) {
+            return `${context[0].label}`;
+          },
+        },
+      },
+    },
+  },
+});

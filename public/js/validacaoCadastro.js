@@ -2,7 +2,7 @@ function cadastrar() {
   let nomeCompleto = ipt_nome.value + " " + ipt_sobrenome.value;
   var nomeVar = nomeCompleto;
   var sobrenomeVar = ipt_sobrenome.value;
-  var usuarioVar = ipt_usuario.value;
+  var nomeUsuarioVar = ipt_usuario.value;
   var emailVar = ipt_email.value;
   var senhaVar = ipt_senha.value;
   var confirmar_senhaVar = ipt_confirmar_senha.value;
@@ -22,7 +22,7 @@ function cadastrar() {
   if (
     nomeVar == `` ||
     sobrenomeVar == `` ||
-    usuarioVar == `` ||
+    nomeUsuarioVar == `` ||
     emailVar == `` ||
     senhaVar == `` ||
     confirmar_senhaVar == ``
@@ -115,7 +115,7 @@ function cadastrar() {
     },
     body: JSON.stringify({
       nomeServer: nomeVar,
-      usuarioServer: usuarioVar,
+      nomeUsuarioServer: nomeUsuarioVar,
       emailServer: emailVar,
       senhaServer: senhaVar,
     }),

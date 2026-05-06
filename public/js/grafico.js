@@ -107,65 +107,7 @@ new Chart(jogoMes, {
   },
 });
 
-new Chart(statusJogo, {
-  type: "doughnut",
-  data: {
-    labels: ["Zerados", "Jogando", "Quero jogar", "Pausados"],
-    datasets: [
-      {
-        data: [4, 7, 5, 9],
-        backgroundColor: ["#7b2cbf", "#189fb9", "#ffc300", "#2e2e2e"],
-        borderColor: "#222222",
-        borderWidth: 5,
-        hoverBorderColor: "#222222",
-        hoverOffset: 20,
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    layout: {
-      padding: 20,
-    },
-    plugins: {
-      legend: {
-        position: "bottom",
-        labels: {
-          color: "#555", // cor do texto da legenda
-          font: {
-            size: 20, // tamanho da fonte
-          },
-          usePointStyle: true,
-          pointStyle: "circle",
-        },
-      },
-      tooltip: {
-        backgroundColor: `#222`,
-        titleColor: `#fff`,
-        borderColor: `#444`,
-        borderWidth: 1,
 
-        padding: 10,
-        cornerRadius: 8,
-
-        titleFont: {
-          size: 20,
-          weight: "bold",
-        },
-
-        bodyFont: {
-          size: 16,
-        },
-        callbacks: {
-          title: function (context) {
-            return `${context[0].label}`;
-          },
-        },
-      },
-    },
-  },
-});
 
 new Chart(bibliotecaCategoria, {
   type: "bar",

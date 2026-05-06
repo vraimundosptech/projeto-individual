@@ -43,7 +43,7 @@
       <div class="boas-vindas">
         <div class="text">
           <p>Bem-Vindo de volta</p>
-          <h1>Olá, <span>Jogador</span></h1>
+          <h1>Olá, <span id="nome_boas_vindas">Jogador</span></h1>
           <h2>O que você vai conquistar hoje?</h2>
         </div>
       </div>
@@ -247,23 +247,44 @@
 </html>
 
 <script>
-  var labels = [];
-  var data = [];
-
   function carregarDados() {
     var idUsuario = sessionStorage.getItem("ID_USUARIO");
     var nomeUsuario = sessionStorage.getItem("NOME_USUARIO");
+
+    nome_boas_vindas.innerText = nomeUsuario;
+
+    var statusLabel = [];
+    var statusData = [];
+
+    var categoriaLabel = [];
+    var categoriaData = [];
+
+    var statusLabel = [];
+    var statusData = [];
+
+    var statusLabel = [];
+    var statusData = [];
 
     fetch(`/statusJogo/listar/${idUsuario}`)
       .then((res) => res.json())
       .then((dados) => {
         for (var i = 0; i < dados.length; i++) {
-          labels.push(dados[i].status);
-          data.push(dados[i].qtdStatus);
+          statusLabel.push(dados[i].status);
+          statusData.push(dados[i].qtdStatus);
         }
+      })
+      .catch((erro) => {
+        console.log("Erro: ", erro);
+      });
 
-        console.log(labels);
-        console.log(data);
+    fetch(`/categoria/listar/${idUsuario}`)
+      .then((res) => res.json())
+      .then((dados) => {
+        for (var i = 0; i < dados.length; i++) {
+          categoriaLabel.push(dados[i].categoria);
+          categoriaData.push(dados[i].qtdJogo);
+        }
+        console.log(categoriaLabel);
       })
       .catch((erro) => {
         console.log("Erro: ", erro);
@@ -272,10 +293,10 @@
     new Chart(statusJogo, {
       type: "doughnut",
       data: {
-        labels: labels,
+        labels: statusLabel,
         datasets: [
           {
-            data: data,
+            data: statusData,
             backgroundColor: ["#7b2cbf", "#189fb9", "#ffc300", "#2e2e2e"],
             borderColor: "#222222",
             borderWidth: 5,
@@ -301,6 +322,78 @@
               usePointStyle: true,
               pointStyle: "circle",
             },
+          },
+          tooltip: {
+            backgroundColor: `#222`,
+            titleColor: `#fff`,
+            borderColor: `#444`,
+            borderWidth: 1,
+
+            padding: 10,
+            cornerRadius: 8,
+
+            titleFont: {
+              size: 20,
+              weight: "bold",
+            },
+
+            bodyFont: {
+              size: 16,
+            },
+            callbacks: {
+              title: function (context) {
+                return `${context[0].label}`;
+              },
+            },
+          },
+        },
+      },
+    });
+
+    new Chart(bibliotecaCategoria, {
+      type: "bar",
+      data: {
+        labels: categoriaLabel,
+        datasets: [
+          {
+            data: categoriaData,
+            backgroundColor: ["#7b2cbf", "#189fb9", "#ffc300", "#2e2e2e"],
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        layout: {
+          padding: 50,
+        },
+        scales: {
+          y: {
+            ticks: {
+              stepSize: 2,
+              font: {
+                size: 22,
+              },
+            },
+            grid: {
+              display: false,
+            },
+          },
+          x: {
+            grid: {
+              display: false,
+            },
+            ticks: {
+              font: {
+                size: 22,
+              },
+              minRotation: 90,
+            },
+          },
+        },
+        plugins: {
+          legend: {
+            display: false,
           },
           tooltip: {
             backgroundColor: `#222`,

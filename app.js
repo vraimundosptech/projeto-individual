@@ -22,6 +22,7 @@ var medidasRouter = require("./src/routes/medidas");
 var aquariosRouter = require("./src/routes/aquarios");
 var empresasRouter = require("./src/routes/empresas");
 var statusJogoRouter = require("./src/routes/statusJogo");
+var categoriaRouter = require("./src/routes/categoria");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -36,6 +37,7 @@ app.use("/medidas", medidasRouter);
 app.use("/aquarios", aquariosRouter);
 app.use("/empresas", empresasRouter);
 app.use("/statusJogo", statusJogoRouter);
+app.use("/categoria", categoriaRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`

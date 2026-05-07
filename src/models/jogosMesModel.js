@@ -16,10 +16,12 @@ function listar(idUsuario) {
 
     SELECT 
         MONTH(u.mes) AS mes,
-        COUNT(bj.dtAdicionado) AS qtdJogos
+        COUNT(bj.dtAdicionado) AS qtdJogos,
+        COUNT(bj.dtModificacaoStatus) AS qtdZerados
     FROM ultimosMeses u
     LEFT JOIN biblioteca_jogo bj
-        ON DATE_FORMAT(bj.dtAdicionado, '%Y-%m') = DATE_FORMAT(u.mes, '%Y-%m')
+        ON DATE_FORMAT(bj.dtAdicionado, '%Y-%m') = DATE_FORMAT(u.mes, '%Y-%m') AND
+        DATE_FORMAT(bj.dtModificacaoStatus, '%Y-%m') = DATE_FORMAT(u.mes, '%Y-%m')
     GROUP BY u.mes
     ORDER BY u.mes;
     `;

@@ -24,6 +24,7 @@ var empresasRouter = require("./src/routes/empresas");
 var statusJogoRouter = require("./src/routes/statusJogo");
 var categoriaRouter = require("./src/routes/categoria");
 var jogosMesRouter = require("./src/routes/jogosMes");
+var kpisRouter = require("./src/routes/kpis");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -40,6 +41,7 @@ app.use("/empresas", empresasRouter);
 app.use("/statusJogo", statusJogoRouter);
 app.use("/categoria", categoriaRouter);
 app.use("/jogosMes", jogosMesRouter);
+app.use("/kpis", kpisRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`

@@ -253,25 +253,11 @@
 
     nome_boas_vindas.innerText = nomeUsuario;
 
-    var statusLabel = [];
-    var statusData = [];
-
-    var categoriaLabel = [];
-    var categoriaData = [];
-
-    var statusLabel = [];
-    var statusData = [];
-
-    var statusLabel = [];
-    var statusData = [];
-
     fetch(`/statusJogo/listar/${idUsuario}`)
       .then((res) => res.json())
-      .then((dados) => {
-        for (var i = 0; i < dados.length; i++) {
-          statusLabel.push(dados[i].status);
-          statusData.push(dados[i].qtdStatus);
-        }
+      .then((dadosStatus) => {
+        console.log(dadosStatus);
+        plotarGraficoStatus(dadosStatus);
       })
       .catch((erro) => {
         console.log("Erro: ", erro);
@@ -279,16 +265,33 @@
 
     fetch(`/categoria/listar/${idUsuario}`)
       .then((res) => res.json())
-      .then((dados) => {
-        for (var i = 0; i < dados.length; i++) {
-          categoriaLabel.push(dados[i].categoria);
-          categoriaData.push(dados[i].qtdJogo);
-        }
-        console.log(categoriaLabel);
+      .then((dadosCategoria) => {
+        console.log(dadosCategoria);
+        plotarGraficoCategoria(dadosCategoria);
       })
       .catch((erro) => {
         console.log("Erro: ", erro);
       });
+
+    fetch(`/mesAdd/listar/${idUsuario}`)
+      .then((res) => res.json())
+      .then((dadosMesAdd) => {
+        console.log(dadosMesAdd);
+        plotarGraficoJogoMes(dadosMesAdd);
+      })
+      .catch((erro) => {
+        console.log("Erro: ", erro);
+      });
+  }
+
+  function plotarGraficoStatus(dados) {
+    var statusLabel = [];
+    var statusData = [];
+
+    for (var i = 0; i < dados.length; i++) {
+      statusLabel.push(dados[i].status);
+      statusData.push(dados[i].qtdStatus);
+    }
 
     new Chart(statusJogo, {
       type: "doughnut",
@@ -349,6 +352,16 @@
         },
       },
     });
+  }
+
+  function plotarGraficoCategoria(dados) {
+    var categoriaLabel = [];
+    var categoriaData = [];
+
+    for (var i = 0; i < dados.length; i++) {
+      categoriaLabel.push(dados[i].categoria);
+      categoriaData.push(dados[i].qtdJogo);
+    }
 
     new Chart(bibliotecaCategoria, {
       type: "bar",
@@ -422,6 +435,160 @@
       },
     });
   }
-</script>
 
-<script src="../js/grafico.js"></script>
+  function plotarGraficoJogoMes(dados) {
+    var mesLabel = [];
+    var mesAddData = [];
+    var mesZeradoData = [];
+
+    for (var i = 0; i < dados.length; i++) {
+      mesLabel.push(dados[i].mes);
+      mesAddData.push(dados[i].qtdJogos);
+    }
+
+    for (var i = 0; i < mesLabel.length; i++) {
+      switch (mesLabel[i]) {
+        case 1:
+          mesLabel[i] = "Jan";
+          break;
+        case 2:
+          mesLabel[i] = "Fev";
+          break;
+        case 3:
+          mesLabel[i] = "Mar";
+          break;
+        case 4:
+          mesLabel[i] = "Abr";
+          break;
+        case 5:
+          mesLabel[i] = "Mai";
+          break;
+        case 6:
+          mesLabel[i] = "Jun";
+          break;
+        case 7:
+          mesLabel[i] = "Jul";
+          break;
+        case 8:
+          mesLabel[i] = "Ago";
+          break;
+        case 9:
+          mesLabel[i] = "Set";
+          break;
+        case 10:
+          mesLabel[i] = "Out";
+          break;
+        case 11:
+          mesLabel[i] = "Nov";
+          break;
+        case 12:
+          mesLabel[i] = "Dez";
+          break;
+      }
+    }
+
+    new Chart(jogosMes, {
+      type: "line",
+      data: {
+        labels: mesLabel,
+        datasets: [
+          {
+            label: "Jogos adicionados",
+            data: mesAddData,
+            borderColor: "#7b2cbf",
+            backgroundColor: "#5925835b",
+            fill: true,
+            borderWidth: 3,
+            tension: 0.4,
+            pointRadius: 5,
+            pointBackgroundColor: "#7b2cbf",
+          },
+          {
+            label: "Jogos zerados",
+            data: [2, 3, 4, 5, 3, 6],
+            borderColor: "#189fb9",
+            backgroundColor: "#02899b75",
+            fill: true,
+            borderWidth: 3,
+            tension: 0.4,
+            pointRadius: 5,
+            pointBackgroundColor: "#189fb9",
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        layout: {
+          padding: 20,
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: {
+              display: false,
+            },
+            ticks: {
+              stepSize: 2,
+              font: {
+                size: 22,
+              },
+            },
+          },
+          x: {
+            grid: {
+              display: false,
+            },
+            ticks: {
+              font: {
+                size: 22,
+              },
+            },
+          },
+        },
+        plugins: {
+          legend: {
+            position: "top",
+            align: "end",
+            labels: {
+              color: "#555",
+              font: {
+                size: 20,
+              },
+              useBorderRadius: true,
+              borderRadius: 10,
+              boxWidth: 20,
+            },
+          },
+          tooltip: {
+            backgroundColor: `#222`,
+            titleColor: `#fff`,
+            borderColor: `#444`,
+            borderWidth: 1,
+
+            padding: 10,
+            cornerRadius: 8,
+
+            titleFont: {
+              size: 20,
+              weight: "bold",
+            },
+
+            bodyFont: {
+              size: 16,
+            },
+            callbacks: {
+              title: function (context) {
+                return `${context[0].label}`;
+              },
+            },
+            interaction: {
+              mode: "index",
+              intersect: false,
+            },
+          },
+        },
+      },
+    });
+  }
+</script>

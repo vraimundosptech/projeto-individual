@@ -25,6 +25,7 @@ var statusJogoRouter = require("./src/routes/statusJogo");
 var categoriaRouter = require("./src/routes/categoria");
 var jogosMesRouter = require("./src/routes/jogosMes");
 var kpisRouter = require("./src/routes/kpis");
+var top5Router = require("./src/routes/top5");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -42,6 +43,7 @@ app.use("/statusJogo", statusJogoRouter);
 app.use("/categoria", categoriaRouter);
 app.use("/jogosMes", jogosMesRouter);
 app.use("/kpis", kpisRouter);
+app.use("/top5", top5Router);
 
 app.listen(PORTA_APP, function () {
     console.log(`

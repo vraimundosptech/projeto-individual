@@ -245,15 +245,20 @@ a {
   border-color: var(--primary);
 }
 
-.avatar {
-  display: flex;
-  background-image: url(../assets/imgs/avatar.jpg);
+.perfil {
+  background: url(../assets/imgs/avatar.jpg);
   background-size: cover;
   width: 75px;
   height: 75px;
   border-radius: 50%;
   margin: 0 40px 0 0;
   justify-self: end;
+  transition: 0.5s;
+}
+
+.perfil:hover {
+  cursor: pointer;
+  filter: brightness(70%);
 }
 
 /* ========== Main ========== */
@@ -898,7 +903,7 @@ a {
   width: 100%;
 }
 
-.kpis-group .direita {
+.kpis-group .jgs {
   justify-self: end;
 }
 
@@ -1104,9 +1109,8 @@ a {
   border-radius: 10px;
   border: 1px solid var(--border);
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr auto;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
   align-items: center;
-  padding: 0 40px 0 40px;
 }
 
 .pos1 h1 {
@@ -1119,6 +1123,10 @@ a {
 
 .pos3 h1 {
   color: var(--color-bronze);
+}
+
+.game-card h1 {
+  justify-self: center;
 }
 
 .game-card h3 {
@@ -1153,3 +1161,39 @@ a {
   border-radius: 15px;
   height: 500px;
 }
+
+.top5-dash {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-row-gap: 10px;
+  margin: 25px 0 0 0;
+  width: 100%;
+  height: 85%;
+}
+
+.top5-card {
+  width: 100%;
+  background-color: var(--bg-secondary);
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  align-items: center;
+}
+
+.top5-card h1 {
+  justify-self: center;
+}
+
+.top5-card h3 {
+  font-size: 22px;
+  justify-self: end;
+}
+
+.top5-card i {
+  color: var(--warning);
+  font-size: 30px;
+  padding: 0 0 0 10px;
+}
+
+/* ========== PERFIL.HTML ========== */
+

@@ -38,6 +38,7 @@
         </li>
       </ul>
     </div>
+    <div class="perfil" onclick="window.location.href = 'perfil.html'"></div>
   </div>
 
   <div class="main">
@@ -50,7 +51,7 @@
     </div>
 
     <div class="kpis-group">
-      <div class="kpi">
+      <div class="kpi jgs">
         <div class="icon-box roxo">
           <i class="bi bi-collection"></i>
         </div>
@@ -68,7 +69,7 @@
           <p>Jogos zerados</p>
         </div>
       </div>
-      <div class="kpi direita">
+      <div class="kpi">
         <div class="icon-box azul">
           <i class="bi bi-patch-question"></i>
         </div>
@@ -203,8 +204,7 @@
           <div class="dash-card categoria">
             <h1>Melhores Avaliados</h1>
             <p>Top 5 jogos com maior nota</p>
-            <div class="top5-dash">
-              
+            <div class="top5-dash" id="top5_dash">
             </div>
           </div>
         </div>
@@ -250,7 +250,7 @@
 <script>
   function carregarDados() {
     var idUsuario = sessionStorage.getItem("ID_USUARIO");
-    var nomeUsuario = sessionStorage.getItem("NOME_USUARIO");
+    var nomeUsuario = sessionStorage.getItem("NOMEUSUARIO_USUARIO");
 
     nome_boas_vindas.innerText = nomeUsuario;
 
@@ -287,6 +287,15 @@
       .then((res) => res.json())
       .then((dadosCategoria) => {
         plotarGraficoCategoria(dadosCategoria);
+      })
+      .catch((erro) => {
+        console.log("Erro: ", erro);
+      });
+
+    fetch(`/top5/listar/${idUsuario}`)
+      .then((res) => res.json())
+      .then((dadosTop5) => {
+        plotarTop5(dadosTop5);
       })
       .catch((erro) => {
         console.log("Erro: ", erro);
@@ -603,4 +612,20 @@
     });
   }
 
+  function plotarTop5(dados) {
+    // console.log(dados)
+
+    dados.forEach(function(jogo, index) {
+      top5_dash.innerHTML += `
+      <div class="top5-card">
+        <h1>${index + 1}</h1>
+        <h2>${jogo.nome}</h2>
+        <h3>${jogo.nota}</h3>
+        <div>
+          <i class="bi bi-star-fill"></i>
+        </div>
+      </div>
+      `
+    });
+  }
 </script>

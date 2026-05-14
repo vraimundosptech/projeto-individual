@@ -1,0 +1,39 @@
+@import url(style.css);
+@import url(cadastro.css);
+@import url(colors.css);
+
+.login .conteudo1 {
+  height: auto;
+  padding: 50px 0 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  display: flex;
+  width: 1200px;
+  height: 700px;
+  background-color: var(--bg-secondary);
+  flex-direction: row;
+  border-radius: 15px;
+}
+
+.login .esquerda {
+  width: 50%;
+  background-color: var(--primary-hover);
+  border-radius: 15px 0 0 15px;
+  justify-content: center;
+  justify-items: center;
+}
+
+.login .direita {
+  width: 50%;
+  border-radius: 0 15px 15px 0;
+  padding: 75px 50px 0 50px;
+}
+
+.login .senhaInput i {
+  right: 5%;
+  top: 10%;
+}

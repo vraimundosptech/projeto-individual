@@ -1,8 +1,7 @@
 var top5Model = require("../models/top5Model");
 
 function listar(req, res) {
-  const idUsuario = Number(req.params.idUsuario);
-  if (!idUsuario) return res.status(400).send("idUsuario inválido");
+  var idUsuario = req.params.idUsuario;
 
   top5Model
     .listar(idUsuario)

@@ -5,7 +5,7 @@ function listar(idUsuario) {
         SELECT j.nome, a.nota FROM avaliacao a
         JOIN jogo j
         ON j.idJogo = a.fkJogo
-        WHERE fkUsuario = 1
+        WHERE fkUsuario = ${idUsuario}
         ORDER BY nota DESC
         LIMIT 5;
     `;

@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Titulo da página inicial -->
+  <title>GameScore | Tela de Início</title>
+
+  <!-- Script de validacao de usuario da sessão -->
+  <script src="./js/sessao.js"></script>
+
+  <!-- Links de conexao com css -->
+  <link rel="stylesheet" href="../css/perfil.css" />
+  <link rel="stylesheet" href="../css/fonts.css" />
+  <link rel="icon" href="../assets/icon/GameScore.ico" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body onload="carregarDados()">
+  <div class="header">
+    <div class="logo"></div>
+    <div class="links">
+      <ul class="navbar">
+        <li class="outros">
+          <a href="dashboard.html">Dashboard</a>
+        </li>
+        <li class="outros">
+          <a href="biblioteca.html">Biblioteca</a>
+        </li>
+        <li class="outros">
+          <a href="ranking.html">Ranking</a>
+        </li>
+        <li class="outros">
+          <a href="quiz.html">Quiz</a>
+        </li>
+      </ul>
+    </div>
+    <div class="perfil" onclick="window.location.href = 'perfil.html'"></div>
+  </div>
+
+  <div class="main">
+    <div class="boas-vindas">
+      <div class="text">
+        <div class="foto-perfil"></div>
+      </div>
+    </div>
+    <div class="conteudo-perfil">
+      <div class="descricao">
+        <h1>PlayerOne</h1>
+        <h2>@playerone • membro desde Jan 2024</h2>
+        <p>
+          RPG de alma, indie de coração. Zerador compulsivo e colecionador de
+          jogos que nunca vou terminar.
+        </p>
+        <div class="buttons-perfil">
+          <div class="btn-perfil"><i class="bi bi-pencil"></i>Editar perfil</div>
+          <div class="btn-perfil"><i class="bi bi-gear"></i>Configurações</div>
+        </div>
+      </div>
+      <div class="kpis-group">
+        <div class="kpi jgs">
+          <div class="icon-box roxo">
+            <i class="bi bi-collection"></i>
+          </div>
+          <div>
+            <h1 id="qtdBiblioteca">0</h1>
+            <p>Jogos na biblioteca</p>
+          </div>
+        </div>
+        <div class="kpi">
+          <div class="icon-box verde">
+            <i class="bi bi-check2-circle"></i>
+          </div>
+          <div>
+            <h1 id="qtdZerados">0</h1>
+            <p>Jogos zerados</p>
+          </div>
+        </div>
+        <div class="kpi">
+          <div class="icon-box azul">
+            <i class="bi bi-patch-question"></i>
+          </div>
+          <div>
+            <h1 id="qtdQuizzes">0</h1>
+            <p>Quizzes respondidos</p>
+          </div>
+        </div>
+      </div>
+      <div class="jogos-favoritos">
+        <div class="titulo">
+          <h1>JOGOS FAVORITOS</h1>
+          <p>Ver todos</p>
+        </div>
+        <hr>
+        <div class="cards">
+          <div class="card">
+            <div class="texto-capa">
+            </div>
+          </div>
+          <div class="card">
+            <div class="texto-capa">
+            </div>
+          </div>
+          <div class="card">
+            <div class="texto-capa">
+            </div>
+          </div>
+          <div class="card">
+            <div class="texto-capa">
+            </div>
+          </div>
+          <div class="card">
+            <div class="texto-capa">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ultimas-avaliacoes">
+        <div class="titulo">
+          <h1>ÚLTIMAS AVALIAÇÕES</h1>
+          <p>Ver todas</p>
+        </div>
+        <hr>
+        <div class="cards">
+          <div class="card">
+            <div class="capa-jogo"></div>
+            <div>
+              <div class="titulo">
+                <h1>Elden Ring</h1>
+                <div class="estrelas">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-half"></i>
+                </div>
+              </div>
+              <div class="titulo">
+                <p>FromSoftware · 2022 · RPG / Ação</p>
+                <p>2h atrás</p>
+              </div>
+              <p>Uma obra-prima absoluta. O mundo aberto foi feito de um jeito que nunca vi antes — cada canto esconde
+                algo surpreendente. A dificuldade é brutal, mas justa.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="capa-jogo"></div>
+            <div>
+              <div class="titulo">
+                <h1>Hollow Knight</h1>
+                <div class="estrelas">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                </div>
+              </div>
+              <div class="titulo">
+                <p>Team Cherry · 2017 · Metroidvania</p>
+                <p>ontem</p>
+              </div>
+              <p>Perfeito em tudo. Arte, trilha sonora, gameplay, level design. Um dos melhores indies já feitos. Bugou
+                meu cérebro por semanas.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="capa-jogo"></div>
+            <div>
+              <div class="titulo">
+                <h1>Celeste</h1>
+                <div class="estrelas">
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star"></i>
+                </div>
+              </div>
+              <div class="titulo">
+                <p>Maddy Thorson · 2018 · Plataforma</p>
+                <p>3 dias</p>
+              </div>
+              <p>Narrativa sobre saúde mental tratada com muito cuidado. Gameplay desafiador mas acessível. Chorei.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="content">
+      <div class="logo"></div>
+      <ul class="footer-bar">
+        <li>
+          <a href="#">Dashboard</a>
+        </li>
+        <li>
+          <a href="biblioteca.html">Biblioteca</a>
+        </li>
+        <li>
+          <a href="ranking.html">Ranking</a>
+        </li>
+        <li>
+          <a href="quiz.html">Quiz</a>
+        </li>
+      </ul>
+      <div class="site">
+        <a href="https://github.com/vraimundosptech/projeto-individual" target="_blank">
+          <div class="box">
+            <i class="bi bi-github"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="comments">
+      <p>&copy 2026 GameScore. Todos os direitos reservados.</p>
+      <p>Feito com ❤️ para a comunidade gamer</p>
+    </div>
+  </div>
+</body>
+
+</html>

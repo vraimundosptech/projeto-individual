@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Titulo da página inicial -->
+    <title>GameScore | Tela de Início</title>
+
+    <!-- Script de validacao de usuario da sessão -->
+    <script src="./js/sessao.js"></script>
+
+    <!-- Links de conexao com css -->
+    <link rel="stylesheet" href="../css/biblioteca.css" />
+    <link rel="stylesheet" href="../css/fonts.css" />
+    <link rel="icon" href="../assets/icon/GameScore.ico" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body onload="carregarDados()">
+    <div class="header">
+      <div class="logo"></div>
+      <div class="links">
+        <ul class="navbar">
+          <li class="outros">
+            <a href="dashboard.html">Dashboard</a>
+          </li>
+          <li class="agora">
+            <a href="biblioteca.html">Biblioteca</a>
+          </li>
+          <li class="outros">
+            <a href="ranking.html">Ranking</a>
+          </li>
+          <li class="outros">
+            <a href="quiz.html">Quiz</a>
+          </li>
+        </ul>
+      </div>
+      <div class="perfil" onclick="window.location.href = 'perfil.html'"></div>
+    </div>
+
+    <div class="main">
+      <div class="top-bar">
+        <div class="titulo">
+          <h1>Minha Biblioteca</h1>
+          <p><span id="qtdJogos">0</span> jogos na sua coleção</p>
+        </div>
+        <div class="btn-adicionar">
+          <i class="bi bi-plus"></i>
+          <p>Adicionar jogo</p>
+        </div>
+      </div>
+      <div class="filtro">
+        <div class="filtro-status">
+          <div class="status ativo">
+            <p>Todos</p>
+            <div class="qtd-status" id="qtdStatus">0</div>
+          </div>
+          <div class="status">
+            <p>Jogando</p>
+            <div class="qtd-status" id="qtdStatus">0</div>
+          </div>
+          <div class="status">
+            <p>Zerados</p>
+            <div class="qtd-status" id="qtdStatus">0</div>
+          </div>
+          <div class="status">
+            <p>Quero jogar</p>
+            <div class="qtd-status" id="qtdStatus">0</div>
+          </div>
+          <div class="status">
+            <p>Pausados</p>
+            <div class="qtd-status" id="qtdStatus">0</div>
+          </div>
+        </div>
+        <div class="direita">
+          <div class="buscar-jogo">
+            <i></i>
+            <input type="text" placeholder="Buscar jogo..." />
+          </div>
+          <div class="filtro-ordem">
+            <select name="ordem" id="ordemJogo">
+              <option value="recente">Adicionados recentemente</option>
+              <option value="avaliado">Melhor avaliados</option>
+              <option value="az">Nome (A-Z)</option>
+              <option value="az">Nome (Z-A)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="biblioteca-capas">
+        <div class="card">
+          <div class="capa"></div>
+          <div>
+            <h1 id="nomeJogo">Elden Ring</h1>
+            <div class="estrelas">
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+            </div>
+          </div>
+          <div class="capa"></div>
+          <div>
+            <h1 id="nomeJogo">The Last of Us II</h1>
+            <div class="estrelas">
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+            </div>
+          </div>
+          <div class="capa"></div>
+          <div>
+            <h1 id="nomeJogo">God of War</h1>
+            <div class="estrelas">
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+              <i></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="content">
+        <div class="logo"></div>
+        <ul class="footer-bar">
+          <li>
+            <a href="#">Dashboard</a>
+          </li>
+          <li>
+            <a href="biblioteca.html">Biblioteca</a>
+          </li>
+          <li>
+            <a href="ranking.html">Ranking</a>
+          </li>
+          <li>
+            <a href="quiz.html">Quiz</a>
+          </li>
+        </ul>
+        <div class="site">
+          <a
+            href="https://github.com/vraimundosptech/projeto-individual"
+            target="_blank"
+          >
+            <div class="box">
+              <i class="bi bi-github"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="comments">
+        <p>&copy 2026 GameScore. Todos os direitos reservados.</p>
+        <p>Feito com ❤️ para a comunidade gamer</p>
+      </div>
+    </div>
+  </body>
+</html>

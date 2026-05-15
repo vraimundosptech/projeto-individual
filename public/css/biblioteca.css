@@ -1,0 +1,131 @@
+@import url(style.css);
+@import url(index.css);
+
+.main {
+  min-height: 70vh;
+  padding: 175px 50px 50px 50px;
+}
+
+.top-bar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: end;
+  padding: 0 0 25px 0;
+}
+
+.top-bar h1 {
+  color: var(--text-primary);
+  font-weight: bolder;
+  font-size: 48px;
+}
+
+.titulo p,
+.titulo span {
+  color: var(--text-secondary);
+}
+
+.btn-adicionar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent);
+  width: 175px;
+  height: 50px;
+  border-radius: 15px;
+}
+
+.btn-adicionar p {
+  font-weight: bold;
+  padding: 0 10px 0 0;
+}
+
+.btn-adicionar i {
+  font-size: 28px;
+}
+
+.filtro {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filtro-status {
+  display: flex;
+}
+
+.filtro-status .ativo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px 0 20px;
+  margin: 0 5px 0 0;
+  background-color: color-mix(in srgb, var(--primary), transparent 75%);
+  border: 1px solid var(--primary) !important;
+  border-radius: 10px;
+  width: fit-content;
+  height: 35px;
+}
+
+.filtro-status .status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 25px 0 25px;
+  margin: 0 5px 0 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  width: fit-content;
+  height: 50px;
+  transition: 0.3s;
+}
+
+.filtro-status:hover {
+  cursor: pointer;
+}
+
+.filtro-status .status:hover {
+  border-color: var(--text-muted);
+  transition: 0.3s;
+}
+
+.filtro-status .ativo p {
+  color: var(--primary) !important;
+  padding: 0 10px 0 0;
+}
+
+.filtro-status .status p {
+  color: var(--text-muted);
+  padding: 0 10px 0 0;
+  transition: 0.3s;
+}
+
+.status:hover p {
+  color: var(--text-primary);
+}
+
+.ativo .qtd-status {
+  color: var(--primary) !important;
+  background-color: color-mix(
+    in srgb,
+    var(--primary),
+    transparent 65%
+  ) !important;
+  padding: 3px 8px;
+  border-radius: 10px;
+}
+
+.status .qtd-status {
+    color: var(--text-muted);
+    background-color: color-mix(in srgb, var(--text-muted), transparent 65%);
+    padding: 3px 8px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.status:hover .qtd-status {
+  color: var(--text-primary);
+}
+
+.filtro .direita {
+  display: flex;
+}

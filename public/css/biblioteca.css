@@ -115,11 +115,11 @@
 }
 
 .status .qtd-status {
-    color: var(--text-muted);
-    background-color: color-mix(in srgb, var(--text-muted), transparent 65%);
-    padding: 3px 8px;
-    border-radius: 10px;
-    transition: 0.3s;
+  color: var(--text-muted);
+  background-color: color-mix(in srgb, var(--text-muted), transparent 65%);
+  padding: 3px 8px;
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
 .status:hover .qtd-status {
@@ -128,4 +128,77 @@
 
 .filtro .direita {
   display: flex;
+  align-items: center;
+}
+
+.buscar-jogo {
+  margin: 0 15px 0 0;
+}
+
+.buscar-jogo input {
+  border: none;
+  width: fit-content;
+  height: 50px;
+  border-radius: 10px;
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+  padding: 0 40px 0 40px;
+  font-size: 18px;
+}
+
+.filtro-ordem select {
+  border: none;
+  width: fit-content;
+  height: 40px;
+  border-radius: 10px;
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+  padding: 0 20px 0 20px;
+  font-size: 18px;
+}
+
+.filtro-ordem option {
+  color: var(--text-secondary);
+}
+
+.biblioteca-capas {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  margin: 50px 0 0 0;
+  grid-column-gap: 35px;
+}
+
+.card {
+  height: fit-content;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card:hover .capa{
+  filter: brightness(70%);
+}
+
+.capa {
+  width: 100%;
+  max-width: 200px;
+  height: 275px;
+  border-radius: 10px;
+  margin: 0 0 10px 0;
+  transition: 0.5s;
+  outline: none;
+}
+
+.card h1 {
+  font-size: 20px;
+  margin: 0 0 0 10px;
+}
+
+.estrelas {
+  margin: 5px 0 0 10px;
+}
+
+.estrelas i {
+  color: var(--warning);
 }

@@ -1,146 +1,237 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Titulo da página inicial -->
-    <title>GameScore | Tela de Início</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Script de validacao de usuario da sessão -->
-    <script src="./js/sessao.js"></script>
+  <!-- Titulo da página inicial -->
+  <title>GameScore | Tela de Início</title>
 
-    <!-- Links de conexao com css -->
-    <link rel="stylesheet" href="../css/biblioteca.css" />
-    <link rel="stylesheet" href="../css/fonts.css" />
-    <link rel="icon" href="../assets/icon/GameScore.ico" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  </head>
+  <!-- Script de validacao de usuario da sessão -->
+  <script src="./js/sessao.js"></script>
 
-  <body onload="carregarDados()">
-    <div class="header">
+  <!-- Links de conexao com css -->
+  <link rel="stylesheet" href="../css/biblioteca.css" />
+  <link rel="stylesheet" href="../css/fonts.css" />
+  <link rel="icon" href="../assets/icon/GameScore.ico" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body onload="carregarDados()">
+  <div class="header">
+    <div class="logo"></div>
+    <div class="links">
+      <ul class="navbar">
+        <li class="outros">
+          <a href="dashboard.html">Dashboard</a>
+        </li>
+        <li class="agora">
+          <a href="biblioteca.html">Biblioteca</a>
+        </li>
+        <li class="outros">
+          <a href="ranking.html">Ranking</a>
+        </li>
+        <li class="outros">
+          <a href="quiz.html">Quiz</a>
+        </li>
+      </ul>
+    </div>
+    <div class="perfil" onclick="window.location.href = 'perfil.html'"></div>
+  </div>
+
+  <div class="main">
+    <div class="top-bar">
+      <div class="titulo">
+        <h1>Minha Biblioteca</h1>
+        <p><span id="qtdJogos">0</span> jogos na sua coleção</p>
+      </div>
+      <div class="btn-adicionar">
+        <i class="bi bi-plus"></i>
+        <p>Adicionar jogo</p>
+      </div>
+    </div>
+    <div class="filtro">
+      <div class="filtro-status">
+        <div class="status ativo" id="statusTodos" onclick="plotarTodos()">
+          <p>Todos</p>
+          <div class="qtd-status" id="qtdStatus">0</div>
+        </div>
+        <div class="status" id="statusJogando" onclick="plotarJogando()">
+          <p>Jogando</p>
+          <div class="qtd-status" id="qtdJogando">0</div>
+        </div>
+        <div class="status" id="statusZerados" onclick="plotarZerados()">
+          <p>Zerados</p>
+          <div class="qtd-status" id="qtdZerados">0</div>
+        </div>
+        <div class="status" id="statusQuero" onclick="plotarQuero()">
+          <p>Quero jogar</p>
+          <div class="qtd-status" id="qtdQuero">0</div>
+        </div>
+        <div class="status" id="statusPausados" onclick="plotarPausados()">
+          <p>Pausados</p>
+          <div class="qtd-status" id="qtdPausados">0</div>
+        </div>
+      </div>
+      <div class="direita">
+        <div class="buscar-jogo">
+          <i></i>
+          <input id="ipt_buscar_jogo" type="text" placeholder="Buscar jogo..." oninput="buscarJogo()" />
+        </div>
+      </div>
+    </div>
+
+    <div class="biblioteca-capas" id="bibliotecaCapas"></div>
+  </div>
+
+  <div class="footer">
+    <div class="content">
       <div class="logo"></div>
-      <div class="links">
-        <ul class="navbar">
-          <li class="outros">
-            <a href="dashboard.html">Dashboard</a>
-          </li>
-          <li class="agora">
-            <a href="biblioteca.html">Biblioteca</a>
-          </li>
-          <li class="outros">
-            <a href="ranking.html">Ranking</a>
-          </li>
-          <li class="outros">
-            <a href="quiz.html">Quiz</a>
-          </li>
-        </ul>
+      <ul class="footer-bar">
+        <li>
+          <a href="#">Dashboard</a>
+        </li>
+        <li>
+          <a href="biblioteca.html">Biblioteca</a>
+        </li>
+        <li>
+          <a href="ranking.html">Ranking</a>
+        </li>
+        <li>
+          <a href="quiz.html">Quiz</a>
+        </li>
+      </ul>
+      <div class="site">
+        <a href="https://github.com/vraimundosptech/projeto-individual" target="_blank">
+          <div class="box">
+            <i class="bi bi-github"></i>
+          </div>
+        </a>
       </div>
-      <div class="perfil" onclick="window.location.href = 'perfil.html'"></div>
     </div>
 
-    <div class="main">
-      <div class="top-bar">
-        <div class="titulo">
-          <h1>Minha Biblioteca</h1>
-          <p><span id="qtdJogos">0</span> jogos na sua coleção</p>
-        </div>
-        <div class="btn-adicionar">
-          <i class="bi bi-plus"></i>
-          <p>Adicionar jogo</p>
-        </div>
+    <div class="comments">
+      <p>&copy 2026 GameScore. Todos os direitos reservados.</p>
+      <p>Feito com ❤️ para a comunidade gamer</p>
+    </div>
+  </div>
+
+  <div class="adicionar-modal-fundo">
+    <div class="modal-card">
+      <div class="titulo-modal">
+        <div></div>
+        <h1>Adicionar jogo na biblioteca</h1>
+        <button class="btn-fechar" id="btnFechar" onclick="fecharModal()"><i class="bi bi-x"></i></button>
       </div>
-      <div class="filtro">
-        <div class="filtro-status">
-          <div class="status ativo">
-            <p>Todos</p>
-            <div class="qtd-status" id="qtdStatus">0</div>
-          </div>
-          <div class="status">
-            <p>Jogando</p>
-            <div class="qtd-status" id="qtdStatus">0</div>
-          </div>
-          <div class="status">
-            <p>Zerados</p>
-            <div class="qtd-status" id="qtdStatus">0</div>
-          </div>
-          <div class="status">
-            <p>Quero jogar</p>
-            <div class="qtd-status" id="qtdStatus">0</div>
-          </div>
-          <div class="status">
-            <p>Pausados</p>
-            <div class="qtd-status" id="qtdStatus">0</div>
-          </div>
-        </div>
-        <div class="direita">
-          <div class="buscar-jogo">
+      <div class="conteudo-modal">
+        <div class="pesquisar-jogo">
+          <div class="pesquisar-jogo-input">
             <i></i>
-            <input type="text" placeholder="Buscar jogo..." />
+            <input id="ipt_pesquisar_jogo" type="text" placeholder="Buscar jogo..." oninput="pesquisarJogo()"
+              style="display: none;" />
           </div>
+          <div class="resultado-pesquisa" id="div_resultado_pesquisa">
 
-          <div class="filtro-ordem">
-            <select name="ordem" id="ordemJogo">
-              <option value="recente">Adicionados recentemente</option>
-              <option value="avaliado">Melhor avaliados</option>
-              <option value="az">Nome (A-Z)</option>
-              <option value="az">Nome (Z-A)</option>
-            </select>
+            <div class="card" style="display: none;">
+              <img class="capa-modal"
+                src="https://upload.wikimedia.org/wikipedia/pt/thumb/0/0d/Elden_Ring_capa.jpg/330px-Elden_Ring_capa.jpg"></img>
+              <div>
+                <h1>Nome do Jogo</h1>
+                <h2>Categoria</h2>
+                <h2>Desenvolvedora</h2>
+                <h2>Data de lancamento</h2>
+                <div class="direita">Classificao de Idade</div>
+              </div>
+            </div>
+
+            <div class="jogo-nao-encontrado">
+              <h1>Nenhum jogo detectado em nosso radar!</h1>
+              <button>Criar novo jogo</button>
+            </div>
+
           </div>
-        </div>
-      </div>
-
-      <div class="biblioteca-capas">
-        <div class="card">
-          <img class="capa" src="https://upload.wikimedia.org/wikipedia/pt/thumb/0/0d/Elden_Ring_capa.jpg/330px-Elden_Ring_capa.jpg"></img>
-          <div>
-            <h1 id="nomeJogo">Elden Ring</h1>
-            <div class="estrelas">
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
+          <div class="criar-jogo">
+            <div class="voltar">
+              <i class="bi bi-arrow-left-short"></i>
+            </div>
+            <div class="criar-jogo-form">
+              <label for="ipt_capa">
+                <div class="selecione-capa">
+                  <h3 id="texto_arquivo">
+                    Selecione a capa do jogo
+                  </h3>
+                </div>
+              </label>
+              <input class="upload" id="ipt_capa" type="file" accept="image/*">
+              <h3>
+                Nome do Jogo:
+              </h3>
+              <input type="text" id="ipt_nome" placeholder="Grand Thef Auto VI">
+              <h3>
+                Desenvolvedora:
+              </h3>
+              <input type="text" id="ipt_desenvolvedora" placeholder="Rockstar Games">
+              <h3>
+                Data de lancamento:
+              </h3>
+              <input type="text" id="ipt_lancamento" placeholder="DD/MM/AAAA">
+              <div class="select-group">
+                <h3>
+                  Categoria:
+                </h3>
+                <h3>
+                  Classificao<br>
+                  de idade:
+                </h3>
+                <select class="select-criar-jogo" id="slct_categoria">
+                  <option value="Ação">Ação</option>
+                  <option value="Aventura">Aventura</option>
+                  <option value="Battle Royale">Battle Royale</option>
+                  <option value="Corrida">Corrida</option>
+                  <option value="Esporte">Esporte</option>
+                  <option value="Estratégia">Estratégia</option>
+                  <option value="FPS">FPS</option>
+                  <option value="Indie">Indie</option>
+                  <option value="Luta">Luta</option>
+                  <option value="Plataforma">Plataforma</option>
+                  <option value="Puzzle">Puzzle</option>
+                  <option value="RPG">RPG</option>
+                  <option value="Sandbox">Sandbox</option>
+                  <option value="Simulação">Simulação</option>
+                  <option value="Survival">Survival</option>
+                  <option value="Terror">Terror</option>
+                  <option value="Tiro">Tiro</option>
+                </select>
+                <select class="select-criar-jogo" id="slct_idade">
+                  <option value="Livre">Livre</option>
+                  <option value="6">6</option>
+                  <option value="10">10</option>
+                  <option value="12">12</option>
+                  <option value="14">14</option>
+                  <option value="16">16</option>
+                  <option value="18">18</option>
+                </select>
+              </div>
+              <h3>
+                Descrição do jogo:
+              </h3>
+              <textarea type="text" id="ipt_descricao" maxlength="255"></textarea>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</body>
 
-    <div class="footer">
-      <div class="content">
-        <div class="logo"></div>
-        <ul class="footer-bar">
-          <li>
-            <a href="#">Dashboard</a>
-          </li>
-          <li>
-            <a href="biblioteca.html">Biblioteca</a>
-          </li>
-          <li>
-            <a href="ranking.html">Ranking</a>
-          </li>
-          <li>
-            <a href="quiz.html">Quiz</a>
-          </li>
-        </ul>
-        <div class="site">
-          <a
-            href="https://github.com/vraimundosptech/projeto-individual"
-            target="_blank"
-          >
-            <div class="box">
-              <i class="bi bi-github"></i>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <div class="comments">
-        <p>&copy 2026 GameScore. Todos os direitos reservados.</p>
-        <p>Feito com ❤️ para a comunidade gamer</p>
-      </div>
-    </div>
-  </body>
 </html>
+
+<script src="../js/biblioteca.js"></script>
+
+<script>
+  ipt_capa.addEventListener('change', function () {
+    texto_arquivo.textContent = this.files[0].name
+  })
+</script>

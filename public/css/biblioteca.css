@@ -33,15 +33,23 @@
   width: 175px;
   height: 50px;
   border-radius: 15px;
+  transition: 0.2s;
+}
+
+.btn-adicionar:hover {
+  background-color: var(--accent-hover);
+  cursor: pointer;
 }
 
 .btn-adicionar p {
   font-weight: bold;
   padding: 0 10px 0 0;
+  transition: 0.2s;
 }
 
 .btn-adicionar i {
   font-size: 28px;
+  transition: 0.2s;
 }
 
 .filtro {
@@ -146,7 +154,50 @@
   font-size: 18px;
 }
 
-.filtro-ordem select {
+.biblioteca-capas {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  margin: 50px 0 0 0;
+  grid-column-gap: 35px;
+  grid-row-gap: 35px;
+}
+
+.biblioteca-capas .card {
+  height: fit-content;
+}
+
+.biblioteca-capas .card:hover {
+  cursor: pointer;
+}
+
+.biblioteca-capas .card:hover .capa {
+  filter: brightness(70%);
+}
+
+.biblioteca-capas .capa {
+  width: 100%;
+  max-width: 200px;
+  height: 275px;
+  border-radius: 10px;
+  margin: 0 0 10px 0;
+  transition: 0.5s;
+  outline: none;
+}
+
+.biblioteca-capas .card h1 {
+  font-size: 20px;
+  margin: 0 0 0 10px;
+}
+
+.biblioteca-capas .estrelas {
+  margin: 5px 0 0 10px;
+}
+
+.estrelas i {
+  color: var(--warning);
+}
+
+.select-criar-jogo select {
   border: none;
   width: fit-content;
   height: 40px;
@@ -157,48 +208,280 @@
   font-size: 18px;
 }
 
-.filtro-ordem option {
+.select-criar-jogo option {
   color: var(--text-secondary);
 }
 
-.biblioteca-capas {
+.adicionar-modal-fundo {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-card {
+  display: flex;
+  background-color: var(--bg-card);
+  width: 50%;
+  height: 75%;
+  border-radius: 10px;
+  flex-direction: column;
+}
+
+.btn-fechar {
+  margin: 10px 20px 0 0;
+  cursor: pointer;
+  justify-self: flex-end;
+  background-color: transparent;
+  border: none;
+  align-self: flex-end;
+  font-size: 40px;
+}
+
+.conteudo-modal {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px 0 20px;
+  text-align: justify;
+  min-height: 0;
+}
+
+.titulo-modal {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  margin: 50px 0 0 0;
-  grid-column-gap: 35px;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin: 25px 25px 25px 25px;
 }
 
-.card {
-  height: fit-content;
+.pesquisar-jogo {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
-.card:hover {
+.pesquisar-jogo-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pesquisar-jogo-input input {
+  border: none;
+  width: fit-content;
+  height: 50px;
+  border-radius: 10px;
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+  padding: 0 200px 0 40px;
+  font-size: 18px;
+}
+
+.resultado-pesquisa {
+  padding: 25px 50px 0 50px;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+
+.resultado-pesquisa::-webkit-scrollbar {
+  width: 12px;
+}
+
+.resultado-pesquisa::-webkit-scrollbar-track {
+  border-radius: 6px;
+}
+
+.resultado-pesquisa::-webkit-scrollbar-thumb {
+  background: var(--text-primary);
+  border-radius: 6px;
+}
+
+.resultado-pesquisa::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+.resultado-pesquisa .card {
+  display: flex;
+  padding: 20px;
+  transition: 0.2s;
+}
+
+.resultado-pesquisa .card:hover {
+  background-color: var(--bg-secondary);
   cursor: pointer;
 }
 
-.card:hover .capa{
-  filter: brightness(70%);
+.capa-modal {
+  background-color: aqua;
+  width: 125px;
+  height: 175px;
+  margin: 0 25px 0 0;
+  border-radius: 5px;
 }
 
-.capa {
-  width: 100%;
-  max-width: 200px;
-  height: 275px;
+.jogo-nao-encontrado {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0 0 0;
+}
+
+.jogo-nao-encontrado h1 {
+  font-size: 22px;
+}
+
+.jogo-nao-encontrado button {
+  margin: 50px 0 0 0;
+  background-color: var(--accent);
+  border: none;
   border-radius: 10px;
-  margin: 0 0 10px 0;
+  padding: 15px 60px;
+  font-size: 24px;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.jogo-nao-encontrado button:hover {
+  background-color: var(--accent-hover);
+  cursor: pointer;
+}
+
+.criar-jogo {
+  /* display: none; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.criar-jogo-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: -50px 0 0 0;
+}
+
+.criar-jogo-form h3 {
+  align-self: flex-start;
+}
+
+.criar-jogo::-webkit-scrollbar {
+  width: 12px;
+}
+
+.criar-jogo::-webkit-scrollbar-track {
+  border-radius: 6px;
+}
+
+.criar-jogo::-webkit-scrollbar-thumb {
+  background: var(--text-primary);
+  border-radius: 6px;
+}
+
+.criar-jogo::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+.criar-jogo input,
+.criar-jogo select,
+.criar-jogo textarea,
+.selecione-capa {
+  margin: 5px 0 25px 0;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  min-height: 50px;
+  background-color: var(--bg-card-hover);
+  font-size: 20px;
   transition: 0.5s;
   outline: none;
+  box-shadow: none;
 }
 
-.card h1 {
-  font-size: 20px;
-  margin: 0 0 0 10px;
+.criar-jogo input {
+  width: 100%;
+  text-align: center;
 }
 
-.estrelas {
-  margin: 5px 0 0 10px;
+.criar-jogo select {
+  text-align: center;
 }
 
-.estrelas i {
-  color: var(--warning);
+.select-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 100px;
+}
+
+.criar-jogo textarea {
+  width: 100%;
+  padding: 25px 25px 25px 25px;
+  min-height: 150px;
+  display: flex;
+  overflow-y: auto;
+  resize: none;
+}
+
+.criar-jogo textarea::-webkit-scrollbar {
+  width: 12px;
+}
+
+.criar-jogo textarea::-webkit-scrollbar-track {
+  border-radius: 6px;
+}
+
+.criar-jogo textarea::-webkit-scrollbar-thumb {
+  background: var(--text-primary);
+  border-radius: 6px;
+}
+
+.criar-jogo textarea::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+.upload {
+  display: none;
+}
+
+.selecione-capa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  cursor: pointer;
+  padding: 15px 50px 0 50px;
+}
+
+.selecione-capa:hover {
+  background-color: var(--bg-secondary);
+}
+
+.selecione-capa h3 {
+  transition: 0.2s;
+}
+
+.selecione-capa:hover h3{
+  color: var(--text-muted);
+}
+
+.voltar {
+  align-self: start;
+  margin: 0 0 0 150px;
+}
+
+.voltar i {
+  font-size: 50px;
+  transition: 0.2s;
+}
+
+.voltar:hover i {
+  color: var(--text-secondary);
+  cursor: pointer;
 }

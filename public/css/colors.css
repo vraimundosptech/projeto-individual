@@ -5,7 +5,7 @@
   --bg-card: #222222;
   --bg-card-hover: #2b2b2b;
 
-  /* Cores principais (identidade) */
+  /* Cores principais */
   --primary: #7b2cbf;
   --primary-hover: #592583;
 
@@ -24,13 +24,6 @@
   --success: #00ff88;
   --error: #ff4d4d;
   --warning: #ffc300;
-
-  /* Efeitos (glow/neon) */
-  --glow-purple: 0 0 10px #7b2cbf, 0 0 20px #7b2cbf;
-  --glow-blue: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
-
-  /* Gradiente gamer */
-  --gradient-primary: linear-gradient(135deg, #7b2cbf, #00d4ff);
 
   /* Medalhas */
   --color-gold: #d4af37;

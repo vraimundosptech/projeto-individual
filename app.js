@@ -23,6 +23,7 @@ var jogosMesRouter = require("./src/routes/jogosMes");
 var kpisRouter = require("./src/routes/kpis");
 var top5Router = require("./src/routes/top5");
 var bibliotecaRouter = require("./src/routes/biblioteca");
+var jogoRouter = require("./src/routes/jogo");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -38,6 +39,7 @@ app.use("/jogosMes", jogosMesRouter);
 app.use("/kpis", kpisRouter);
 app.use("/top5", top5Router);
 app.use("/biblioteca", bibliotecaRouter);
+app.use("/jogo", jogoRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`

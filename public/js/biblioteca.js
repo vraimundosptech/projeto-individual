@@ -16,10 +16,10 @@ function carregarDados(instrucao) {
   fetch(`/statusJogo/listar/${idUsuario}`)
     .then((res) => res.json())
     .then((dadosStatus) => {
-      qtdZerados.innerHTML = dadosStatus[0].qtdStatus;
-      qtdJogando.innerHTML = dadosStatus[1].qtdStatus;
-      qtdPausados.innerHTML = dadosStatus[2].qtdStatus;
-      qtdQuero.innerHTML = dadosStatus[3].qtdStatus;
+      qtdJogando.innerHTML = dadosStatus[0].qtdStatus;
+      qtdZerados.innerHTML = dadosStatus[1].qtdStatus;
+      qtdQuero.innerHTML = dadosStatus[2].qtdStatus;
+      qtdPausados.innerHTML = dadosStatus[3].qtdStatus;
     })
     .catch((erro) => {
       console.log("Erro: ", erro);
@@ -129,7 +129,7 @@ function plotarBiblioteca(dados, instrucao) {
 
       mensagem += `
         <div class="card">
-          <img class="capa" src="https://upload.wikimedia.org/wikipedia/pt/thumb/0/0d/Elden_Ring_capa.jpg/330px-Elden_Ring_capa.jpg"></img>
+          <img class="capa" src="../assets/uploads/capas_jogo/${dados[i].capa}"></img>
           <div>
             <h1>${dados[i].jogo}</h1>
             <div class="estrelas">${estrelas}</div>
@@ -293,7 +293,7 @@ function buscarJogo() {
 
       mensagem += `
         <div class="card">
-          <img class="capa" src="https://upload.wikimedia.org/wikipedia/pt/thumb/0/0d/Elden_Ring_capa.jpg/330px-Elden_Ring_capa.jpg"></img>
+          <img class="capa" src="../assets/uploads/capas_jogo/${dadosGlobaisBiblioteca[i].capa}"></img>
           <div>
             <h1>${dadosGlobaisBiblioteca[i].jogo}</h1>
             <div class="estrelas">${estrelas}</div>
@@ -304,4 +304,36 @@ function buscarJogo() {
 
     bibliotecaCapas.innerHTML = mensagem;
   }
+}
+
+function adicionarJogoBiblioteca(idJogo) {
+  var idUsuarioVar = sessionStorage.getItem("ID_USUARIO");
+  var idJogoVar = idJogo;
+
+  fetch(`/biblioteca/cadastrar`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      idUsuarioVar: idUsuarioVar,
+      idJogoVar: idJogoVar,
+    }),
+  })
+    .then(function (resposta) {
+      console.log("resposta: ", resposta);
+      modal.style.display = "none";
+      plotarTodos();
+
+      if (resposta.ok) {
+        console.log("resposta: ", resposta);
+      } else {
+        throw "Houve um erro ao tentar realizar o cadastro!";
+      }
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+
+  return false;
 }

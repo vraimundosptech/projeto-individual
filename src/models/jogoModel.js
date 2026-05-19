@@ -1,12 +1,23 @@
 var database = require("../database/config");
 
-// function listar() {
-//   var instrucao = `
-//         
-//     `;
-//   console.log("Executando a instrução SQL: \n" + instrucao);
-//   return database.executar(instrucao);
-// }
+function listar() {
+  var instrucao = `
+        SELECT 
+          j.idJogo,
+          j.capa,
+          j.nome AS 'jogo',
+          c.nome as 'categoria',
+          j.desenvolvedora,
+          DATE_FORMAT(j.dtLancamento, '%d/%m/%Y') as 'dtLancamento',
+          j.classificacaoIdade
+        FROM jogo j
+        JOIN categoria c
+          ON j.fkCategoria = c.idCategoria
+        ORDER BY jogo;
+    `;
+  console.log("Executando a instrução SQL: \n" + instrucao);
+  return database.executar(instrucao);
+}
 
 function cadastrar(
   capa,
@@ -32,5 +43,5 @@ function cadastrar(
 
 module.exports = {
   cadastrar,
-//   listar,
+  listar,
 };

@@ -1,8 +1,10 @@
 var database = require("../database/config");
+// const { cadastrar } = require("./usuarioModel");
 
 function listar(idUsuario) {
   var instrucao = `
         SELECT
+            j.capa,
             j.idJogo,
             j.nome as 'jogo',
             ifnull(a.nota, '') as nota,
@@ -22,6 +24,21 @@ function listar(idUsuario) {
   return database.executar(instrucao);
 }
 
+function cadastrar(idUsuario, idJogo) {
+  console.log(
+    "ACESSEI A BIBLIOTECA MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():",
+    idUsuario,
+    idJogo,
+  );
+
+  var instrucaoSql = `
+          INSERT INTO biblioteca_jogo (fkBiblioteca, fkJogo) VALUES ('${idUsuario}', '${idJogo}');
+      `;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
   listar,
+  cadastrar,
 };

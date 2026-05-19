@@ -1,19 +1,26 @@
-var database = require("../database/config")
+var database = require("../database/config");
 
 function listar(idUsuario) {
-    
-    var instrucao = `
+  var instrucao = `     
         SELECT 
-            statusJogo AS 'status', 
-            COUNT(statusJogo) AS qtdStatus 
-        FROM biblioteca_jogo
-        WHERE fkBiblioteca = ${idUsuario}
-        GROUP BY statusJogo;
+            s.status,
+            COUNT(bj.statusJogo) AS qtdStatus
+        FROM (
+            SELECT 'Zerado' AS status
+            UNION ALL SELECT 'Jogando'
+            UNION ALL SELECT 'Quero jogar'
+            UNION ALL SELECT 'Pausado'
+        ) s
+        LEFT JOIN biblioteca_jogo bj
+            ON bj.statusJogo = s.status
+        AND bj.fkBiblioteca = ${idUsuario}
+        GROUP BY s.status
+        ORDER BY FIELD(s.status, 'Jogando', 'Zerado', 'Quero jogar', 'Pausado');
     `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
+  console.log("Executando a instrução SQL: \n" + instrucao);
+  return database.executar(instrucao);
 }
 
 module.exports = {
-    listar
+  listar,
 };

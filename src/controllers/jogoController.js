@@ -1,15 +1,15 @@
 var jogoModel = require("../models/jogoModel");
 
-// function listar(req, res) {
-//   jogoModel
-//     .listar()
-//     .then(function (resultado) {
-//       res.status(200).json(resultado);
-//     })
-//     .catch(function (erro) {
-//       res.status(500).json(erro.sqlMessage);
-//     });
-// }
+function listar(req, res) {
+  jogoModel
+    .listar()
+    .then(function (resultado) {
+      res.status(200).json(resultado);
+    })
+    .catch(function (erro) {
+      res.status(500).json(erro.sqlMessage);
+    });
+}
 
 function cadastrar(req, res) {
   var capa = req.file.filename;
@@ -37,7 +37,15 @@ function cadastrar(req, res) {
   }
 
   jogoModel
-    .cadastrar(capa, nome, desenvolvedora, dtLancamento, categoria, classificacaoIdade, descricao)
+    .cadastrar(
+      capa,
+      nome,
+      desenvolvedora,
+      dtLancamento,
+      categoria,
+      classificacaoIdade,
+      descricao,
+    )
     .then(function (resposta) {
       res.status(200).send("Jogo cadastrado com sucesso");
     })
@@ -47,6 +55,6 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-  // listar,
+  listar,
   cadastrar,
 };

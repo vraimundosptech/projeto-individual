@@ -8,8 +8,8 @@ router.post("/cadastrar", upload.single('capa'), function (req, res) {
     jogoController.cadastrar(req, res);
 });
 
-// router.get("/listar",  function (req, res) {
-//     jogoController.listar(req, res);
-// });
+router.get("/listar",  function (req, res) {
+    jogoController.listar(req, res);
+});
 
 module.exports = router;

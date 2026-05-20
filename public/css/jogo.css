@@ -193,59 +193,59 @@
 }
 
 .jogando {
-  background-color: color-mix(
-    in srgb,
-    var(--accent),
-    transparent 75%
-  ) !important;
+  background-color: color-mix(in srgb,
+      var(--accent),
+      transparent 75%) !important;
   border-color: var(--accent) !important;
+  transition: 0.3s;
 }
 
 .jogando h1,
 .jogando i {
   color: var(--accent) !important;
+  transition: 0.3s;
 }
 
 .zerado {
-  background-color: color-mix(
-    in srgb,
-    var(--success),
-    transparent 75%
-  ) !important;
+  background-color: color-mix(in srgb,
+      var(--success),
+      transparent 75%) !important;
   border-color: var(--success) !important;
+  transition: 0.3s;
 }
 
 .zerado h1,
 .zerado i {
   color: var(--success) !important;
+  transition: 0.3s;
 }
 
 .quero-jogar {
-  background-color: color-mix(
-    in srgb,
-    var(--primary),
-    transparent 75%
-  ) !important;
+  background-color: color-mix(in srgb,
+      var(--primary),
+      transparent 75%) !important;
   border-color: var(--primary) !important;
+  transition: 0.3s;
 }
 
 .quero-jogar h1,
 .quero-jogar i {
   color: var(--primary) !important;
+  transition: 0.3s;
 }
 
 .pausado {
-  background-color: color-mix(
-    in srgb,
-    var(--warning),
-    transparent 75%
-  ) !important;
+  background-color: color-mix(in srgb,
+      var(--warning),
+      transparent 75%) !important;
   border-color: var(--warning) !important;
+  transition: 0.3s;
 }
 
 .pausado h1,
 .pausado i {
   color: var(--warning) !important;
+  transition: 0.3s;
 }
 
 .container textarea {
@@ -263,6 +263,11 @@
   display: flex;
   overflow-y: auto;
   resize: none;
+}
+
+.container span {
+  color: var(--text-muted);
+  font-size: 18px;
 }
 
 .container textarea::-webkit-scrollbar {

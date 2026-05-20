@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Titulo da página inicial -->
+    <title>GameScore | Tela de Início</title>
+
+    <!-- Script de validacao de usuario da sessão -->
+    <script src="./js/sessao.js"></script>
+
+    <!-- Links de conexao com css -->
+    <link rel="stylesheet" href="../css/biblioteca.css" />
+    <link rel="stylesheet" href="../css/fonts.css" />
+    <link rel="icon" href="../assets/icon/GameScore.ico" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body onload="carregarDados()" id="body">
+    <div class="header">
+      <div class="logo"></div>
+      <div class="links">
+        <ul class="navbar">
+          <li class="outros">
+            <a href="dashboard.html">Dashboard</a>
+          </li>
+          <li class="outros">
+            <a href="biblioteca.html">Biblioteca</a>
+          </li>
+          <li class="agora">
+            <a href="ranking.html">Ranking</a>
+          </li>
+          <li class="outros">
+            <a href="quiz.html">Quiz</a>
+          </li>
+        </ul>
+      </div>
+      <div class="perfil" onclick="window.location.href = 'perfil.html'"></div>
+    </div>
+
+    <div class="main">
+      
+    </div>
+
+    <div class="footer">
+      <div class="content">
+        <div class="logo"></div>
+        <ul class="footer-bar">
+          <li>
+            <a href="#">Dashboard</a>
+          </li>
+          <li>
+            <a href="biblioteca.html">Biblioteca</a>
+          </li>
+          <li>
+            <a href="ranking.html">Ranking</a>
+          </li>
+          <li>
+            <a href="quiz.html">Quiz</a>
+          </li>
+        </ul>
+        <div class="site">
+          <a
+            href="https://github.com/vraimundosptech/projeto-individual"
+            target="_blank"
+          >
+            <div class="box">
+              <i class="bi bi-github"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="comments">
+        <p>&copy 2026 GameScore. Todos os direitos reservados.</p>
+        <p>Feito com ❤️ para a comunidade gamer</p>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="../js/ranking.js"></script>

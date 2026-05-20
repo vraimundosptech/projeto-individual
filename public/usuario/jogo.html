@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Titulo da página inicial -->
+    <title>GameScore | Tela de Início</title>
+
+    <!-- Script de validacao de usuario da sessão -->
+    <script src="./js/sessao.js"></script>
+
+    <!-- Links de conexao com css -->
+    <link rel="stylesheet" href="../css/jogo.css" />
+    <link rel="stylesheet" href="../css/fonts.css" />
+    <link rel="icon" href="../assets/icon/GameScore.ico" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body onload="carregarDados()" id="body">
+    <div class="header">
+        <div class="logo"></div>
+        <div class="links">
+            <ul class="navbar">
+                <li class="outros">
+                    <a href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="agora">
+                    <a href="biblioteca.html">Biblioteca</a>
+                </li>
+                <li class="outros">
+                    <a href="ranking.html">Ranking</a>
+                </li>
+                <li class="outros">
+                    <a href="quiz.html">Quiz</a>
+                </li>
+            </ul>
+        </div>
+        <div class="perfil" onclick="window.location.href = 'perfil.html'"></div>
+    </div>
+
+    <div class="main">
+        <div class="conteudo">
+            <div class="esquerda">
+                <img class="capa-jogo" src="../assets/uploads/capas_jogo/EldenRing.png"></img>
+                <div class="interacoes">
+                    <div class="status-jogo">
+                        <div id="jogando" onclick="jogando.classList.add('jogando')">
+                            <i></i>
+                            <h1>Jogando</h1>
+                        </div>
+                        <div id="zerado" onclick="zerado.classList.add('zerado')">
+                            <i></i>
+                            <h1>Zerado</h1>
+                        </div>
+                        <div id="quero_jogar" onclick="quero_jogar.classList.add('quero-jogar')">
+                            <i></i>
+                            <h1>Quero jogar</h1>
+                        </div>
+                        <div id="pausado" onclick="pausado.classList.add('pausado')">
+                            <i></i>
+                            <h1>Pausado</h1>
+                        </div>
+                    </div>
+                    <div class="adicionar-favoritos">
+                        <h1>Adicionar aos favoritos</h1>
+                    </div>
+                    <div class="nota-comunidade">
+                        <h1>NOTA DA COMUNIDADE</h1>
+                        <div class="nota">
+                            <h2>9.5</h2>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <h1>14.832 avaliações</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="direita">
+                <div class="titulo">
+                    <h1>Elden Ring</h1>
+                    <div class="subtitulo">
+                        <h2>Desenvolvedora</h2>
+                        <h2>Ano de lancamento</h2>
+                    </div>
+                </div>
+                <div class="sobre-jogo">
+                    <h1>SOBRE O JOGO</h1>
+                    <p>
+                        Elden Ring é um RPG de ação e aventura desenvolvido pela
+                        FromSoftware em colaboração com George R. R. Martin. Ambientado
+                        nas Terras Intermédias, um mundo repleto de mistério e perigo, o
+                        jogo desafia o jogador a explorar vastos cenários, derrotar
+                        inimigos poderosos e desvendar os segredos por trás do Anel
+                        Prévio. Com um sistema de combate profundo e recompensador,
+                        Elden Ring representa o ápice da fórmula Souls.
+                    </p>
+                </div>
+                <div class="minha-avaliacao">
+                    <h1 class="titulo">MINHA AVALIAÇÃO</h1>
+                    <div class="container">
+                        <h1>Sua nota</h1>
+                        <div class="estrelas">
+                            <i class="bi bi-star" id="n1"></i>
+                            <i class="bi bi-star" id="n2"></i>
+                            <i class="bi bi-star" id="n3"></i>
+                            <i class="bi bi-star" id="n4"></i>
+                            <i class="bi bi-star" id="n5"></i>
+                        </div>
+                        <h1>O que você achou?</h1>
+                        <textarea id="descricao" maxlength="200"></textarea>
+                        <div class="bottom">
+                            <h1>156/200</h1>
+                            <div class="salvar-avaliacao">Salvar avaliação</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="content">
+            <div class="logo"></div>
+            <ul class="footer-bar">
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="biblioteca.html">Biblioteca</a>
+                </li>
+                <li>
+                    <a href="ranking.html">Ranking</a>
+                </li>
+                <li>
+                    <a href="quiz.html">Quiz</a>
+                </li>
+            </ul>
+            <div class="site">
+                <a href="https://github.com/vraimundosptech/projeto-individual" target="_blank">
+                    <div class="box">
+                        <i class="bi bi-github"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="comments">
+            <p>&copy 2026 GameScore. Todos os direitos reservados.</p>
+            <p>Feito com ❤️ para a comunidade gamer</p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="../js/biblioteca.js"></script>
+
+<script src="../js/cadastrarListarJogo.js"></script>

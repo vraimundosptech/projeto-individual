@@ -1,0 +1,305 @@
+@import url(style.css);
+@import url(index.css);
+
+.conteudo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-around;
+  grid-column-gap: 75px;
+  padding: 100px 0 50px 0;
+}
+
+.esquerda {
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.capa-jogo {
+  background-color: var(--bg-card);
+  width: 300px;
+  height: 400px;
+  border-radius: 10px;
+}
+
+.esquerda .interacoes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.adicionar-favoritos {
+  margin: 25px 0 0 0;
+  width: 250px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: var(--bg-card);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.adicionar-favoritos h1 {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.nota-comunidade {
+  margin: 25px 0 0 0;
+  width: 250px;
+  height: 200px;
+  border-radius: 15px;
+  background-color: var(--bg-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.nota-comunidade h1 {
+  font-size: 18px;
+  color: var(--text-secondary);
+}
+
+.nota {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nota h2 {
+  font-size: 50px;
+  margin: 10px 10px 10px 0;
+}
+
+.nota i {
+  color: var(--warning);
+  font-size: 35px;
+}
+
+.direita {
+  width: 110%;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 0 0 25px;
+}
+
+.direita .titulo h1 {
+  font-size: 60px;
+}
+
+.direita .subtitulo {
+  display: flex;
+}
+
+.direita .subtitulo h2 {
+  margin: 0 25px 0 0;
+  color: var(--text-secondary);
+}
+
+.sobre-jogo {
+  margin: 50px 0 0 0;
+}
+
+.sobre-jogo h1 {
+  border-width: 0 0 2px 0;
+  border-style: solid;
+  border-color: var(--border);
+  font-size: 18px;
+  color: var(--text-muted);
+}
+
+.sobre-jogo p {
+  margin: 15px 0 0 0;
+  color: var(--text-secondary);
+  font-size: 22px;
+  text-align: justify;
+}
+
+.minha-avaliacao {
+  margin: 50px 0 0 0;
+}
+
+.minha-avaliacao .titulo {
+  border-width: 0 0 2px 0;
+  border-style: solid;
+  border-color: var(--border);
+  font-size: 18px;
+  color: var(--text-muted);
+}
+
+.minha-avaliacao .container {
+  margin: 30px 0 0 0;
+  padding: 30px 40px;
+  background-color: var(--bg-card);
+  border-radius: 15px;
+}
+
+.minha-avaliacao .container h1 {
+  color: var(--text-muted);
+  font-size: 18px;
+}
+
+.minha-avaliacao .estrelas i {
+  display: inline-block;
+  color: var(--text-muted);
+  font-size: 50px;
+  transition: 0.3s;
+}
+
+.minha-avaliacao .estrelas i:hover {
+  color: var(--warning);
+  cursor: pointer;
+  scale: 1.2;
+}
+
+.minha-avaliacao .estrelas {
+  margin: 0 0 25px 0;
+}
+
+.status-jogo {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-row-gap: 10px;
+  height: 325px;
+  margin: 25px 0 0 0;
+}
+
+.status-jogo div {
+  width: 250px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: var(--bg-card);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.status-jogo div h1 {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.status-jogo div:hover {
+  filter: brightness(125%);
+  cursor: pointer;
+}
+
+.jogando {
+  background-color: color-mix(
+    in srgb,
+    var(--accent),
+    transparent 75%
+  ) !important;
+  border-color: var(--accent) !important;
+}
+
+.jogando h1,
+.jogando i {
+  color: var(--accent) !important;
+}
+
+.zerado {
+  background-color: color-mix(
+    in srgb,
+    var(--success),
+    transparent 75%
+  ) !important;
+  border-color: var(--success) !important;
+}
+
+.zerado h1,
+.zerado i {
+  color: var(--success) !important;
+}
+
+.quero-jogar {
+  background-color: color-mix(
+    in srgb,
+    var(--primary),
+    transparent 75%
+  ) !important;
+  border-color: var(--primary) !important;
+}
+
+.quero-jogar h1,
+.quero-jogar i {
+  color: var(--primary) !important;
+}
+
+.pausado {
+  background-color: color-mix(
+    in srgb,
+    var(--warning),
+    transparent 75%
+  ) !important;
+  border-color: var(--warning) !important;
+}
+
+.pausado h1,
+.pausado i {
+  color: var(--warning) !important;
+}
+
+.container textarea {
+  margin: 5px 0 25px 0;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background-color: var(--bg-card-hover);
+  font-size: 20px;
+  transition: 0.5s;
+  outline: none;
+  box-shadow: none;
+  width: 90%;
+  padding: 25px 25px 25px 25px;
+  min-height: 150px;
+  display: flex;
+  overflow-y: auto;
+  resize: none;
+}
+
+.container textarea::-webkit-scrollbar {
+  width: 12px;
+}
+
+.container textarea::-webkit-scrollbar-track {
+  border-radius: 6px;
+}
+
+.container textarea::-webkit-scrollbar-thumb {
+  background: var(--text-primary);
+  border-radius: 6px;
+}
+
+.container textarea::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+.minha-avaliacao .bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.salvar-avaliacao {
+  background-color: var(--accent);
+  border-radius: 10px;
+  width: 200px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.salvar-avaliacao:hover {
+  background-color: var(--accent-hover);
+  cursor: pointer;
+}

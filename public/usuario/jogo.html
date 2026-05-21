@@ -44,7 +44,7 @@
     <div class="main">
         <div class="conteudo">
             <div class="esquerda">
-                <img class="capa-jogo" src="../assets/uploads/capas_jogo/EldenRing.png"></img>
+                <img id="img_capa" class="capa-jogo"></img>
                 <div class="interacoes">
                     <div class="status-jogo">
                         <div id="jogando" onclick="mudarStatus('Jogando')">
@@ -66,36 +66,29 @@
                     </div>
                     <div id="favorito" class="adicionar-favoritos" onclick="mudarFavorito()">
                         <i></i>
-                        <h1>Adicionar aos favoritos</h1>
+                        <h1 id="texto_favorito">Adicionar aos favoritos</h1>
                     </div>
                     <div class="nota-comunidade">
                         <h1>NOTA DA COMUNIDADE</h1>
                         <div class="nota">
-                            <h2>9.5</h2>
+                            <h2 id="nmr_nota">0</h2>
                             <i class="bi bi-star-fill"></i>
                         </div>
-                        <h1>14.832 avaliações</h1>
+                        <h1><span id="qtd_avaliacoes">0</span> avaliações</h1>
                     </div>
                 </div>
             </div>
             <div class="direita">
                 <div class="titulo">
-                    <h1>Elden Ring</h1>
+                    <h1 id="nome_jogo"></h1>
                     <div class="subtitulo">
-                        <h2>Desenvolvedora</h2>
-                        <h2>Ano de lancamento</h2>
+                        <h2 id="desenvolvedora_jogo"></h2>
+                        <h2 id="dt_lancamento_jogo"></h2>
                     </div>
                 </div>
                 <div class="sobre-jogo">
                     <h1>SOBRE O JOGO</h1>
-                    <p>
-                        Elden Ring é um RPG de ação e aventura desenvolvido pela
-                        FromSoftware em colaboração com George R. R. Martin. Ambientado
-                        nas Terras Intermédias, um mundo repleto de mistério e perigo, o
-                        jogo desafia o jogador a explorar vastos cenários, derrotar
-                        inimigos poderosos e desvendar os segredos por trás do Anel
-                        Prévio. Com um sistema de combate profundo e recompensador,
-                        Elden Ring representa o ápice da fórmula Souls.
+                    <p id="descricao_jogo">
                     </p>
                 </div>
                 <div class="minha-avaliacao">

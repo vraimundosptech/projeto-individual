@@ -1,8 +1,22 @@
 var jogoModel = require("../models/jogoModel");
 
-function listar(req, res) {
+function listarTodos(req, res) {
   jogoModel
-    .listar()
+    .listarTodos()
+    .then(function (resultado) {
+      res.status(200).json(resultado);
+    })
+    .catch(function (erro) {
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function listarUm(req, res) {
+  var idJogo = req.params.idJogo;
+  var idUsuario = req.params.idUsuario;
+
+  jogoModel
+    .listarUm(idJogo, idUsuario)
     .then(function (resultado) {
       res.status(200).json(resultado);
     })
@@ -55,6 +69,7 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-  listar,
+  listarTodos,
+  listarUm,
   cadastrar,
 };

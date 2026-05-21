@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function listar() {
+function listarTodos() {
   var instrucao = `
         SELECT 
           j.idJogo,
@@ -14,6 +14,30 @@ function listar() {
         JOIN categoria c
           ON j.fkCategoria = c.idCategoria
         ORDER BY jogo;
+    `;
+  console.log("Executando a instrução SQL: \n" + instrucao);
+  return database.executar(instrucao);
+}
+
+function listarUm(idJogo, idUsuario) {
+  var instrucao = `
+        SELECT	
+          j.capa,
+          j.nome,
+          j.desenvolvedora,
+          DATE_FORMAT(j.dtLancamento, '%d/%m/%Y') dtLancamento,
+          j.descricao,
+          bj.statusJogo,
+          bj.favorito,
+          IFNULL(ROUND(AVG(a.nota),1), 0) as notaComunidade,
+          COUNT(a.idAvaliacao) as qtdAvaliacao
+        FROM jogo j
+        LEFT JOIN biblioteca_jogo bj
+          ON bj.fkJogo = j.idJogo
+        LEFT JOIN avaliacao a
+          ON j.idJogo = a.fkJogo
+        WHERE idJogo = ${idJogo}
+          AND bj.fkBiblioteca = ${idUsuario};
     `;
   console.log("Executando a instrução SQL: \n" + instrucao);
   return database.executar(instrucao);
@@ -43,5 +67,6 @@ function cadastrar(
 
 module.exports = {
   cadastrar,
-  listar,
+  listarTodos,
+  listarUm,
 };

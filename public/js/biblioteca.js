@@ -128,7 +128,7 @@ function plotarBiblioteca(dados, instrucao) {
       }
 
       mensagem += `
-        <div class="card">
+        <div class="card" onclick="mandarId(${dados[i].idJogo})">
           <img class="capa" src="../assets/uploads/capas_jogo/${dados[i].capa}"></img>
           <div>
             <h1>${dados[i].jogo}</h1>
@@ -336,4 +336,9 @@ function adicionarJogoBiblioteca(idJogo) {
     });
 
   return false;
+}
+
+function mandarId(idJogo) {
+  sessionStorage.setItem("ID_JOGO", idJogo);
+  window.location.href = "jogo.html";
 }

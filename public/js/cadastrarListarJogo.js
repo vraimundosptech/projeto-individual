@@ -9,7 +9,7 @@ function abrirModal() {
   div_pesquisar.style.display = "flex";
   body.style.overflow = "hidden";
 
-  fetch(`/jogo/listar`)
+  fetch(`/jogo/listarTodos`)
     .then((res) => res.json())
     .then((dadosJogos) => {
       dadosGlobaisJogos = dadosJogos;

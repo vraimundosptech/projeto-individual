@@ -49,6 +49,7 @@ function plotarJogo(dados) {
   qtd_avaliacoes.innerText = dados[0].qtdAvaliacao
 
   nome_jogo.innerText = dados[0].nome
+  categoria_jogo.innerText = dados[0].categoria
   desenvolvedora_jogo.innerText = dados[0].desenvolvedora
   dt_lancamento_jogo.innerText = dados[0].dtLancamento
   descricao_jogo.innerText = dados[0].descricao
@@ -142,10 +143,10 @@ function tamanhoTexto() {
 }
 
 function mudarStatus(classe) {
-/* fetch(`/jogo/atualizarStatus/${idJogo}/${idUsuario}`)
-    method: PUT */
+  /* fetch(`/jogo/atualizarStatus/${idJogo}/${idUsuario}`)
+      method: PUT */
 
-    
+
   if (classe == "Jogando") {
     jogando.classList.add("jogando");
     zerado.classList.remove("zerado");
@@ -180,4 +181,28 @@ function mudarFavorito() {
     favorito.classList.replace("adicionar-favoritos", "favorito");
     texto_favorito.innerText = "Nos favoritos";
   }
+}
+
+function salvarAvaliacao() {
+  fetch(`/jogo/editar/${idJogo}/${idUsuario}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      descricao: text_descricao.value
+    })
+  }).then(function (resposta) {
+
+    if (resposta.ok) {
+      window.alert("Post atualizado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+      window.location = "/dashboard/mural.html"
+    } else if (resposta.status == 404) {
+      window.alert("Deu 404!");
+    } else {
+      throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+    }
+  }).catch(function (resposta) {
+    console.log(`#ERRO: ${resposta}`);
+  });
 }

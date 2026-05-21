@@ -24,6 +24,8 @@ function listarUm(idJogo, idUsuario) {
         SELECT	
           j.capa,
           j.nome,
+          (SELECT nome FROM categoria c
+            WHERE j.fkCategoria = c.idCategoria) as categoria,
           j.desenvolvedora,
           DATE_FORMAT(j.dtLancamento, '%d/%m/%Y') dtLancamento,
           j.descricao,

@@ -127,9 +127,26 @@ function plotarBiblioteca(dados, instrucao) {
           estrelas = `Sem avaliação`;
       }
 
+      let capaStatus = "";
+      switch (dados[i].statusJogo) {
+        case "Jogando":
+          capaStatus = "jogando";
+          break;
+        case "Zerado":
+          capaStatus = "zerado";
+          break;
+        case "Quero jogar":
+          capaStatus = "quero";
+          break;
+        case "Pausado":
+          capaStatus = "pausado";
+          break;
+      }
+
       mensagem += `
         <div class="card" onclick="mandarId(${dados[i].idJogo})">
-          <img class="capa" src="../assets/uploads/capas_jogo/${dados[i].capa}"></img>
+        <img class="capa" src="../assets/uploads/capas_jogo/${dados[i].capa}"></img>
+        <div class="status-capa ${capaStatus}">${dados[i].statusJogo}</div>
           <div>
             <h1>${dados[i].jogo}</h1>
             <div class="estrelas">${estrelas}</div>

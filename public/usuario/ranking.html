@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Titulo da página inicial -->
-    <title>GameScore | Tela de Início</title>
+    <title>GameScore | Ranking</title>
 
     <!-- Script de validacao de usuario da sessão -->
     <script src="./js/sessao.js"></script>
 
     <!-- Links de conexao com css -->
-    <link rel="stylesheet" href="../css/biblioteca.css" />
+    <link rel="stylesheet" href="../css/ranking.css" />
     <link rel="stylesheet" href="../css/fonts.css" />
     <link rel="icon" href="../assets/icon/GameScore.ico" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -41,7 +41,95 @@
     </div>
 
     <div class="main">
-      
+      <div class="titulo">
+        <h1>Ranking Global</h1>
+        <p>Os jogos mais bem avaliados pela comunidade GameScore</p>
+      </div>
+
+      <div class="top3">
+        <div class="card">
+          <div class="capa" id="top1_capa">
+            <div class="posicao primeiro">1</div>
+          </div>
+          <div class="direita">
+            <div class="info-jogo">
+              <h2 id="top1_categoria">Categoria</h2>
+              <h1 id="top1_nome">Jogo</h1>
+              <h2 id="top1_desenvolvedora">Desenvolvedora</h2>
+              <h2 id="top1_lancamento">Ano lancamento</h2>
+            </div>
+            <div class="nota">
+              <h1 id="top1_nota" class="primeiro">0</h1>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="capa" id="top1_capa">
+            <div class="posicao segundo">2</div>
+          </div>
+          <div class="direita">
+            <div class="info-jogo">
+              <h2 id="top2_categoria">Categoria</h2>
+              <h1 id="top2_nome">Jogo</h1>
+              <h2 id="top2_desenvolvedora">Desenvolvedora</h2>
+              <h2 id="top2_lancamento">Ano lancamento</h2>
+            </div>
+            <div class="nota">
+              <h1 id="top2_nota" class="segundo">0</h1>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="capa" id="top1_capa">
+            <div class="posicao terceiro">3</div>
+          </div>
+          <div class="direita">
+            <div class="info-jogo">
+              <h2 id="top3_categoria">Categoria</h2>
+              <h1 id="top3_nome">Jogo</h1>
+              <h2 id="top3_desenvolvedora">Desenvolvedora</h2>
+              <h2 id="top3_lancamento">Ano lancamento</h2>
+            </div>
+            <div class="nota">
+              <h1 id="top3_nota" class="terceiro">0</h1>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ranking">
+        <div class="card">
+          <div class="posicao">4º</div>
+
+          <img
+            src="../assets/uploads/capas_jogo/EldenRing.png"
+            alt=""
+            class="capa"
+          />
+
+          <div class="info-jogo">
+            <h1>Elden Ring</h1>
+            <div>
+              <h2>Desenvolvedora</h2>
+              <h2>ano lancamento</h2>
+            </div>
+          </div>
+
+          <div class="categoria">
+            <h2>Categoria</h2>
+          </div>
+
+          <div class="nota">
+            <h1>4.9</h1>
+            <i class="bi bi-star-fill"></i>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="footer">

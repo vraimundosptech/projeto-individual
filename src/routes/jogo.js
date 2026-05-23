@@ -16,4 +16,16 @@ router.get("/listarUm/:idJogo/:idUsuario",  function (req, res) {
     jogoController.listarUm(req, res);
 });
 
+router.put("/avaliar/:idJogo/:idUsuario",  function (req, res) {
+    jogoController.avaliar(req, res);
+});
+
+router.put("/categorizar/:idJogo/:idUsuario",  function (req, res) {
+    jogoController.categorizar(req, res);
+});
+
+router.put("/favoritar/:idJogo/:idUsuario",  function (req, res) {
+    jogoController.favoritar(req, res);
+});
+
 module.exports = router;

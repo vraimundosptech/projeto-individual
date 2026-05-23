@@ -1,0 +1,188 @@
+@import url(style.css);
+@import url(index.css);
+
+.titulo {
+  display: flex;
+  flex-direction: column;
+  margin: 50px 100px;
+}
+
+.titulo h1 {
+  font-size: 56px;
+}
+
+.titulo p {
+  font-size: 26px;
+  color: var(--text-secondary);
+}
+
+.top3 {
+  height: 400px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  margin: 0 80px;
+}
+
+.top3 .card {
+  height: 100%;
+  width: 95%;
+  background-color: var(--bg-card);
+  border-radius: 15px;
+  border: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  transition: 0.5s;
+}
+
+.top3 .card:hover {
+  transform: translateY(-10px);
+  cursor: pointer;
+  box-shadow: 0 25px 2em var(--bg-secondary);
+}
+
+.top3 .card .capa {
+  background-size: cover;
+  width: 90%;
+  border-radius: 15px 0 0 15px;
+}
+
+.top3 .card .capa .posicao {
+  width: 35px;
+  height: 35px;
+  margin: 10px 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.capa .primeiro {
+  background-color: color-mix(in srgb, var(--color-gold), transparent 20%);
+  border: 2px solid var(--color-gold);
+}
+
+.capa .segundo {
+  background-color: color-mix(in srgb, var(--color-silver), transparent 20%);
+  border: 2px solid var(--color-silver);
+}
+
+.capa .terceiro {
+  background-color: color-mix(in srgb, var(--color-bronze), transparent 20%);
+  border: 2px solid var(--color-bronze);
+}
+
+.direita {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  margin: 25px 50px 25px 0;
+}
+
+.top3 .info-jogo h1 {
+  font-size: 45px;
+}
+
+.top3 .info-jogo h2 {
+  color: var(--text-secondary);
+}
+
+.top3 .nota {
+  display: flex;
+  align-self: flex-end;
+  justify-self: end;
+  align-items: center;
+}
+
+.top3 .nota h1 {
+  font-size: 75px;
+  margin: 0 10px 0 0;
+}
+
+.top3 .nota .primeiro {
+  color: var(--color-gold);
+}
+
+.top3 .nota .segundo {
+  color: var(--color-silver);
+}
+
+.top3 .nota .terceiro {
+  color: var(--color-bronze);
+}
+
+.top3 .nota i {
+  color: var(--warning);
+  font-size: 40px;
+}
+
+.ranking {
+  margin: 50px 100px 0 100px;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  padding: 0;
+}
+
+.ranking .card {
+  display: grid;
+  grid-template-columns: auto auto 1fr 1fr auto auto;
+  width: 100%;
+  align-items: center;
+  padding: 15px;
+  border-width: 2px 0 0 0;
+  border-color: var(--border);
+  border-style: solid;
+}
+
+.ranking .posicao {
+  font-size: 50px;
+  margin: 0 25px;
+}
+
+.ranking .capa {
+  height: 125px;
+  border-radius: 10px;
+}
+
+.ranking .info-jogo {
+  margin: 0 25px;
+}
+
+.ranking .info-jogo h1 {
+  font-size: 45px;
+}
+
+.ranking .info-jogo div {
+  display: flex;
+}
+
+.ranking .info-jogo div h2 {
+  color: var(--text-secondary);
+  margin: 0 15px 0 0;
+}
+
+.ranking .categoria {
+  margin: 0 25px 0 0;
+  justify-self: end;
+}
+
+.ranking .categoria h2 {
+  color: var(--text-secondary);
+}
+
+.ranking .nota {
+  display: flex;
+  align-items: center;
+}
+
+.ranking .nota h1 {
+  margin: 0 10px 0 0;
+  font-size: 50px;
+}
+
+.ranking .nota i {
+  color: var(--warning);
+  font-size: 40px;
+}

@@ -295,7 +295,7 @@ function plotarGraficoCategoria(dados) {
       datasets: [
         {
           data: categoriaData,
-          backgroundColor: ["#7b2cbf", "#189fb9", "#ffc300", "#2e2e2e"],
+          backgroundColor: ["#7b2cbf", "#189fb9", "#ffc300", "#ffffff"],
         },
       ],
     },

@@ -68,8 +68,57 @@ function cadastrar(req, res) {
     });
 }
 
+function avaliar(req, res) {
+  var idJogo = req.params.idJogo;
+  var idUsuario = req.params.idUsuario;
+  var nota = req.body.nota;
+  var comentario = req.body.comentario;
+
+  jogoModel
+    .avaliar(idJogo, idUsuario, nota, comentario)
+    .then(function (resultado) {
+      res.status(200).json(resultado);
+    })
+    .catch(function (erro) {
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function categorizar(req, res) {
+  var idJogo = req.params.idJogo;
+  var idUsuario = req.params.idUsuario;
+  var statusJogo = req.body.statusJogo;
+
+  jogoModel
+    .categorizar(idJogo, idUsuario, statusJogo)
+    .then(function (resultado) {
+      res.status(200).json(resultado);
+    })
+    .catch(function (erro) {
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function favoritar(req, res) {
+  var idJogo = req.params.idJogo;
+  var idUsuario = req.params.idUsuario;
+  var favorito = req.body.favorito;
+
+  jogoModel
+    .favoritar(idJogo, idUsuario, favorito)
+    .then(function (resultado) {
+      res.status(200).json(resultado);
+    })
+    .catch(function (erro) {
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
   listarTodos,
   listarUm,
   cadastrar,
+  avaliar,
+  categorizar,
+  favoritar,
 };

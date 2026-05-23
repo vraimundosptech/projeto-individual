@@ -31,6 +31,24 @@ function listarUm(idJogo, idUsuario) {
           j.descricao,
           bj.statusJogo,
           bj.favorito,
+          IFNULL(
+            (SELECT an.nota FROM avaliacao an
+              LEFT JOIN jogo jn
+                ON jn.idJogo = an.fkJogo
+              LEFT JOIN usuario un
+                ON un.idUsuario = an.fkUsuario
+              WHERE an.fkJogo = ${idJogo}
+                AND an.fkUsuario = ${idUsuario}),
+          0) as nota,
+          IFNULL(
+            (SELECT an.comentario FROM avaliacao an
+              LEFT JOIN jogo jn
+                ON jn.idJogo = an.fkJogo
+              LEFT JOIN usuario un
+                ON un.idUsuario = an.fkUsuario
+              WHERE an.fkJogo = ${idJogo}
+                AND an.fkUsuario = ${idUsuario}), 
+          '') as comentario,
           IFNULL(ROUND(AVG(a.nota),1), 0) as notaComunidade,
           COUNT(a.idAvaliacao) as qtdAvaliacao
         FROM jogo j
@@ -67,8 +85,48 @@ function cadastrar(
   return database.executar(instrucao);
 }
 
+function avaliar(idJogo, idUsuario, nota, comentario) {
+  var instrucao = `
+    INSERT INTO avaliacao (nota, comentario, fkUsuario, fkJogo)
+    VALUES ('${nota}', '${comentario}', ${idUsuario}, ${idJogo})
+    ON DUPLICATE KEY UPDATE
+      nota = '${nota}',
+      comentario = '${comentario}',
+      dataAvaliacao = CURRENT_TIMESTAMP;
+  `;
+  return database.executar(instrucao);
+}
+
+function categorizar(idJogo, idUsuario, statusJogo) {
+  var instrucao = `
+    UPDATE 
+      biblioteca_jogo 
+    SET 
+      statusJogo = '${statusJogo}', 
+      dtModificacaoStatus = current_timestamp
+    WHERE fkBiblioteca = ${idUsuario}
+        AND fkJogo = ${idJogo}
+  `;
+  return database.executar(instrucao);
+}
+
+function favoritar(idJogo, idUsuario, favorito) {
+  var instrucao = `
+    UPDATE 
+      biblioteca_jogo 
+    SET 
+      favorito = ${favorito}
+    WHERE fkBiblioteca = ${idUsuario}
+      AND fkJogo = ${idJogo}
+  `;
+  return database.executar(instrucao);
+}
+
 module.exports = {
   cadastrar,
   listarTodos,
   listarUm,
+  avaliar,
+  categorizar,
+  favoritar,
 };

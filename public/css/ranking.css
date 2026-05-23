@@ -76,12 +76,12 @@
 
 .direita {
   display: grid;
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: 1fr auto;
   margin: 25px 50px 25px 0;
 }
 
 .top3 .info-jogo h1 {
-  font-size: 45px;
+  font-size: 35px;
 }
 
 .top3 .info-jogo h2 {
@@ -143,6 +143,7 @@
 
 .ranking .capa {
   height: 125px;
+  width: 100px;
   border-radius: 10px;
 }
 

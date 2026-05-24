@@ -9,7 +9,6 @@ function carregarDados() {
     .then((dadoskpis) => {
       qtdBiblioteca.innerHTML = dadoskpis[0].qtdJogos;
       qtdZerados.innerHTML = dadoskpis[0].qtdZerados;
-      qtdQuizzes.innerHTML = dadoskpis[0].qtdQuiz;
     })
     .catch((erro) => {
       console.log("Erro: ", erro);

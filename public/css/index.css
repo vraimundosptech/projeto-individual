@@ -122,10 +122,9 @@
   text-align: center;
 }
 
-/* ========== Biblioteca - Quiz ========== */
+/* ========== Biblioteca  ========== */
 
-.biblioteca,
-.quiz {
+.biblioteca {
   display: flex;
   padding: 200px 200px 100px 200px;
   justify-content: space-between;
@@ -137,37 +136,26 @@
   border-radius: 10px;
 }
 
-.quiz .image {
-  background: url(../assets/imgs/quiz.png) no-repeat center;
-  background-size: cover;
-  border-radius: 10px;
-}
-
-.biblioteca .text,
-.quiz .text {
+.biblioteca .text {
   padding: 0 0 0 100px;
   width: 50%;
 }
 
-.biblioteca .text p,
-.quiz .text p {
+.biblioteca .text p {
   font-size: 23px;
   color: var(--text-secondary);
 }
 
-.biblioteca .text h1,
-.quiz .text h1 {
+.biblioteca .text h1 {
   font-size: 56px;
 }
 
-.biblioteca .topicos,
-.quiz .topicos {
+.biblioteca .topicos {
   padding: 20px 0 40px 20px;
   font-size: 23px;
 }
 
-.biblioteca .topicos li::marker,
-.quiz .topicos li::marker {
+.biblioteca .topicos li::marker {
   color: var(--primary);
   font-size: 23px;
 }
@@ -202,7 +190,7 @@
 
 .ranking {
   display: flex;
-  padding: 100px 200px 0 200px;
+  padding: 100px 200px 100px 200px;
   justify-content: space-between;
 }
 
@@ -239,7 +227,7 @@
   font-size: 23px;
 }
 
-.biblioteca .azul {
+.ranking .azul {
   background-color: var(--accent);
   transition: 0.5s;
   display: flex;
@@ -247,20 +235,20 @@
   align-items: center;
 }
 
-.biblioteca .azul:hover {
+.ranking .azul:hover {
   background-color: var(--accent-hover);
   cursor: pointer;
 }
 
-.biblioteca .azul i {
+.ranking .azul i {
   padding: 0 20px 0 10px;
 }
 
-.biblioteca .azul p {
+.ranking .azul p {
   color: var(--text-primary);
 }
 
-.biblioteca .azul .bi-trophy {
+.ranking .azul .bi-trophy {
   font-size: 40px;
 }
 

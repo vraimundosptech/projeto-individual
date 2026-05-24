@@ -71,13 +71,11 @@
 
 .conteudo-perfil .kpis-group {
   margin: 25px 0 0 0;
-  grid-column-gap: 30px;
+  grid-column-gap: 50px;
 }
 
 .conteudo-perfil .kpi {
   margin: 0;
-  width: 300px;
-  scale: 0.9;
 }
 
 .jogos-favoritos {

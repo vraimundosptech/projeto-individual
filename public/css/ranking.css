@@ -37,7 +37,6 @@
 
 .top3 .card:hover {
   transform: translateY(-10px);
-  cursor: pointer;
   box-shadow: 0 25px 2em var(--bg-secondary);
 }
 
@@ -134,6 +133,11 @@
   border-width: 2px 0 0 0;
   border-color: var(--border);
   border-style: solid;
+  transition: 0.3s;
+}
+
+.ranking .card:hover {
+  background-color: var(--bg-card);
 }
 
 .ranking .posicao {

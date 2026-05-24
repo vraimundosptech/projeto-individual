@@ -6,13 +6,7 @@ function listar(idUsuario) {
             COUNT(fkJogo) AS qtdJogos,
             (SELECT COUNT(fkJogo) FROM biblioteca_jogo
             WHERE fkBiblioteca = ${idUsuario}
-            AND statusJogo = 'Zerado') AS qtdZerados,
-            (SELECT COUNT(idQuiz) FROM quiz q
-            LEFT JOIN pergunta p
-                ON p.fkQuiz = q.idQuiz
-            LEFT JOIN resposta r
-                ON r.fkPergunta = p.idPergunta
-            WHERE r.fkUsuario = ${idUsuario}) AS qtdQuiz
+            AND statusJogo = 'Zerado') AS qtdZerados
         FROM biblioteca_jogo
         WHERE fkBiblioteca = ${idUsuario};
     `;

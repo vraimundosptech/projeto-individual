@@ -37,6 +37,7 @@ function carregarDados(instrucao) {
 }
 
 function plotarBiblioteca(dados, instrucao) {
+  let qtdFavoritos = 0;
   let estrelas = ``;
   let mensagem = ``;
 
@@ -44,13 +45,17 @@ function plotarBiblioteca(dados, instrucao) {
     instrucao != "Zerado" &&
     instrucao != "Jogando" &&
     instrucao != "Quero jogar" &&
-    instrucao != "Pausado"
+    instrucao != "Pausado" &&
+    instrucao != true
   ) {
     instrucao = "";
   }
 
   for (let i = 0; i < dados.length; i++) {
-    if (dados[i].statusJogo.includes(instrucao)) {
+    if (
+      dados[i].statusJogo.includes(instrucao) ||
+      dados[i].favorito == instrucao
+    ) {
       switch (Number(dados[i].nota)) {
         case 1:
           estrelas = `<i class="bi bi-star-fill"></i>
@@ -145,7 +150,12 @@ function plotarBiblioteca(dados, instrucao) {
 
       mensagem += `
         <div class="card" onclick="mandarId(${dados[i].idJogo})">
-        <img class="capa" src="../assets/uploads/capas_jogo/${dados[i].capa}"></img>
+        <img class="capa" src="../assets/uploads/capas_jogo/${dados[i].capa}">`;
+
+      if (dados[i].favorito == true) {
+        mensagem += `<i class="bi bi-suit-heart-fill"></i>`;
+      }
+      mensagem += `
         <div class="status-capa ${capaStatus}">${dados[i].statusJogo}</div>
           <div>
             <h1>${dados[i].jogo}</h1>
@@ -154,7 +164,11 @@ function plotarBiblioteca(dados, instrucao) {
         </div>
         `;
     }
+    if (dados[i].favorito == true) {
+      qtdFavoritos++;
+    }
   }
+  qtd_favoritos.innerHTML = qtdFavoritos;
   bibliotecaCapas.innerHTML = mensagem;
 }
 
@@ -164,6 +178,7 @@ function plotarTodos() {
   statusZerados.classList.remove("ativo");
   statusQuero.classList.remove("ativo");
   statusPausados.classList.remove("ativo");
+  favoritos.classList.remove("ativo");
 
   let instrucao = "";
   carregarDados(instrucao);
@@ -175,6 +190,7 @@ function plotarJogando() {
   statusZerados.classList.remove("ativo");
   statusQuero.classList.remove("ativo");
   statusPausados.classList.remove("ativo");
+  favoritos.classList.remove("ativo");
 
   instrucao = `Jogando`;
   carregarDados(instrucao);
@@ -186,6 +202,7 @@ function plotarZerados() {
   statusZerados.classList.add("ativo");
   statusQuero.classList.remove("ativo");
   statusPausados.classList.remove("ativo");
+  favoritos.classList.remove("ativo");
 
   instrucao = `Zerado`;
   carregarDados(instrucao);
@@ -197,6 +214,7 @@ function plotarQuero() {
   statusZerados.classList.remove("ativo");
   statusQuero.classList.add("ativo");
   statusPausados.classList.remove("ativo");
+  favoritos.classList.remove("ativo");
 
   instrucao = `Quero jogar`;
   carregarDados(instrucao);
@@ -208,8 +226,21 @@ function plotarPausados() {
   statusZerados.classList.remove("ativo");
   statusQuero.classList.remove("ativo");
   statusPausados.classList.add("ativo");
+  favoritos.classList.remove("ativo");
 
   instrucao = `Pausado`;
+  carregarDados(instrucao);
+}
+
+function plotarFavoritos() {
+  statusTodos.classList.remove("ativo");
+  statusJogando.classList.remove("ativo");
+  statusZerados.classList.remove("ativo");
+  statusQuero.classList.remove("ativo");
+  statusPausados.classList.remove("ativo");
+  favoritos.classList.add("ativo");
+
+  instrucao = true;
   carregarDados(instrucao);
 }
 
@@ -309,7 +340,7 @@ function buscarJogo() {
       }
 
       mensagem += `
-        <div class="card">
+        <div class="card"  onclick="mandarId(${dados[i].idJogo})">
           <img class="capa" src="../assets/uploads/capas_jogo/${dadosGlobaisBiblioteca[i].capa}"></img>
           <div>
             <h1>${dadosGlobaisBiblioteca[i].jogo}</h1>

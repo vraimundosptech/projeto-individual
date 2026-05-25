@@ -12,18 +12,16 @@
   justify-self: center;
   width: 150px;
   height: 150px;
-  /* top: 325px; */
-  /* margin: 0 850px 0 0; */
   border-radius: 15px;
   border: 5px solid var(--bg-primary);
-  background: url("../assets/imgs/avatar.jpg") no-repeat center;
   background-size: cover;
-  margin: 150px 46% 0 14%;
+  margin: 150px 0 0 28%;
 }
 
 .descricao {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .descricao h1 {
@@ -45,6 +43,8 @@
 .descricao .buttons-perfil {
   display: flex;
   align-self: flex-end;
+  justify-content: end;
+  width: 100%;
 }
 
 .btn-perfil {
@@ -99,9 +99,9 @@
 }
 
 .jogos-favoritos hr {
-    border: none;
-    background-color: var(--border);
-    height: 2px;
+  border: none;
+  background-color: var(--border);
+  height: 2px;
 }
 
 .jogos-favoritos .cards {
@@ -110,19 +110,21 @@
 }
 
 .jogos-favoritos .card {
+  position: relative;
+  overflow: hidden;
   background-color: var(--bg-card);
   height: 250px;
   width: 225px;
   border-radius: 15px;
-  transition: 0.5s;
-  display: flex;
-  align-items: end;
+  transition: 0.5s; 
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .jogos-favoritos .card:hover {
   transform: translateY(-10px);
   cursor: pointer;
-  box-shadow: inset 0 -125px 2em var(--bg-secondary);
+  box-shadow: inset 0 -125px 7em var(--bg-secondary);
 }
 
 .jogos-favoritos .card h1 {
@@ -136,13 +138,24 @@
   color: var(--text-primary);
 }
 
-.card .texto-capa {
+.jogos-favoritos .card .texto-capa {
   position: absolute;
-  width: 100%;
-  bottom: 0;
   left: 0;
-  transition: 1s;
-  overflow: hidden;
+  bottom: 0;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  color: var(--text-primary);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+  opacity: 0;
+  transform: translateY(12px);
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.jogos-favoritos .card:hover .texto-capa {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .ultimas-avaliacoes {
@@ -167,10 +180,10 @@
 }
 
 .ultimas-avaliacoes hr {
-    border: none;
-    background-color: var(--border);
-    height: 2px;
-    margin: 0 0 20px 0;
+  border: none;
+  background-color: var(--border);
+  height: 2px;
+  margin: 0 0 20px 0;
 }
 
 .ultimas-avaliacoes .cards {

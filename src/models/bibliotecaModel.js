@@ -8,7 +8,8 @@ function listar(idUsuario) {
             j.idJogo,
             j.nome as 'jogo',
             ifnull(a.nota, '') as nota,
-            bj.statusJogo
+            bj.statusJogo,
+            bj.favorito
         FROM jogo j
         right JOIN biblioteca_jogo bj
             ON j.idJogo = bj.fkJogo

@@ -25,6 +25,8 @@ var top5Router = require("./src/routes/top5");
 var bibliotecaRouter = require("./src/routes/biblioteca");
 var jogoRouter = require("./src/routes/jogo");
 var rankingRouter = require("./src/routes/ranking");
+var perfilRouter = require("./src/routes/perfil");
+var favoritosRouter = require("./src/routes/favoritos");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -42,6 +44,8 @@ app.use("/top5", top5Router);
 app.use("/biblioteca", bibliotecaRouter);
 app.use("/jogo", jogoRouter);
 app.use("/ranking", rankingRouter);
+app.use("/perfil", perfilRouter);
+app.use("/favoritos", favoritosRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`

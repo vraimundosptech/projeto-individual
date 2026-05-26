@@ -1,39 +1,51 @@
 function carregarDados() {
   let idUsuario = sessionStorage.getItem("ID_USUARIO");
 
-  fetch(`/perfil/listar/${idUsuario}`)
-    .then((res) => res.json())
-    .then((dados) => {
-      plotarPerfil(dados);
-      console.log(dados);
+  fetch(`/perfil/listar/${idUsuario}`, {
+    method: "GET",
+  })
+    .then((res) => {
+      res.json().then((json) => {
+        plotarPerfil(json);
+        console.log(json);
+      });
     })
     .catch((erro) => {
       console.log("Erro: ", erro);
     });
 
-  fetch(`/kpis/listar/${idUsuario}`)
-    .then((res) => res.json())
-    .then((dadoskpis) => {
-      qtdBiblioteca.innerHTML = dadoskpis[0].qtdJogos;
-      qtdZerados.innerHTML = dadoskpis[0].qtdZerados;
+  fetch(`/kpis/listar/${idUsuario}`, {
+    method: "GET",
+  })
+    .then((res) => {
+      res.json().then((json) => {
+        qtdBiblioteca.innerHTML = json[0].qtdJogos;
+        qtdZerados.innerHTML = json[0].qtdZerados;
+      });
     })
     .catch((erro) => {
       console.log("Erro: ", erro);
     });
 
-  fetch(`/favoritos/listar/${idUsuario}`)
-    .then((res) => res.json())
-    .then((dados) => {
-      plotarFavoritos(dados);
+  fetch(`/favoritos/listar/${idUsuario}`, {
+    method: "GET",
+  })
+    .then((res) => {
+      res.json().then((json) => {
+        plotarFavoritos(json);
+      });
     })
     .catch((erro) => {
       console.log("Erro: ", erro);
     });
 
-  fetch(`/perfil/ultimasAvaliacoes/${idUsuario}`)
-    .then((res) => res.json())
-    .then((dados) => {
-      plotarUltimasAvaliacoes(dados);
+  fetch(`/perfil/ultimasAvaliacoes/${idUsuario}`, {
+    method: "GET",
+  })
+    .then((res) => {
+      res.json().then((json) => {
+        plotarUltimasAvaliacoes(json);
+      });
     })
     .catch((erro) => {
       console.log("Erro: ", erro);

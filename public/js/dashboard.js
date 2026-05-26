@@ -4,47 +4,62 @@ function carregarDados() {
 
   nome_boas_vindas.innerText = nomeUsuario;
 
-  fetch(`/kpis/listar/${idUsuario}`)
-    .then((res) => res.json())
-    .then((dadoskpis) => {
-      qtdBiblioteca.innerHTML = dadoskpis[0].qtdJogos;
-      qtdZerados.innerHTML = dadoskpis[0].qtdZerados;
+  fetch(`/kpis/listar/${idUsuario}`, {
+    method: "GET",
+  })
+    .then((res) => {
+      res.json().then((json) => {
+        qtdBiblioteca.innerHTML = json[0].qtdJogos;
+        qtdZerados.innerHTML = json[0].qtdZerados;
+      });
     })
     .catch((erro) => {
       console.log("Erro: ", erro);
     });
 
-  fetch(`/jogosMes/listar/${idUsuario}`)
-    .then((res) => res.json())
-    .then((dadosjogosMes) => {
-      plotarGraficoJogoMes(dadosjogosMes);
+  fetch(`/jogosMes/listar/${idUsuario}`, {
+    method: "GET",
+  })
+    .then((res) => {
+      res.json().then((json) => {
+        plotarGraficoJogoMes(json);
+      });
     })
     .catch((erro) => {
       console.log("Erro: ", erro);
     });
 
-  fetch(`/statusJogo/listar/${idUsuario}`)
-    .then((res) => res.json())
-    .then((dadosStatus) => {
-      plotarGraficoStatus(dadosStatus);
+  fetch(`/statusJogo/listar/${idUsuario}`, {
+    method: "GET",
+  })
+    .then((res) => {
+      res.json().then((json) => {
+        plotarGraficoStatus(json);
+      });
     })
     .catch((erro) => {
       console.log("Erro: ", erro);
     });
 
-  fetch(`/categoria/listar/${idUsuario}`)
-    .then((res) => res.json())
-    .then((dadosCategoria) => {
-      plotarGraficoCategoria(dadosCategoria);
+  fetch(`/categoria/listar/${idUsuario}`, {
+    method: "GET",
+  })
+    .then((res) => {
+      res.json().then((json) => {
+        plotarGraficoCategoria(json);
+      });
     })
     .catch((erro) => {
       console.log("Erro: ", erro);
     });
 
-  fetch(`/top5/listar/${idUsuario}`)
-    .then((res) => res.json())
-    .then((dadosTop5) => {
-      plotarTop5(dadosTop5);
+  fetch(`/top5/listar/${idUsuario}`, {
+    method: "GET",
+  })
+    .then((res) => {
+      res.json().then((json) => {
+        plotarTop5(json);
+      });
     })
     .catch((erro) => {
       console.log("Erro: ", erro);

@@ -3,11 +3,14 @@ const idJogo = sessionStorage.getItem("ID_JOGO");
 const idUsuario = sessionStorage.getItem("ID_USUARIO");
 
 function carregarDados() {
-  fetch(`/jogo/listarUm/${idJogo}/${idUsuario}`)
-    .then((res) => res.json())
-    .then((dadosJogo) => {
-      plotarJogo(dadosJogo);
-      console.log(dadosJogo);
+  fetch(`/jogo/listarUm/${idJogo}/${idUsuario}`, {
+    method: "GET",
+  })
+    .then((res) => {
+      res.json().then((json) => {
+        plotarJogo(json);
+        console.log(json);
+      });
     })
     .catch((erro) => {
       console.log("Erro: ", erro);
@@ -15,7 +18,7 @@ function carregarDados() {
 }
 
 function plotarJogo(dados) {
-  document.title = dados[0].nome
+  document.title = dados[0].nome;
   img_capa.src = `../assets/uploads/capas_jogo/${dados[0].capa}`;
 
   switch (dados[0].statusJogo) {
@@ -54,7 +57,7 @@ function plotarJogo(dados) {
   desenvolvedora_jogo.innerText = dados[0].desenvolvedora;
   dt_lancamento_jogo.innerText = dados[0].dtLancamento;
   descricao_jogo.innerText = dados[0].descricao;
-  estrelas(dados[0].nota)
+  estrelas(dados[0].nota);
   text_comentario.value = dados[0].comentario;
 }
 
@@ -119,7 +122,7 @@ function estrelas(nota) {
 
     n5.classList.replace("bi-star-fill", "bi-star");
     n5.style.color = "var(--text-muted)";
-  } else if(nota == 5) {
+  } else if (nota == 5) {
     n1.classList.replace("bi-star", "bi-star-fill");
     n1.style.color = "var(--warning)";
 

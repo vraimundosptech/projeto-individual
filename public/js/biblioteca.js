@@ -3,33 +3,42 @@ let dadosGlobaisBiblioteca;
 function carregarDados(instrucao) {
   var idUsuario = sessionStorage.getItem("ID_USUARIO");
 
-  fetch(`/kpis/listar/${idUsuario}`)
-    .then((res) => res.json())
-    .then((dadoskpis) => {
-      qtdJogos.innerHTML = dadoskpis[0].qtdJogos;
-      qtdStatus.innerHTML = dadoskpis[0].qtdJogos;
+  fetch(`/kpis/listar/${idUsuario}`, {
+    method: "GET",
+  })
+    .then((res) => {
+      res.json().then((json) => {
+        qtdJogos.innerHTML = json[0].qtdJogos;
+        qtdStatus.innerHTML = json[0].qtdJogos;
+      });
     })
     .catch((erro) => {
       console.log("Erro: ", erro);
     });
 
-  fetch(`/statusJogo/listar/${idUsuario}`)
-    .then((res) => res.json())
-    .then((dadosStatus) => {
-      qtdJogando.innerHTML = dadosStatus[0].qtdStatus;
-      qtdZerados.innerHTML = dadosStatus[1].qtdStatus;
-      qtdQuero.innerHTML = dadosStatus[2].qtdStatus;
-      qtdPausados.innerHTML = dadosStatus[3].qtdStatus;
+  fetch(`/statusJogo/listar/${idUsuario}`, {
+    method: "GET",
+  })
+    .then((res) => {
+      res.json().then((json) => {
+        qtdJogando.innerHTML = json[0].qtdStatus;
+        qtdZerados.innerHTML = json[1].qtdStatus;
+        qtdQuero.innerHTML = json[2].qtdStatus;
+        qtdPausados.innerHTML = json[3].qtdStatus;
+      });
     })
     .catch((erro) => {
       console.log("Erro: ", erro);
     });
 
-  fetch(`/biblioteca/listar/${idUsuario}`)
-    .then((res) => res.json())
-    .then((dadosBiblioteca) => {
-      plotarBiblioteca(dadosBiblioteca, instrucao);
-      dadosGlobaisBiblioteca = dadosBiblioteca;
+  fetch(`/biblioteca/listar/${idUsuario}`, {
+    method: "GET",
+  })
+    .then((res) => {
+      res.json().then((json) => {
+        plotarBiblioteca(json, instrucao);
+        dadosGlobaisBiblioteca = json;
+      });
     })
     .catch((erro) => {
       console.log("Erro: ", erro);
@@ -340,7 +349,7 @@ function buscarJogo() {
       }
 
       mensagem += `
-        <div class="card"  onclick="mandarId(${dados[i].idJogo})">
+        <div class="card"  onclick="mandarId(${dadosGlobaisBiblioteca[i].idJogo})">
           <img class="capa" src="../assets/uploads/capas_jogo/${dadosGlobaisBiblioteca[i].capa}"></img>
           <div>
             <h1>${dadosGlobaisBiblioteca[i].jogo}</h1>

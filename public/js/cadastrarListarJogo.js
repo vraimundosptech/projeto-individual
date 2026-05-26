@@ -9,10 +9,13 @@ function abrirModal() {
   div_pesquisar.style.display = "flex";
   body.style.overflow = "hidden";
 
-  fetch(`/jogo/listarTodos`)
-    .then((res) => res.json())
-    .then((dadosJogos) => {
-      dadosGlobaisJogos = dadosJogos;
+  fetch(`/jogo/listarTodos`, {
+    method: "GET",
+  })
+    .then(res => {
+      res.json().then(json => {
+        dadosGlobaisJogos = json;
+      });
     })
     .catch((erro) => {
       console.log("Erro: ", erro);

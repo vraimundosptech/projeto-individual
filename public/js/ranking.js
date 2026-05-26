@@ -1,9 +1,12 @@
 function carregarDados() {
-  fetch(`/ranking/listar`)
-    .then((res) => res.json())
-    .then((dadosRanking) => {
-      plotarRanking(dadosRanking);
-      console.log(dadosRanking);
+  fetch(`/ranking/listar`, {
+    method: "GET",
+  })
+    .then((res) => {
+      res.json().then((json) => {
+        plotarRanking(json);
+        console.log(json);
+      });
     })
     .catch((erro) => {
       console.log("Erro: ", erro);

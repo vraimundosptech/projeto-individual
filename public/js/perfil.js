@@ -211,3 +211,11 @@ function plotarUltimasAvaliacoes(dados) {
     `;
   }
 }
+
+function abrirModal() {
+  fundo_modal.style.display = "flex";
+}
+
+function fecharModal() {
+  fundo_modal.style.display = "none";
+}

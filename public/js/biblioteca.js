@@ -155,6 +155,8 @@ function plotarBiblioteca(dados, instrucao) {
         case "Pausado":
           capaStatus = "pausado";
           break;
+        default:
+          capaStatus = "quero";
       }
 
       mensagem += `
@@ -348,9 +350,33 @@ function buscarJogo() {
           estrelas = `Sem avaliação`;
       }
 
+      let capaStatus = "";
+      switch (dadosGlobaisBiblioteca[i].statusJogo) {
+        case "Jogando":
+          capaStatus = "jogando";
+          break;
+        case "Zerado":
+          capaStatus = "zerado";
+          break;
+        case "Quero jogar":
+          capaStatus = "quero";
+          break;
+        case "Pausado":
+          capaStatus = "pausado";
+          break;
+        default:
+          capaStatus = "quero";
+      }
+
       mensagem += `
-        <div class="card"  onclick="mandarId(${dadosGlobaisBiblioteca[i].idJogo})">
-          <img class="capa" src="../assets/uploads/capas_jogo/${dadosGlobaisBiblioteca[i].capa}"></img>
+        <div class="card" onclick="mandarId(${dadosGlobaisBiblioteca[i].idJogo})">
+        <img class="capa" src="../assets/uploads/capas_jogo/${dadosGlobaisBiblioteca[i].capa}">`;
+
+      if (dadosGlobaisBiblioteca[i].favorito == true) {
+        mensagem += `<i class="bi bi-suit-heart-fill"></i>`;
+      }
+      mensagem += `
+        <div class="status-capa ${capaStatus}">${dadosGlobaisBiblioteca[i].statusJogo}</div>
           <div>
             <h1>${dadosGlobaisBiblioteca[i].jogo}</h1>
             <div class="estrelas">${estrelas}</div>

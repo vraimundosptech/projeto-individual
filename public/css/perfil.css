@@ -71,11 +71,12 @@
 
 .conteudo-perfil .kpis-group {
   margin: 25px 0 0 0;
-  grid-column-gap: 50px;
+  grid-column-gap: 25px;
 }
 
 .conteudo-perfil .kpi {
   margin: 0;
+  width: 325px;
 }
 
 .jogos-favoritos {
@@ -105,7 +106,7 @@
 }
 
 .jogos-favoritos .cards {
-  grid-column-gap: 20px;
+  grid-column-gap: 15px;
   padding: 15px;
 }
 
@@ -113,8 +114,8 @@
   position: relative;
   overflow: hidden;
   background-color: var(--bg-card);
-  height: 250px;
-  width: 225px;
+  height: 200px;
+  width: 230px;
   border-radius: 15px;
   transition: 0.5s; 
   background-size: cover;
@@ -189,6 +190,8 @@
 .ultimas-avaliacoes .cards {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
+  width: 100%;
+  justify-content: initial;
 }
 
 .ultimas-avaliacoes .card {
@@ -199,11 +202,14 @@
   border-style: solid;
   padding: 0 25px 25px 25px;
   margin: 0 0 25px 0;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .ultimas-avaliacoes .capa-jogo {
   background-color: var(--bg-card);
-  height: 125px;
+  height: 135px;
   width: 100px;
   border-radius: 15px;
   margin: 0 25px 0 0;

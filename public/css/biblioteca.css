@@ -176,7 +176,7 @@
 
 .biblioteca-capas .bi-suit-heart-fill {
   position: absolute;
-  z-index: 9999;
+  z-index: 10;
   margin: 10px 0 0 -30px;
   color: var(--error);
   font-size: 20px;

@@ -371,6 +371,7 @@ function adicionarJogoBiblioteca(idJogo) {
     .then(function (resposta) {
       console.log("resposta: ", resposta);
       modal.style.display = "none";
+      body.style.overflow = "auto";
       plotarTodos();
 
       if (resposta.ok) {

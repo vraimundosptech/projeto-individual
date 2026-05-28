@@ -132,6 +132,8 @@ function cadastrar() {
           '<button class="btn-continuar" id="btnContinuar" onclick="redirecionarLogin()">Continuar</button>';
         btnFechar.style.display = "none";
         btnCadastrar.innerHTML = `Criar minha conta`;
+
+        buscarId(nomeUsuarioVar);
       } else {
         throw "Houve um erro ao tentar realizar o cadastro!";
       }
@@ -147,6 +149,40 @@ function cadastrar() {
     });
 
   return false;
+}
+
+function buscarId(nomeUsuario) {
+  fetch(`/usuarios/buscarId/${nomeUsuario}`, {
+    method: "GET",
+  })
+    .then((res) => {
+      res.json().then((json) => {
+        console.log(json)
+        cadastrarBiblioteca(json);
+      });
+    })
+    .catch((erro) => {
+      console.log("Erro: ", erro);
+    });
+}
+
+function cadastrarBiblioteca(dados) {
+  let idUsuario = dados[0].idUsuario
+  fetch("/biblioteca/cadastrarBiblioteca", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      idUsuarioServer: idUsuario
+    }),
+  })
+    .then(function (resposta) {
+      console.log("resposta: ", resposta);
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
 }
 
 function validarSenha() {

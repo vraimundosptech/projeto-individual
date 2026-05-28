@@ -14,9 +14,10 @@ function listarTodos(req, res) {
 function listarUm(req, res) {
   var idJogo = req.params.idJogo;
   var idUsuario = req.params.idUsuario;
+  var idBiblioteca = req.params.idBiblioteca;
 
   jogoModel
-    .listarUm(idJogo, idUsuario)
+    .listarUm(idJogo, idUsuario, idBiblioteca)
     .then(function (resultado) {
       res.status(200).json(resultado);
     })
@@ -86,11 +87,11 @@ function avaliar(req, res) {
 
 function categorizar(req, res) {
   var idJogo = req.params.idJogo;
-  var idUsuario = req.params.idUsuario;
+  var idBiblioteca = req.params.idBiblioteca;
   var statusJogo = req.body.statusJogo;
 
   jogoModel
-    .categorizar(idJogo, idUsuario, statusJogo)
+    .categorizar(idJogo, idBiblioteca, statusJogo)
     .then(function (resultado) {
       res.status(200).json(resultado);
     })
@@ -101,11 +102,11 @@ function categorizar(req, res) {
 
 function favoritar(req, res) {
   var idJogo = req.params.idJogo;
-  var idUsuario = req.params.idUsuario;
+  var idBiblioteca = req.params.idBiblioteca;
   var favorito = req.body.favorito;
 
   jogoModel
-    .favoritar(idJogo, idUsuario, favorito)
+    .favoritar(idJogo, idBiblioteca, favorito)
     .then(function (resultado) {
       res.status(200).json(resultado);
     })

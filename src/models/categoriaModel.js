@@ -1,6 +1,6 @@
 var database = require("../database/config")
 
-function listar(idUsuario) {
+function listar(idBiblioteca) {
     
     var instrucao = `
         SELECT 
@@ -11,7 +11,7 @@ function listar(idUsuario) {
         ON j.idJogo = bj.fkJogo
         JOIN categoria c
         ON c.idCategoria = j.fkCategoria
-        WHERE bj.fkBiblioteca = ${idUsuario}
+        WHERE bj.fkBiblioteca = ${idBiblioteca}
         GROUP BY c.nome;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);

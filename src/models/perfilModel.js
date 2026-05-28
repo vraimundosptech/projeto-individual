@@ -46,7 +46,7 @@ function ultimasAvaliacoes(idUsuario) {
           ON a.fkJogo = j.idJogo
         JOIN usuario u
           ON a.fkUsuario = u.idUsuario
-        WHERE u.idUsuario = 1
+        WHERE u.idUsuario = ${idUsuario}
         ORDER BY dataAvaliacao DESC
         LIMIT 3;
     `;

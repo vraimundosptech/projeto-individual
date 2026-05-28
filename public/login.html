@@ -49,7 +49,7 @@
 
         <div class="direita">
           <h1>Entrar na conta</h1>
-          <p>Ainda não tem uma conta? <a href="cadastro.html">Criar sua conta</a></p>
+          <p>Ainda não tem uma conta? <a href="cadastro.html" class="criar-conta">Criar sua conta</a></p>
 
           <div class="formulario">
             <p>E-mail</p>
@@ -149,6 +149,7 @@
           sessionStorage.NOME_USUARIO = json.nome
           sessionStorage.NOMEUSUARIO_USUARIO = json.nomeUsuario
           sessionStorage.ID_USUARIO = json.id
+          sessionStorage.ID_BIBLIOTECA = json.idBiblioteca
 
           setTimeout(function () {
             window.location = "./usuario/dashboard.html"

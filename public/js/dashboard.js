@@ -1,10 +1,11 @@
 function carregarDados() {
+  var idBiblioteca = sessionStorage.getItem("ID_BIBLIOTECA");
   var idUsuario = sessionStorage.getItem("ID_USUARIO");
   var nomeUsuario = sessionStorage.getItem("NOMEUSUARIO_USUARIO");
 
   nome_boas_vindas.innerText = nomeUsuario;
 
-  fetch(`/kpis/listar/${idUsuario}`, {
+  fetch(`/kpis/listar/${idBiblioteca}`, {
     method: "GET",
   })
     .then((res) => {
@@ -29,7 +30,7 @@ function carregarDados() {
       console.log("Erro: ", erro);
     });
 
-  fetch(`/statusJogo/listar/${idUsuario}`, {
+  fetch(`/statusJogo/listar/${idBiblioteca}`, {
     method: "GET",
   })
     .then((res) => {
@@ -41,7 +42,7 @@ function carregarDados() {
       console.log("Erro: ", erro);
     });
 
-  fetch(`/categoria/listar/${idUsuario}`, {
+  fetch(`/categoria/listar/${idBiblioteca}`, {
     method: "GET",
   })
     .then((res) => {

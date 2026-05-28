@@ -1,9 +1,10 @@
 let dadosGlobaisBiblioteca;
+var idBiblioteca = sessionStorage.getItem("ID_BIBLIOTECA");
+var idUsuario = sessionStorage.getItem("ID_USUARIO");
 
 function carregarDados(instrucao) {
-  var idUsuario = sessionStorage.getItem("ID_USUARIO");
 
-  fetch(`/kpis/listar/${idUsuario}`, {
+  fetch(`/kpis/listar/${idBiblioteca}`, {
     method: "GET",
   })
     .then((res) => {
@@ -16,7 +17,7 @@ function carregarDados(instrucao) {
       console.log("Erro: ", erro);
     });
 
-  fetch(`/statusJogo/listar/${idUsuario}`, {
+  fetch(`/statusJogo/listar/${idBiblioteca}`, {
     method: "GET",
   })
     .then((res) => {
@@ -390,7 +391,7 @@ function buscarJogo() {
 }
 
 function adicionarJogoBiblioteca(idJogo) {
-  var idUsuarioVar = sessionStorage.getItem("ID_USUARIO");
+  var idBibliotecaVar = sessionStorage.getItem("ID_BIBLIOTECA");
   var idJogoVar = idJogo;
 
   fetch(`/biblioteca/cadastrar`, {
@@ -399,7 +400,7 @@ function adicionarJogoBiblioteca(idJogo) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      idUsuarioVar: idUsuarioVar,
+      idBibliotecaVar: idBibliotecaVar,
       idJogoVar: idJogoVar,
     }),
   })

@@ -12,7 +12,7 @@ router.get("/listarTodos",  function (req, res) {
     jogoController.listarTodos(req, res);
 });
 
-router.get("/listarUm/:idJogo/:idUsuario",  function (req, res) {
+router.get("/listarUm/:idJogo/:idUsuario/:idBiblioteca",  function (req, res) {
     jogoController.listarUm(req, res);
 });
 
@@ -20,11 +20,11 @@ router.put("/avaliar/:idJogo/:idUsuario",  function (req, res) {
     jogoController.avaliar(req, res);
 });
 
-router.put("/categorizar/:idJogo/:idUsuario",  function (req, res) {
+router.put("/categorizar/:idJogo/:idBiblioteca",  function (req, res) {
     jogoController.categorizar(req, res);
 });
 
-router.put("/favoritar/:idJogo/:idUsuario",  function (req, res) {
+router.put("/favoritar/:idJogo/:idBiblioteca",  function (req, res) {
     jogoController.favoritar(req, res);
 });
 

@@ -19,7 +19,7 @@ function listarTodos() {
   return database.executar(instrucao);
 }
 
-function listarUm(idJogo, idUsuario) {
+function listarUm(idJogo, idUsuario, idBiblioteca) {
   var instrucao = `
         SELECT	
           j.capa,
@@ -57,7 +57,7 @@ function listarUm(idJogo, idUsuario) {
         LEFT JOIN avaliacao a
           ON j.idJogo = a.fkJogo
         WHERE idJogo = ${idJogo}
-          AND bj.fkBiblioteca = ${idUsuario};
+          AND bj.fkBiblioteca = ${idBiblioteca};
     `;
   console.log("Executando a instrução SQL: \n" + instrucao);
   return database.executar(instrucao);
@@ -97,26 +97,26 @@ function avaliar(idJogo, idUsuario, nota, comentario) {
   return database.executar(instrucao);
 }
 
-function categorizar(idJogo, idUsuario, statusJogo) {
+function categorizar(idJogo, idBiblioteca, statusJogo) {
   var instrucao = `
     UPDATE 
       biblioteca_jogo 
     SET 
       statusJogo = '${statusJogo}', 
       dtModificacaoStatus = current_timestamp
-    WHERE fkBiblioteca = ${idUsuario}
+    WHERE fkBiblioteca = ${idBiblioteca}
         AND fkJogo = ${idJogo}
   `;
   return database.executar(instrucao);
 }
 
-function favoritar(idJogo, idUsuario, favorito) {
+function favoritar(idJogo, idBiblioteca, favorito) {
   var instrucao = `
     UPDATE 
       biblioteca_jogo 
     SET 
       favorito = ${favorito}
-    WHERE fkBiblioteca = ${idUsuario}
+    WHERE fkBiblioteca = ${idBiblioteca}
       AND fkJogo = ${idJogo}
   `;
   return database.executar(instrucao);

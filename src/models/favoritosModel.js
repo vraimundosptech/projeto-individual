@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function listar(idUsuario) {
+function listar(idBiblioteca) {
   var instrucao = `
         SELECT
             j.capa,
@@ -10,7 +10,7 @@ function listar(idUsuario) {
             ON bj.fkJogo = j.idJogo
         JOIN biblioteca b
             ON bj.fkBiblioteca = b.idBiblioteca
-        WHERE bj.fkBiblioteca = ${idUsuario}
+        WHERE bj.fkBiblioteca = ${idBiblioteca}
         AND favorito = true
         LIMIT 5;
     `;

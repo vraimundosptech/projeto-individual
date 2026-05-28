@@ -1,4 +1,5 @@
 function carregarDados() {
+  let idBiblioteca = sessionStorage.getItem("ID_BIBLIOTECA");
   let idUsuario = sessionStorage.getItem("ID_USUARIO");
 
   fetch(`/perfil/listar/${idUsuario}`, {
@@ -14,7 +15,7 @@ function carregarDados() {
       console.log("Erro: ", erro);
     });
 
-  fetch(`/kpis/listar/${idUsuario}`, {
+  fetch(`/kpis/listar/${idBiblioteca}`, {
     method: "GET",
   })
     .then((res) => {
@@ -27,7 +28,7 @@ function carregarDados() {
       console.log("Erro: ", erro);
     });
 
-  fetch(`/favoritos/listar/${idUsuario}`, {
+  fetch(`/favoritos/listar/${idBiblioteca}`, {
     method: "GET",
   })
     .then((res) => {

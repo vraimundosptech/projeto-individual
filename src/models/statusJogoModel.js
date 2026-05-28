@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function listar(idUsuario) {
+function listar(idBiblioteca) {
   var instrucao = `     
         SELECT 
             s.status,
@@ -13,7 +13,7 @@ function listar(idUsuario) {
         ) s
         LEFT JOIN biblioteca_jogo bj
             ON bj.statusJogo = s.status
-        AND bj.fkBiblioteca = ${idUsuario}
+        AND bj.fkBiblioteca = ${idBiblioteca}
         GROUP BY s.status
         ORDER BY FIELD(s.status, 'Jogando', 'Zerado', 'Quero jogar', 'Pausado');
     `;

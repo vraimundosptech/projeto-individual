@@ -1,10 +1,10 @@
 var statusJogoModel = require("../models/statusJogoModel");
 
 function listar(req, res) {
-  var idUsuario = req.params.idUsuario;
+  var idBiblioteca = req.params.idBiblioteca;
 
   statusJogoModel
-    .listar(idUsuario)
+    .listar(idBiblioteca)
     .then(function (resultado) {
       res.status(200).json(resultado);
     })

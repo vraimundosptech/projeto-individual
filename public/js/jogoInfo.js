@@ -1,9 +1,10 @@
 let notaAvaliacao = 0;
 const idJogo = sessionStorage.getItem("ID_JOGO");
 const idUsuario = sessionStorage.getItem("ID_USUARIO");
+const idBiblioteca = sessionStorage.getItem('ID_BIBLIOTECA')
 
 function carregarDados() {
-  fetch(`/jogo/listarUm/${idJogo}/${idUsuario}`, {
+  fetch(`/jogo/listarUm/${idJogo}/${idUsuario}/${idBiblioteca}`, {
     method: "GET",
   })
     .then((res) => {
@@ -164,7 +165,7 @@ function tamanhoTexto() {
 }
 
 function mudarStatus(classe) {
-  fetch(`/jogo/categorizar/${idJogo}/${idUsuario}`, {
+  fetch(`/jogo/categorizar/${idJogo}/${idBiblioteca}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -209,7 +210,7 @@ function mudarFavorito() {
     texto_favorito.innerText = "Nos favoritos";
   }
 
-  fetch(`/jogo/favoritar/${idJogo}/${idUsuario}`, {
+  fetch(`/jogo/favoritar/${idJogo}/${idBiblioteca}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -235,8 +236,8 @@ function salvarAvaliacao() {
       if (resposta.ok) {
         window.alert(
           "Avaliação atualizada com sucesso pelo usuario de email: " +
-            sessionStorage.getItem("EMAIL_USUARIO") +
-            "!",
+          sessionStorage.getItem("EMAIL_USUARIO") +
+          "!",
         );
         window.location = "/usuario/biblioteca.html";
       } else if (resposta.status == 404) {
@@ -251,4 +252,24 @@ function salvarAvaliacao() {
     .catch(function (resposta) {
       console.log(`#ERRO: ${resposta}`);
     });
+}
+
+function tirarJogo() {
+  fetch(`/biblioteca/deletar/${idBiblioteca}/${idJogo}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (resposta) {
+    if (resposta.ok) {
+      window.alert("Jogo deletado da sua biblioteca com sucesso !");
+      window.location = "/usuario/biblioteca.html"
+    } else if (resposta.status == 404) {
+      window.alert("Deu 404!");
+    } else {
+      throw ("Houve um erro ao tentar apagar jogo da biblioteca! Código da resposta: " + resposta.status);
+    }
+  }).catch(function (resposta) {
+    console.log(`#ERRO: ${resposta}`);
+  });
 }

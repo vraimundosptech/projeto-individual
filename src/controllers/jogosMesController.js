@@ -1,10 +1,10 @@
 var jogosMesModel = require("../models/jogosMesModel");
 
 function listar(req, res) {
-  var idUsuario = req.params.idUsuario;
+  var idBiblioteca = req.params.idBiblioteca;
 
   jogosMesModel
-    .listar(idUsuario)
+    .listar(idBiblioteca)
     .then(function (resultado) {
       // precisamos informar que o resultado voltará para o front-end como uma resposta em json
       res.status(200).json(resultado);

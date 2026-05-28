@@ -3,6 +3,8 @@ ipt_capa.addEventListener("change", function () {
 });
 
 let dadosGlobaisJogos;
+var idBiblioteca = sessionStorage.getItem("ID_BIBLIOTECA");
+
 
 function abrirModal() {
   modal.style.display = "flex";

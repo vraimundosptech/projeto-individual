@@ -61,11 +61,9 @@
   width: 250px;
   height: 60px;
   border-radius: 10px;
-  background-color: color-mix(
-    in srgb,
-    var(--error),
-    transparent 75%
-  ) !important;
+  background-color: color-mix(in srgb,
+      var(--error),
+      transparent 75%) !important;
   border-color: var(--error);
   display: flex;
   justify-content: center;
@@ -229,11 +227,9 @@
 }
 
 .jogando {
-  background-color: color-mix(
-    in srgb,
-    var(--accent),
-    transparent 75%
-  ) !important;
+  background-color: color-mix(in srgb,
+      var(--accent),
+      transparent 75%) !important;
   border-color: var(--accent) !important;
   transition: 0.3s;
 }
@@ -245,11 +241,9 @@
 }
 
 .zerado {
-  background-color: color-mix(
-    in srgb,
-    var(--success),
-    transparent 75%
-  ) !important;
+  background-color: color-mix(in srgb,
+      var(--success),
+      transparent 75%) !important;
   border-color: var(--success) !important;
   transition: 0.3s;
 }
@@ -261,11 +255,9 @@
 }
 
 .quero-jogar {
-  background-color: color-mix(
-    in srgb,
-    var(--primary),
-    transparent 75%
-  ) !important;
+  background-color: color-mix(in srgb,
+      var(--primary),
+      transparent 75%) !important;
   border-color: var(--primary) !important;
   transition: 0.3s;
 }
@@ -277,11 +269,9 @@
 }
 
 .pausado {
-  background-color: color-mix(
-    in srgb,
-    var(--warning),
-    transparent 75%
-  ) !important;
+  background-color: color-mix(in srgb,
+      var(--warning),
+      transparent 75%) !important;
   border-color: var(--warning) !important;
   transition: 0.3s;
 }
@@ -351,4 +341,25 @@
 .salvar-avaliacao:hover {
   background-color: var(--accent-hover);
   cursor: pointer;
+}
+
+.tirar-jogo {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+}
+
+.tirar-jogo button {
+  font-size: 18px;
+  background-color: color-mix(in srgb, var(--error), transparent 50%);
+  border: 2px solid var(--error);
+  border-radius: 10px;
+  margin: 20px 0 0 0;
+  padding: 10px 20px;
+  transition: 0.3s;
+}
+
+.tirar-jogo button:hover {
+  cursor: pointer;
+  filter: brightness(75%);
 }

@@ -23,7 +23,8 @@ function autenticar(req, res) {
                             id: resultadoAutenticar[0].id,
                             nome: resultadoAutenticar[0].nome,
                             nomeUsuario: resultadoAutenticar[0].nomeUsuario,
-                            email: resultadoAutenticar[0].email
+                            email: resultadoAutenticar[0].email,
+                            idBiblioteca: resultadoAutenticar[0].idBiblioteca,
                         });
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
@@ -79,7 +80,21 @@ function cadastrar(req, res) {
     }
 }
 
+function buscarId(req, res) {
+    var nomeUsuario = req.params.nomeUsuario
+
+    usuarioModel
+        .buscarId(nomeUsuario)
+        .then(function (resultado) {
+            res.status(200).json(resultado);
+        })
+        .catch(function (erro) {
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    buscarId,
 }

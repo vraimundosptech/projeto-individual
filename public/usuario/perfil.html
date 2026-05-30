@@ -1,166 +1,188 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Titulo da página inicial -->
-    <title>GameScore | Perfil</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Script de validacao de usuario da sessão -->
-    <script src="../js/sessao.js"></script>
+  <!-- Titulo da página inicial -->
+  <title>GameScore | Perfil</title>
 
-    <!-- Links de conexao com css -->
-    <link rel="stylesheet" href="../css/perfil.css" />
-    <link rel="stylesheet" href="../css/fonts.css" />
-    <link rel="icon" href="../assets/icon/GameScore.ico" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  </head>
+  <!-- Script de validacao de usuario da sessão -->
+  <script src="../js/sessao.js"></script>
 
-  <body onload="carregarDados(), validarSessao()">
-    <div class="header">
-      <div class="logo"></div>
-      <div class="links">
-        <ul class="navbar">
-          <li class="outros">
-            <a href="dashboard.html">Dashboard</a>
-          </li>
-          <li class="outros">
-            <a href="biblioteca.html">Biblioteca</a>
-          </li>
-          <li class="outros">
-            <a href="ranking.html">Ranking</a>
-          </li>
-        </ul>
-      </div>
-      <div class="perfil" onclick="window.location.href = 'perfil.html'"></div>
+  <!-- Links de conexao com css -->
+  <link rel="stylesheet" href="../css/perfil.css" />
+  <link rel="stylesheet" href="../css/fonts.css" />
+  <link rel="icon" href="../assets/icon/GameScore.ico" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body onload="carregarDados(), validarSessao()">
+  <div class="header">
+    <div class="logo"></div>
+    <div class="links">
+      <ul class="navbar">
+        <li class="outros">
+          <a href="dashboard.html">Dashboard</a>
+        </li>
+        <li class="outros">
+          <a href="biblioteca.html">Biblioteca</a>
+        </li>
+        <li class="outros">
+          <a href="ranking.html">Ranking</a>
+        </li>
+      </ul>
     </div>
+    <div class="perfil" onclick="window.location.href = 'perfil.html'"></div>
+  </div>
 
-    <div class="main">
-      <div class="boas-vindas">
-        <div class="text">
-          <img
-            id="foto_perfil"
-            class="foto-perfil"
-            src="../assets/imgs/avatar.jpg"
-          />
-        </div>
-      </div>
-      <div class="conteudo-perfil">
-        <div class="descricao">
-          <h1 id="nomeUsuario_perfil"></h1>
-          <h2 id="info_perfil"></h2>
-          <p id="descricao_perfil"></p>
-          <div class="buttons-perfil">
-            <div class="btn-perfil">
-              <i class="bi bi-pencil"></i>Editar perfil
-            </div>
-            <div class="btn-perfil" onclick="abrirModal()">
-              <i class="bi bi-gear"></i>Configurações
-            </div>
-          </div>
-        </div>
-        <div class="kpis-group">
-          <div class="kpi jgs">
-            <div class="icon-box roxo">
-              <i class="bi bi-collection"></i>
-            </div>
-            <div>
-              <h1 id="qtdBiblioteca">0</h1>
-              <p>Jogos na biblioteca</p>
-            </div>
-          </div>
-          <div class="kpi">
-            <div class="icon-box verde">
-              <i class="bi bi-check2-circle"></i>
-            </div>
-            <div>
-              <h1 id="qtdZerados">0</h1>
-              <p>Jogos zerados</p>
-            </div>
-          </div>
-        </div>
-        <div class="jogos-favoritos">
-          <div class="titulo">
-            <h1>JOGOS FAVORITOS</h1>
-          </div>
-          <hr />
-          <div class="cards">
-            <div class="card" id="capa1">
-              <div class="texto-capa" id="texto_capa1"></div>
-            </div>
-            <div class="card" id="capa2">
-              <div class="texto-capa" id="texto_capa2"></div>
-            </div>
-            <div class="card" id="capa3">
-              <div class="texto-capa" id="texto_capa3"></div>
-            </div>
-            <div class="card" id="capa4">
-              <div class="texto-capa" id="texto_capa4"></div>
-            </div>
-            <div class="card" id="capa5">
-              <div class="texto-capa" id="texto_capa5"></div>
-            </div>
-          </div>
-        </div>
-        <div class="ultimas-avaliacoes">
-          <div class="titulo">
-            <h1>ÚLTIMAS AVALIAÇÕES</h1>
-          </div>
-          <hr />
-          <div class="cards" id="ultimas_avaliacoes"></div>
-        </div>
+  <div class="main">
+    <div class="boas-vindas">
+      <div class="text">
+        <img id="foto_perfil" class="foto-perfil" src="../assets/imgs/avatar.jpg" />
       </div>
     </div>
-
-    <div class="footer">
-      <div class="content">
-        <div class="logo"></div>
-        <ul class="footer-bar">
-          <li>
-            <a href="#">Dashboard</a>
-          </li>
-          <li>
-            <a href="biblioteca.html">Biblioteca</a>
-          </li>
-          <li>
-            <a href="ranking.html">Ranking</a>
-          </li>
-        </ul>
-        <div class="site">
-          <a
-            href="https://github.com/vraimundosptech/projeto-individual"
-            target="_blank"
-          >
-            <div class="box">
-              <i class="bi bi-github"></i>
-            </div>
-          </a>
+    <div class="conteudo-perfil">
+      <div class="descricao">
+        <h1 id="nomeUsuario_perfil"></h1>
+        <h2 id="info_perfil"></h2>
+        <p id="descricao_perfil"></p>
+        <div class="buttons-perfil">
+          <div class="btn-perfil" onclick="abrirModalEditar()">
+            <i class="bi bi-pencil"></i>Editar perfil
+          </div>
+          <div class="btn-perfil" onclick="abrirModal()">
+            <i class="bi bi-gear"></i>Configurações
+          </div>
         </div>
       </div>
-
-      <div class="comments">
-        <p>&copy 2026 GameScore. Todos os direitos reservados.</p>
-        <p>Feito com ❤️ para a comunidade gamer</p>
+      <div class="kpis-group">
+        <div class="kpi jgs">
+          <div class="icon-box roxo">
+            <i class="bi bi-collection"></i>
+          </div>
+          <div>
+            <h1 id="qtdBiblioteca">0</h1>
+            <p>Jogos na biblioteca</p>
+          </div>
+        </div>
+        <div class="kpi">
+          <div class="icon-box verde">
+            <i class="bi bi-check2-circle"></i>
+          </div>
+          <div>
+            <h1 id="qtdZerados">0</h1>
+            <p>Jogos zerados</p>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="fundo-modal" id="fundo_modal">
-      <div class="modal" id="modal">
+      <div class="jogos-favoritos">
         <div class="titulo">
-          <div></div>
-          <h1>Configurações</h1>
-          <button class="btn-fechar" id="btnFechar" onclick="fecharModal()">
-            <i class="bi bi-x"></i>
+          <h1>JOGOS FAVORITOS</h1>
         </div>
-
-        <div class="conteudo-configuracoes">
-          <div onclick="limparSessao()">Sair da conta</div>
+        <hr />
+        <div class="cards">
+          <div class="card" id="capa1">
+            <div class="texto-capa" id="texto_capa1"></div>
+          </div>
+          <div class="card" id="capa2">
+            <div class="texto-capa" id="texto_capa2"></div>
+          </div>
+          <div class="card" id="capa3">
+            <div class="texto-capa" id="texto_capa3"></div>
+          </div>
+          <div class="card" id="capa4">
+            <div class="texto-capa" id="texto_capa4"></div>
+          </div>
+          <div class="card" id="capa5">
+            <div class="texto-capa" id="texto_capa5"></div>
+          </div>
         </div>
       </div>
+      <div class="ultimas-avaliacoes">
+        <div class="titulo">
+          <h1>ÚLTIMAS AVALIAÇÕES</h1>
+        </div>
+        <hr />
+        <div class="cards" id="ultimas_avaliacoes"></div>
+      </div>
     </div>
-  </body>
+  </div>
+
+  <div class="footer">
+    <div class="content">
+      <div class="logo"></div>
+      <ul class="footer-bar">
+        <li>
+          <a href="#">Dashboard</a>
+        </li>
+        <li>
+          <a href="biblioteca.html">Biblioteca</a>
+        </li>
+        <li>
+          <a href="ranking.html">Ranking</a>
+        </li>
+      </ul>
+      <div class="site">
+        <a href="https://github.com/vraimundosptech/projeto-individual" target="_blank">
+          <div class="box">
+            <i class="bi bi-github"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="comments">
+      <p>&copy 2026 GameScore. Todos os direitos reservados.</p>
+      <p>Feito com ❤️ para a comunidade gamer</p>
+    </div>
+  </div>
+
+  <div class="fundo-modal" id="fundo_modal">
+    <div class="modal" id="modal">
+      <div class="titulo">
+        <div></div>
+        <h1>Configurações</h1>
+        <button class="btn-fechar" id="btnFechar" onclick="fecharModal()">
+          <i class="bi bi-x"></i>
+      </div>
+
+      <div class="conteudo-configuracoes">
+        <div onclick="limparSessao()">Sair da conta</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="editar-modal-fundo" id="editar_modal">
+    <div class="modal-editar">
+      <div class="titulo">
+        <div></div>
+        <h1>Editar perfil</h1>
+        <button class="btn-fechar" id="btnFechar" onclick="fecharModalEditar()">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+      <div class="conteudo">
+        <label for="ipt_foto">
+          <div class="selecione-foto">
+            <h3 id="texto_arquivo">Selecione a sua foto de perfil</h3>
+          </div>
+        </label>
+        <input class="upload" id="ipt_foto" type="file" accept="image/*" />
+        <h3>Nome:</h3>
+        <input type="text" id="ipt_nome" />
+        <h3>Sobrenome:</h3>
+        <input type="text" id="ipt_sobrenome" />
+        <h3>Descrição do seu perfil:</h3>
+        <textarea type="text" id="textarea_descricao" maxlength="255"></textarea>
+        <button onclick="salvarPerfil()">Salvar Alterações</button>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
 
 <script src="../js/perfil.js"></script>

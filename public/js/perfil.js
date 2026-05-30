@@ -98,11 +98,17 @@ function plotarPerfil(dados) {
   }
   nomeUsuario_perfil.innerHTML = dados[0].nomeUsuario;
   info_perfil.innerHTML = `${dados[0].nome} • membro desde ${dados[0].mes} ${dados[0].ano}`;
-  if (dados[0].descricao != null) {
+  if (dados[0].descricao != null && dados[0].descricao != "") {
     descricao_perfil.innerHTML = dados[0].descricao;
+    textarea_descricao.value = dados[0].descricao;
   } else {
     descricao_perfil.innerHTML = "Sem descrição...";
+    textarea_descricao.placeholder = "Sem descrição...";
   }
+  let nome_sobrenome = dados[0].nome.split(" ");
+
+  ipt_nome.value = nome_sobrenome[0];
+  ipt_sobrenome.value = nome_sobrenome[1];
 }
 
 function plotarFavoritos(dados) {
@@ -219,4 +225,51 @@ function abrirModal() {
 
 function fecharModal() {
   fundo_modal.style.display = "none";
+}
+
+function abrirModalEditar() {
+  editar_modal.style.display = "flex";
+}
+
+function fecharModalEditar() {
+  editar_modal.style.display = "none";
+}
+
+ipt_foto.addEventListener("change", function () {
+  texto_arquivo.textContent = this.files[0].name;
+});
+
+function salvarPerfil() {
+  let idUsuario = sessionStorage.getItem("ID_USUARIO");
+  var foto = ipt_foto.files[0];
+  var nome = ipt_nome.value + " " + ipt_sobrenome.value;
+  var descricao = textarea_descricao.value;
+
+  var formData = new FormData();
+
+  if (foto) {
+    formData.append("foto", foto);
+  }
+  formData.append("nome", nome);
+  formData.append("descricao", descricao);
+
+  fetch(`/usuarios/editar/${idUsuario}`, {
+    method: "PUT",
+    body: formData,
+  })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        console.log("Erro na resposta:", res.status);
+      }
+    })
+    .then((json) => {
+      console.log("Perfil atualizado:", json);
+      fecharModalEditar();
+      carregarDados();
+    })
+    .catch((erro) => {
+      console.log("Erro ao salvar perfil:", erro);
+    });
 }

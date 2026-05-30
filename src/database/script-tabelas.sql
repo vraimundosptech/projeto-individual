@@ -29,6 +29,7 @@ descricao VARCHAR(255),
 dtLancamento DATE,
 classificacaoIdade VARCHAR(5),
 desenvolvedora VARCHAR(100),
+capa VARCHAR(255),
 fkCategoria INT NOT NULL,
 CONSTRAINT chClassificacaoIdade
 CHECK(classificacaoIdade IN ('Livre', '6', '10', '12', '14', '16', '18')),
@@ -39,7 +40,7 @@ FOREIGN KEY (fkCategoria) REFERENCES categoria (idCategoria)
 CREATE TABLE biblioteca_jogo (
 fkBiblioteca INT NOT NULL,
 fkJogo INT NOT NULL,
-statusJogo VARCHAR(20),
+statusJogo VARCHAR(20) DEFAULT('Quero jogar'),
 dtModificacaoStatus DATE DEFAULT(CURRENT_TIMESTAMP),
 dtAdicionado DATE DEFAULT(CURRENT_TIMESTAMP),
 CONSTRAINT chStatusJogo
